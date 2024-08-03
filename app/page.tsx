@@ -45,7 +45,7 @@ function Hero() {
             <Compass />
             <p>Explore My Work</p>
           </Button>
-          <Button>Let's Work Together</Button>
+          <Button>Let&apos;s Work Together</Button>
         </div>
       </div>
     </Section>
