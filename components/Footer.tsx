@@ -68,9 +68,15 @@ export default function Footer() {
             </p>
           </div>
           <div className="flex gap-2">
-            <Instagram />
-            <LinkedIn />
-            <GitHub />
+            <Link href={"https://www.instagram.com/youssef.altai"}>
+              <Instagram />
+            </Link>
+            <Link href={"https://www.linkedin.com/in/youssefaltai"}>
+              <LinkedIn />
+            </Link>
+            <Link href={"https://github.com/youssefaltai"}>
+              <GitHub />
+            </Link>
           </div>
         </div>
       </div>
