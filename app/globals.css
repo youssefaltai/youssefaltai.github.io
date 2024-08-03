@@ -2,32 +2,84 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+
+  @apply text-neutral-800;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.container {
+  @apply flex w-full xl:max-w-screen-xl lg:max-w-screen-lg md:max-w-screen-md sm:max-w-screen-sm;
+}
+
+p {
+  @apply text-lg;
+}
+
+.navlink-underline {
+  animation: underline 0.3s ease forwards;
+  @apply h-1.5 w-full bg-blue-600;
+}
+
+.navlink-active {
+  animation: activatenavlink 0.3s ease forwards;
+}
+
+@keyframes underline {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@keyframes activatenavlink {
+  0% {
+    transform: translateY(6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* BUTTONS */
+.button {
+  display: inline-block;
+  padding: 16px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  border: 2px solid #262626;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 4px 0 #262626;
+  transition: all 200ms;
+  text-wrap: nowrap;
+  flex-wrap: nowrap;
+}
+
+/* Primary Button */
+.button-primary {
+  background-color: #fcd34d;
+}
+
+/* Secondary Button */
+.button-secondary {
+  background-color: #fafafa;
+}
+
+/* Hover and Active States */
+.button:hover,
+.button-secondary:hover {
+  box-shadow: 0 12px 0 #262626;
+  transform: translateY(-8px);
+}
+
+.button:active,
+.button-secondary:active {
+  box-shadow: 0 0 0 #262626;
+  transform: translateY(4px);
 }
