@@ -55,8 +55,8 @@ p {
   border-radius: 8px;
   text-align: center;
   text-decoration: none;
-  box-shadow: 0 4px 0 #262626;
-  transition: all 200ms;
+  box-shadow: 0 8px 0 #262626;
+  transition: all 200ms ease;
   text-wrap: nowrap;
   flex-wrap: nowrap;
 }
@@ -72,14 +72,20 @@ p {
 }
 
 /* Hover and Active States */
-.button:hover,
-.button-secondary:hover {
-  box-shadow: 0 12px 0 #262626;
-  transform: translateY(-8px);
+.button:hover {
+  box-shadow: 0 4px 0 #262626;
+  transform: translateY(4px);
 }
 
-.button:active,
-.button-secondary:active {
+.button:active {
   box-shadow: 0 0 0 #262626;
-  transform: translateY(4px);
+  transform: translateY(8px);
+}
+
+.button-primary:active {
+  background-color: #f9c72a;
+}
+
+.button-secondary:active {
+  background-color: #f0f0f0;
 }
