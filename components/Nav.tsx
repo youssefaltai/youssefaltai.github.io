@@ -7,7 +7,9 @@ export default function Nav() {
   return (
     <nav className="flex justify-center items-center bg-neutral-50 py-4 px-4">
       <div className="container justify-between items-center h-full">
-        <LogoSvg />
+        <Link href={"/"}>
+          <LogoSvg />
+        </Link>
 
         <ul className="flex justify-center items-end gap-8">
           <li>

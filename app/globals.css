@@ -59,6 +59,7 @@ p {
   transition: all 200ms ease;
   text-wrap: nowrap;
   flex-wrap: nowrap;
+  width: min-content;
 }
 
 /* Primary Button */
@@ -71,9 +72,26 @@ p {
   background-color: #fafafa;
 }
 
+.button-link {
+  background-color: #fafafa;
+  border: 2px solid #2563eb;
+  box-shadow: 0 8px 0 #2563eb;
+}
+
+.button-link * {
+  color: #2563eb;
+}
+
 /* Hover and Active States */
-.button:hover {
+.button:hover,
+.button:focus {
   box-shadow: 0 4px 0 #262626;
+  transform: translateY(4px);
+}
+
+.button-link:hover,
+.button-link:focus {
+  box-shadow: 0 4px 0 #2563eb;
   transform: translateY(4px);
 }
 
@@ -88,4 +106,13 @@ p {
 
 .button-secondary:active {
   background-color: #f0f0f0;
+}
+
+.button-link:active {
+  background-color: #eff6ff;
+  box-shadow: 0 0 0 #2563eb;
+}
+
+.dropShadow {
+  box-shadow: 0px 4px 32px rgba(0, 0, 0, 0.25);
 }

@@ -14,7 +14,9 @@ export default function NavLink({ href, children }: NavLinkProps) {
       <Link
         className={`font-bold flex flex-col gap-0.5 justify-start ${
           isCurrentPage ? "navlink-active" : ""
-        }`}
+        }
+        text-nowrap
+        `}
         href={href}
       >
         {children}
