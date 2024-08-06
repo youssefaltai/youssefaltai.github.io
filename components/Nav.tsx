@@ -5,7 +5,7 @@ import NavLink from "./NavLink";
 
 export default function Nav() {
   return (
-    <nav className="flex justify-center items-center bg-neutral-50 py-4 px-4">
+    <nav className="flex justify-center items-center bg-neutral-50 py-6 px-4 sticky top-0 z-10">
       <div className="container justify-between items-center h-full">
         <Link href={"/"}>
           <LogoSvg />

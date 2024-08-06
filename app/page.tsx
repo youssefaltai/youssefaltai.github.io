@@ -113,6 +113,50 @@ export default function Home() {
       </Section>
       <Section>
         <h2 className={`${font.className} text-4xl font-bold`}>Work</h2>
+        <div className="grid grid-cols-2 gap-4 pt-8">
+          <div className="flex flex-col gap-4">
+            <Image
+              src="/Eram Group Home Service by Youssef al-Tai.png"
+              alt="Home Service"
+              width={548}
+              height={400}
+              className="rounded-xl"
+            />
+            <h3 className={`${font.className} text-3xl font-bold`}>
+              Home Service
+            </h3>
+            <p>
+              A comprehensive platform designed and built to connect users in
+              the MENA region with service providers.
+            </p>
+            <Button variant="link" href="/work/home-service">
+              View Project
+              <NavArrowRight />
+            </Button>
+          </div>
+          <div className="flex flex-col gap-4">
+            <Image
+              src="/Faculty of Computers and Artificial Intelligence Students Information System by Youssef al-Tai.png"
+              alt="Students Information System"
+              width={548}
+              height={400}
+              className="rounded-xl"
+            />
+            <h3 className={`${font.className} text-3xl font-bold`}>
+              Students Information System
+            </h3>
+            <p>
+              My graduation project at the Faculty of Computers and Artificial
+              Intelligence, Cairo University. This extensive system was designed
+              to manage various academic and administrative tasks for the
+              faculty.
+            </p>
+            <Button variant="link" href="/work/students-information-system">
+              View Project
+              <NavArrowRight />
+            </Button>
+          </div>
+        </div>
       </Section>
       <Section>
         <h2 className={`${font.className} text-4xl font-bold`}>Contact Me</h2>
