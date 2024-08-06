@@ -150,14 +150,14 @@ function Hero() {
 
 function Services() {
   const fullStackTechnologies = [
-    <HTMLIcon />,
-    <CSSIcon />,
-    <JavascriptIcon />,
-    <TypescriptIcon />,
-    <NextJsIcon />,
-    <ReactIcon />,
-    <PythonIcon />,
-    <DjangoIcon />,
+    <HTMLIcon key={"html"} />,
+    <CSSIcon key={"css"} />,
+    <JavascriptIcon key={"js"} />,
+    <TypescriptIcon key={"ts"} />,
+    <NextJsIcon key={"next"} />,
+    <ReactIcon key={"react"} />,
+    <PythonIcon key={"python"} />,
+    <DjangoIcon key={"django"} />,
   ];
 
   return (
