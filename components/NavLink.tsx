@@ -8,7 +8,9 @@ export type NavLinkProps = {
   children: React.ReactNode;
 };
 export default function NavLink({ href, children }: NavLinkProps) {
-  const isCurrentPage = usePathname().startsWith(href) && href !== "/";
+  const isCurrentPage =
+    (usePathname().startsWith(href) && href !== "/") ||
+    (usePathname() === "/" && href === "/");
   return (
     <>
       <Link
