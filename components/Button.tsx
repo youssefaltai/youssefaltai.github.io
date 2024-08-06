@@ -4,11 +4,15 @@ import { PropsWithChildren } from "react";
 export type ButtonProps = PropsWithChildren<{
   variant?: "primary" | "secondary" | "link";
   href?: string;
+  type?: "button" | "submit" | "reset";
+  disabled?: boolean;
 }>;
 export default function Button({
   children,
   variant,
   href,
+  type = "button",
+  disabled = false,
 }: Readonly<ButtonProps>) {
   const cn =
     variant === "secondary"
@@ -26,7 +30,7 @@ export default function Button({
   }
 
   return (
-    <button className={`button ${cn}`}>
+    <button className={`button ${cn}`} type={type} disabled={disabled}>
       <div className="flex justify-center items-center gap-4">{children}</div>
     </button>
   );

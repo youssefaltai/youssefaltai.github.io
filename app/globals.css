@@ -45,6 +45,28 @@ p {
   }
 }
 
+label {
+  @apply text-lg;
+}
+
+input,
+textarea {
+  color: #262626 !important;
+  @apply w-full p-4 border-2 border-neutral-800 rounded-lg;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #a0a0a0;
+}
+
+.text-error {
+  background-color: #fecaca;
+  border-radius: 8px;
+  padding: 8px;
+  color: #dc2626 !important;
+}
+
 /* BUTTONS */
 .button {
   display: inline-block;
@@ -67,6 +89,10 @@ p {
   background-color: #fcd34d;
 }
 
+.button-primary * {
+  color: #262626 !important;
+}
+
 /* Secondary Button */
 .button-secondary {
   background-color: #fafafa;
@@ -79,7 +105,7 @@ p {
 }
 
 .button-link * {
-  color: #2563eb;
+  color: #2563eb !important;
 }
 
 /* Hover and Active States */
@@ -115,4 +141,23 @@ p {
 
 .dropShadow {
   box-shadow: 0px 4px 32px rgba(0, 0, 0, 0.25);
+}
+
+.button:disabled {
+  background-color: #f0f0f0;
+  color: #a0a0a0;
+  border: 2px solid #f0f0f0;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+.button:disabled * {
+  color: #a0a0a0 !important;
+}
+.button:disabled:hover {
+  box-shadow: none;
+  transform: none;
+}
+.button:disabled:active {
+  box-shadow: none;
+  transform: none;
 }

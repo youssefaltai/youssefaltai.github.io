@@ -17,6 +17,7 @@ import WhiteBoard, { Drawing } from "@/components/Whiteboard";
 import { LaptopWireframe, MobileWireframe } from "@/components/Wireframes";
 import { Merriweather } from "next/font/google";
 import Image from "next/image";
+import ContactSection from "./ContactSection";
 
 const font = Merriweather({ weight: "700", subsets: ["latin"] });
 
@@ -73,99 +74,103 @@ function ServiceRow({
   );
 }
 
+type WorkProjectProps = {
+  title: string;
+  description: string;
+  image: string;
+  href: string;
+};
+function WorkProject({ title, description, image, href }: WorkProjectProps) {
+  return (
+    <div className="flex flex-col gap-4">
+      <Image
+        src={image}
+        alt={title}
+        width={548}
+        height={400}
+        className="rounded-xl w-full"
+      />
+      <h3 className={`${font.className} text-2xl font-bold`}>{title}</h3>
+      <p className="h-full max-h-32">{description}</p>
+      <Button variant="link" href={href}>
+        View Project
+        <NavArrowRight />
+      </Button>
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <>
-      <Hero />
-      <Services />
-      <Section>
-        <div className="flex justify-center items-center">
-          <div className="h-96 w-full relative">
-            <div className={`absolute top-1/2 transform -translate-y-1/2`}>
-              <Image
-                src="/Youssef al-Tai.png"
-                alt="Profile Picture"
-                width={300}
-                height={300}
-                className="rounded-full dropShadow"
-              />
-            </div>
-          </div>
-          <div className="h-full w-full flex flex-col gap-4">
-            <div className="flex gap-4 items-center">
-              <h2 className={`${font.className} text-4xl font-bold`}>
-                About Me
-              </h2>
-              <LogoLetter />
-            </div>
-            <p>
-              I am Youssef al-Tai. I am a software engineer and mentor based in
-              Egypt. I have 6+ years of experience creating software. I mentored
-              hundreds of students in the field that are now experts in mobile
-              and web development.
-            </p>
-            <Button variant="link" href="/about">
-              Continue Reading My Bio
-              <NavArrowRight />
-            </Button>
-          </div>
-        </div>
-      </Section>
-      <Section>
-        <h2 className={`${font.className} text-4xl font-bold`}>Work</h2>
-        <div className="grid grid-cols-2 gap-4 pt-8">
-          <div className="flex flex-col gap-4">
-            <Image
-              src="/Eram Group Home Service by Youssef al-Tai.png"
-              alt="Home Service"
-              width={548}
-              height={400}
-              className="rounded-xl"
-            />
-            <h3 className={`${font.className} text-3xl font-bold`}>
-              Home Service
-            </h3>
-            <p>
-              A comprehensive platform designed and built to connect users in
-              the MENA region with service providers.
-            </p>
-            <Button variant="link" href="/work/home-service">
-              View Project
-              <NavArrowRight />
-            </Button>
-          </div>
-          <div className="flex flex-col gap-4">
-            <Image
-              src="/Faculty of Computers and Artificial Intelligence Students Information System by Youssef al-Tai.png"
-              alt="Students Information System"
-              width={548}
-              height={400}
-              className="rounded-xl"
-            />
-            <h3 className={`${font.className} text-3xl font-bold`}>
-              Students Information System
-            </h3>
-            <p>
-              My graduation project at the Faculty of Computers and Artificial
-              Intelligence, Cairo University. This extensive system was designed
-              to manage various academic and administrative tasks for the
-              faculty.
-            </p>
-            <Button variant="link" href="/work/students-information-system">
-              View Project
-              <NavArrowRight />
-            </Button>
-          </div>
-        </div>
-      </Section>
-      <Section>
-        <h2 className={`${font.className} text-4xl font-bold`}>Contact Me</h2>
-      </Section>
+      <HeroSection />
+      <ServicesSection />
+      <AboutSection />
+      <WorkSection />
+      <ContactSection />
     </>
   );
 }
 
-function Hero() {
+function AboutSection() {
+  return (
+    <Section>
+      <div className="flex justify-center items-center">
+        <div className="h-96 w-full relative">
+          <div className={`absolute top-1/2 transform -translate-y-1/2`}>
+            <Image
+              src="/Youssef al-Tai.png"
+              alt="Profile Picture"
+              width={300}
+              height={300}
+              className="rounded-full dropShadow"
+            />
+          </div>
+        </div>
+        <div className="h-full w-full flex flex-col gap-4">
+          <div className="flex gap-4 items-center">
+            <h2 className={`${font.className} text-4xl font-bold`}>About Me</h2>
+            <LogoLetter />
+          </div>
+          <p>
+            I am Youssef al-Tai. I am a software engineer and mentor based in
+            Egypt. I have 6+ years of experience creating software. I mentored
+            hundreds of students in the field that are now experts in mobile and
+            web development.
+          </p>
+          <Button variant="link" href="/about">
+            Continue Reading My Bio
+            <NavArrowRight />
+          </Button>
+        </div>
+      </div>
+    </Section>
+  );
+}
+
+function WorkSection() {
+  return (
+    <Section>
+      <h2 className={`${font.className} text-4xl font-bold`}>Work</h2>
+      <div className="grid grid-cols-2 gap-6 pt-8">
+        <WorkProject
+          title="Home Service"
+          description="A comprehensive platform designed and built to connect users in the MENA region with service providers."
+          image="/Eram Group Home Service by Youssef al-Tai.png"
+          href="/work/home-service"
+        />
+        <WorkProject
+          title="Students Information System"
+          description="My graduation project at the Faculty of Computers and Artificial Intelligence, Cairo University. This extensive system was designed to manage various academic and administrative tasks for the faculty."
+          image="/Faculty of Computers and Artificial Intelligence Students Information System by Youssef al-Tai.png"
+          href="/work/students-information-system"
+        />
+      </div>
+    </Section>
+  );
+}
+
+function HeroSection() {
   return (
     <Section>
       <div className="flex flex-col max-w-min gap-6">
@@ -192,7 +197,7 @@ function Hero() {
   );
 }
 
-function Services() {
+function ServicesSection() {
   const fullStackTechnologies = [
     <HTMLIcon key={"html"} />,
     <CSSIcon key={"css"} />,
