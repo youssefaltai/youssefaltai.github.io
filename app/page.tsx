@@ -49,7 +49,7 @@ function ServiceRow({
     <div className="h-full w-full flex flex-col gap-4">
       <h3 className={`${font.className} text-3xl font-bold`}>{title}</h3>
       <p>{description}</p>
-      <Button variant="link">
+      <Button variant="link" href={learnMore}>
         Learn More
         <NavArrowRight />
       </Button>
@@ -99,11 +99,12 @@ export default function Home() {
               <LogoLetter />
             </div>
             <p>
-              I am a full-stack developer and designer with a passion for
-              creating beautiful and intuitive user experiences. I specialize in
-              mobile development, web development, and UI/UX design.
+              I am Youssef al-Tai. I am a software engineer and mentor based in
+              Egypt. I have 6+ years of experience creating software. I mentored
+              hundreds of students in the field that are now experts in mobile
+              and web development.
             </p>
-            <Button variant="link">
+            <Button variant="link" href="/about">
               Continue Reading My Bio
               <NavArrowRight />
             </Button>
@@ -166,12 +167,19 @@ function Services() {
         direction="left"
         title="Mobile Development"
         description="I create robust and beautiful mobile apps using Flutter and Riverpod, handling everything from UI/UX design to publishing."
-        learnMore="Learn More"
+        learnMore="/services/mobile"
         illustration={
           <>
             <Mobile />
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col gap-4">
-              <strong className="text-3xl text-nowrap">Develop for both</strong>
+              <div className="flex flex-col">
+                <strong className="text-3xl text-nowrap">
+                  Develop for both
+                </strong>
+                <strong className="text-3xl text-nowrap">
+                  Android and iOS
+                </strong>
+              </div>
               <div className="flex w-full justify-between items-end">
                 <Android />
                 <IOS />
@@ -184,7 +192,7 @@ function Services() {
         direction="right"
         title="Full-Stack Development"
         description="I provide comprehensive frontend and backend development using the latest technologies like React, Next.js, Node.js, and Python."
-        learnMore="Learn More"
+        learnMore="/services/full-stack"
         illustration={
           <div className="grid grid-cols-4 gap-4">
             {fullStackTechnologies.map((technology, index) => (
@@ -199,7 +207,7 @@ function Services() {
         direction="left"
         title="UI/UX Design"
         description="I design and research user-friendly and visually appealing interfaces for web and mobile applications."
-        learnMore="Learn More"
+        learnMore="/services/design"
         illustration={
           <>
             <div className="absolute top-1/2 transform -translate-y-1/2">
@@ -214,8 +222,8 @@ function Services() {
       <ServiceRow
         direction="right"
         title="Mentoring"
-        description="I offer personalized mentoring and coaching for developers looking to advance their skills and careers."
-        learnMore="Learn More"
+        description="I offer one-on-one sessions, teaching practical mobile and full-stack development to help you secure and excel in a job."
+        learnMore="/services/mentoring"
         illustration={
           <div className="relative">
             <WhiteBoard />
