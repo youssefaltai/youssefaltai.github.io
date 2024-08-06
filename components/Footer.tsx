@@ -6,7 +6,7 @@ import { GitHub, Instagram, LinkedIn } from "./Icons";
 
 export default function Footer() {
   return (
-    <footer className="flex justify-center items-center bg-neutral-50 py-8 px-4">
+    <footer className="flex justify-center items-center bg-neutral-50 py-8 px-4 [&_*]:text-neutral-600">
       <div className="container flex-col gap-16">
         <div className="flex justify-between">
           <FooterCategory title="Services">

@@ -2,6 +2,7 @@ import Link from "next/link";
 import Button from "./Button";
 import LogoSvg from "./Logo";
 import NavLink from "./NavLink";
+import ContactMeButton from "@/app/ContactMeButton";
 
 export default function Nav() {
   return (
@@ -26,7 +27,7 @@ export default function Nav() {
           </li>
         </ul>
 
-        <Button>Contact Me</Button>
+        <ContactMeButton>Contact Me</ContactMeButton>
       </div>
     </nav>
   );

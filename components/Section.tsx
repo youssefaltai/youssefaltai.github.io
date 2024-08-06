@@ -16,7 +16,7 @@ export default function Section({ children, variant }: SectionProps) {
           {children}
         </div>
       </section>
-      <div className="w-full h-6 bg-neutral-50" />
+      {variant === "primary" && <div className="w-full h-6 bg-neutral-50" />}
     </>
   );
 }

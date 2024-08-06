@@ -18,6 +18,7 @@ import { LaptopWireframe, MobileWireframe } from "@/components/Wireframes";
 import { Merriweather } from "next/font/google";
 import Image from "next/image";
 import ContactSection from "./ContactSection";
+import ContactMeButton from "./ContactMeButton";
 
 const font = Merriweather({ weight: "700", subsets: ["latin"] });
 
@@ -186,11 +187,11 @@ function HeroSection() {
           <strong>utmost support and expertise</strong>.
         </p>
         <div className="flex gap-6 justify-center-items-center">
-          <Button variant="secondary">
+          <Button variant="secondary" href="/work">
             <Compass />
             <p>Explore My Work</p>
           </Button>
-          <Button>Let&apos;s Work Together</Button>
+          <ContactMeButton>Let&apos;s Work Together</ContactMeButton>
         </div>
       </div>
     </Section>
