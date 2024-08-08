@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
-import { Urbanist } from "next/font/google";
 import "./globals.css";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
 
-const font = Urbanist({ subsets: ["latin"] });
+import type { Metadata } from "next";
+
+import { bodyFont } from "@/lib";
+import Header from "./Header";
+import Footer from "./Footer";
 
 export const metadata: Metadata = {
   title: "Youssef al-Tai",
@@ -18,9 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={font.className}>
-        <Nav />
-        {children}
+      <body className={bodyFont.className}>
+        <Header />
+        <main>{children}</main>
         <Footer />
       </body>
     </html>

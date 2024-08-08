@@ -62,7 +62,7 @@ export default function ContactSection() {
       <div id="contact">
         <h2 className={`${font.className} text-4xl font-bold`}>Contact Me</h2>
 
-        <div className="flex w-full pt-8 gap-8">
+        <div className="flex flex-col md:flex-row w-full pt-8 gap-8">
           <form
             onSubmit={handleSubmit(async (data) => {
               if (pending) return;

@@ -10,11 +10,9 @@ export default function Section({ children, variant }: SectionProps) {
   return (
     <>
       <section
-        className={`flex flex-col justify-start items-center py-16 h-min ${bgColor} ${textColor}`}
+        className={`flex justify-center items-center py-16 h-min gap-8 ${bgColor} ${textColor}`}
       >
-        <div className={`container h-full flex-col ${bgColor} ${textColor}`}>
-          {children}
-        </div>
+        <div className="w-full max-w-screen-2xl px-responsive">{children}</div>
       </section>
       {variant === "primary" && <div className="w-full h-6 bg-neutral-50" />}
     </>

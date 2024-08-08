@@ -1,14 +1,14 @@
 import Link from "next/link";
-import { LogoWithSubheading } from "./Logo";
+import { LogoWithSubheading } from "../components/Logo";
 import { PropsWithChildren } from "react";
 import { email, phone } from "@/contact";
-import { GitHub, Instagram, LinkedIn } from "./Icons";
+import { GitHub, Instagram, LinkedIn } from "../components/Icons";
 
 export default function Footer() {
   return (
-    <footer className="flex justify-center items-center bg-neutral-50 py-8 px-4 [&_*]:text-neutral-600">
-      <div className="container flex-col gap-16">
-        <div className="flex justify-between">
+    <footer className="flex justify-center items-center py-16 px-responsive h-min gap-8 bg-neutral-50 px-4 [&_*]:text-neutral-600">
+      <div className="w-full max-w-screen-2xl px-responsive flex flex-col justify-between items-start gap-8">
+        <nav className="flex flex-col md:flex-row gap-8">
           <FooterCategory title="Services">
             <ul>
               <li>
@@ -58,9 +58,9 @@ export default function Footer() {
               </li>
             </ul>
           </FooterCategory>
-        </div>
-        <div className="flex justify-between items-end">
-          <div className="flex flex-col justify-start items-start max-w-sm gap-2">
+        </nav>
+        <div className="w-full flex flex-col md:flex-row justify-between items-end gap-8">
+          <div className="w-full flex flex-col justify-start items-start gap-2">
             <LogoWithSubheading />
             <p className="text-sm">
               I provide exceptional care and attention, ensuring you achieve
@@ -89,9 +89,9 @@ type FooterCategoryProps = PropsWithChildren<{
 }>;
 function FooterCategory({ children, title }: Readonly<FooterCategoryProps>) {
   return (
-    <div className="flex flex-col gap-4">
+    <section className="flex flex-col gap-2">
       <h2 className="text-lg font-bold">{title}</h2>
       {children}
-    </div>
+    </section>
   );
 }

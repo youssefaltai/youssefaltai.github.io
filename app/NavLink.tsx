@@ -22,6 +22,8 @@ export default function NavLink({ href, children }: NavLinkProps) {
           isCurrentPage ? "navlink-active" : ""
         }
         text-nowrap
+        text-4xl
+        md:text-base
         `}
         href={href}
       >
