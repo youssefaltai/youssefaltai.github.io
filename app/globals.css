@@ -6,8 +6,6 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-
-  @apply text-neutral-800;
 }
 
 p {
@@ -55,7 +53,7 @@ label {
 
 input,
 textarea {
-  color: #262626 !important;
+  color: #262626;
   @apply w-full p-4 border-2 border-neutral-800 rounded-lg;
 }
 
@@ -68,7 +66,7 @@ textarea::placeholder {
   background-color: #fecaca;
   border-radius: 8px;
   padding: 8px;
-  color: #dc2626 !important;
+  color: #dc2626;
 }
 
 /* BUTTONS */
@@ -112,7 +110,7 @@ textarea::placeholder {
   cursor: not-allowed;
 }
 .button:disabled * {
-  color: #a0a0a0 !important;
+  color: #a0a0a0;
 }
 .button:disabled:hover {
   box-shadow: none;
@@ -126,45 +124,45 @@ textarea::placeholder {
 /* Primary Button */
 .button-primary {
   background-color: #fcd34d;
-  color: #262626 !important;
+  color: #262626;
 }
 
 .button-primary * {
-  color: #262626 !important;
+  color: #262626;
 }
 
 .button-primary:active {
   background-color: #f9c72a;
-  color: #262626 !important;
+  color: #262626;
 }
 
 /* Secondary Button */
 .button-secondary {
   background-color: #fafafa;
-  color: #262626 !important;
+  color: #262626;
 }
 
 .button-secondary:active {
   background-color: #f0f0f0;
-  color: #262626 !important;
+  color: #262626;
 }
 
 /* Link Button */
 .button-link {
   background-color: #fafafa;
-  color: #2563eb !important;
+  color: #2563eb;
 }
 
 .button-link * {
-  color: #2563eb !important;
+  color: #2563eb;
 }
 
 .button-link:hover,
 .button-link:focus {
-  color: #2563eb !important;
+  color: #2563eb;
 }
 
 .button-link:active {
   background-color: #eff6ff;
-  color: #2563eb !important;
+  color: #2563eb;
 }
