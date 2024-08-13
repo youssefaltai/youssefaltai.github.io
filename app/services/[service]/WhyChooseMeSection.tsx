@@ -13,7 +13,7 @@ export default function WhyChooseMeSection({
         <h2 className={`${headingsFont.className} text-4xl font-bold`}>
           Why Choose Me?
         </h2>
-        <div className="flex justify-between w-full gap-8">
+        <div className="flex flex-col md:flex-row justify-between w-full gap-8">
           {service.whyChooseMe.map(
             ({ icon, title, description }, index: number) => (
               <div

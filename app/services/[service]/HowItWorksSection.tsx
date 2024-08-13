@@ -17,7 +17,7 @@ export default function HowItWorksSection({
           {service.howItWorks.map((howItWorks, index) => (
             <HowItWorksRow key={index} {...howItWorks} n={index + 1} />
           ))}
-          <div className="absolute top-0 left-0 w-2 h-[90%] ml-5 mt-2 bg-blue-600 z-10" />
+          <div className="absolute top-0 left-0 w-2 h-[85%] ml-5 mt-6 bg-blue-600 z-10" />
         </div>
       </div>
     </Section>
@@ -32,7 +32,7 @@ function HowItWorksRow({
   return (
     <div className="z-20 flex gap-4">
       <span
-        className={`${headingsFont.className} text-2xl bg-blue-600 rounded-full w-12 h-12 text-white flex justify-center items-center`}
+        className={`${headingsFont.className} text-2xl bg-blue-600 rounded-full min-w-12 min-h-12 max-w-12 max-h-12 text-white flex justify-center items-center`}
       >
         {n}
       </span>

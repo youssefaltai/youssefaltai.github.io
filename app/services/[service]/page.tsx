@@ -1,7 +1,6 @@
 import {
   design,
   fullStackDevelopment,
-  mentoring,
   mobileDevelopment,
   ServiceType,
 } from "@/services";
@@ -11,13 +10,14 @@ import HowItWorksSection from "./HowItWorksSection";
 import WhyChooseMeSection from "./WhyChooseMeSection";
 import PricingSection from "./PricingSection";
 import ContactSection from "@/app/ContactSection";
+import { redirect } from "next/navigation";
 
 export default function Page({
   params: { service },
 }: {
   params: { service: string };
 }) {
-  const s = ((): ServiceType => {
+  const s = ((): ServiceType | undefined => {
     switch (service) {
       case "mobile":
         return mobileDevelopment;
@@ -25,12 +25,10 @@ export default function Page({
         return fullStackDevelopment;
       case "design":
         return design;
-      case "mentoring":
-        return mentoring;
-      default:
-        return mentoring;
     }
   })();
+
+  if (!s) redirect("/");
 
   return (
     <>

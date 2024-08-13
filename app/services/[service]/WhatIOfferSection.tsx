@@ -14,7 +14,7 @@ export default function WhatIOfferSection({
           <h2 className={`${headingsFont.className} text-4xl font-bold`}>
             What I Offer
           </h2>
-          <div className="grid grid-cols-2 gap-8">
+          <div className="flex flex-col md:grid md:grid-cols-2 gap-8">
             {service.whatIOffer.map((whatIOffer, index) => (
               <WhatIOfferRow key={index} {...whatIOffer} n={index + 1} />
             ))}

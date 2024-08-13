@@ -6,11 +6,11 @@ import { PricingType, ServiceType } from "@/services";
 export default function PricingSection({ service }: { service: ServiceType }) {
   return (
     <Section>
-      <div className="flex flex-col max-w-screen-2xl gap-6">
+      <div className="flex flex-col max-w-screen-2xl gap-6 w-full">
         <h2 className={`${headingsFont.className} text-4xl font-bold`}>
           Pricing
         </h2>
-        <div className="flex gap-8">
+        <div className="flex flex-col lg:flex-row gap-8 w-full">
           {service.pricing.map((pricing, index) => (
             <PricingCard key={index} {...pricing} />
           ))}
@@ -23,14 +23,14 @@ export default function PricingSection({ service }: { service: ServiceType }) {
 function PricingCard({ title, price, description, includes }: PricingType) {
   return (
     <div className="flex flex-col gap-8 p-8 justify-between items-center border-2 border-b-8 border-neutral-800 rounded-2xl w-full">
-      <div className="flex flex-col gap-4">
-        <h3 className={`${headingsFont.className} text-3xl font-bold`}>
+      <div className="flex flex-col gap-4 w-full">
+        <h3 className={`${headingsFont.className} text-2xl font-bold w-full`}>
           {title}
         </h3>
-        <p className="text-2xl bg-blue-100 text-blue-600 font-bold py-2 px-4 rounded-2xl w-min text-nowrap">
+        <p className="text-lg md:text-2xl  text-blue-600 font-bold  w-min text-nowrap">
           {price}
         </p>
-        <p>{description}</p>
+        <p className="text-sm">{description}</p>
         <ul>
           {includes.map((include, index) => (
             <li key={index} className="flex gap-2 items-start w-full">
