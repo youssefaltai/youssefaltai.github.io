@@ -60,7 +60,9 @@ export default function ContactSection() {
   return (
     <Section variant="secondary">
       <div id="contact">
-        <h2 className={`${font.className} text-4xl font-bold`}>Contact Me</h2>
+        <h2 className={`${font.className} text-4xl font-bold text-white`}>
+          Contact Me
+        </h2>
 
         <div className="flex flex-col md:flex-row w-full pt-8 gap-8">
           <form
@@ -71,7 +73,9 @@ export default function ContactSection() {
             className="flex flex-col gap-4 w-full"
           >
             <div className="flex flex-col gap-2">
-              <label htmlFor="name">Name</label>
+              <label htmlFor="name" className="text-white">
+                Name
+              </label>
               <input
                 id="name"
                 type="text"
@@ -81,7 +85,9 @@ export default function ContactSection() {
               {errors.name && <FieldError>{errors.name.message}</FieldError>}
             </div>
             <div className="flex flex-col gap-2">
-              <label htmlFor="email">Email</label>
+              <label htmlFor="email" className="text-white">
+                Email
+              </label>
               <input
                 id="email"
                 type="email"
@@ -91,7 +97,9 @@ export default function ContactSection() {
               {errors.email && <FieldError>{errors.email.message}</FieldError>}
             </div>
             <div className="flex flex-col gap-2">
-              <label htmlFor="message">Message</label>
+              <label htmlFor="message" className="text-white">
+                Message
+              </label>
               <textarea
                 id="message"
                 rows={4}
@@ -144,14 +152,16 @@ type ContactSectionProps = PropsWithChildren<{ title: string }>;
 function ContactLinksSection({ children, title }: ContactSectionProps) {
   return (
     <div className="flex flex-col gap-4">
-      <h3 className={`${font.className} text-2xl font-bold`}>{title}</h3>
+      <h3 className={`${font.className} text-2xl font-bold text-white`}>
+        {title}
+      </h3>
       <div className="flex flex-col gap-2">{children}</div>
     </div>
   );
 }
 
 function ContactRow({ children }: PropsWithChildren<{}>) {
-  return <div className="flex items-center gap-2">{children}</div>;
+  return <div className="flex items-center gap-2 text-white">{children}</div>;
 }
 
 type FieldErrorProps = PropsWithChildren<{}>;

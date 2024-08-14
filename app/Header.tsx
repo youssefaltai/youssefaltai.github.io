@@ -6,7 +6,7 @@ import MenuButton from "./MenuButton";
 
 export default function Header() {
   return (
-    <header className="flex justify-center items-center bg-neutral-50 w-full sticky top-0 z-10">
+    <header className="flex justify-center items-center bg-neutral-50 w-full sticky top-0 z-50">
       <div className="w-full flex justify-between items-center max-w-screen-2xl px-responsive py-6 ">
         <Link href={"/"}>
           <Logo />
