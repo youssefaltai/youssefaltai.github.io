@@ -9,19 +9,19 @@ export default function Page() {
           About Me
         </h2>
         <p>
-          I'm Youssef, a software engineer who started young. My journey began
-          watching my parents work with 3D and 2D modeling software like 3Ds Max
-          and Adobe Flash. I was intrigued and started experimenting with these
-          tools myself. One day, I accidentally wrote my first lines of code
-          using Actionscript in Adobe Flash. I was fascinated by how simple code
-          could bring my animations to life, and this sparked my interest in
-          creating interactive projects.
+          I&apos;m Youssef, a software engineer who started young. My journey
+          began watching my parents work with 3D and 2D modeling software like
+          3Ds Max and Adobe Flash. I was intrigued and started experimenting
+          with these tools myself. One day, I accidentally wrote my first lines
+          of code using Actionscript in Adobe Flash. I was fascinated by how
+          simple code could bring my animations to life, and this sparked my
+          interest in creating interactive projects.
         </p>
         <p>
           As I explored further, I stumbled upon Game Maker Studio and Unity
-          Engine. Although I didn't know much about C#, I followed tutorials and
-          created small games. This hands-on approach helped me understand
-          programming better and deepened my passion for development.
+          Engine. Although I didn&apos;t know much about C#, I followed
+          tutorials and created small games. This hands-on approach helped me
+          understand programming better and deepened my passion for development.
         </p>
         <p>
           After finishing high school with a top grade of 98%, I enrolled in the
@@ -41,8 +41,8 @@ export default function Page() {
         </p>
         <p>
           In my final academic year, I worked with a team on a major project to
-          revamp the faculty's internal system. We improved its performance and
-          added crucial features to make it more reliable and user-friendly.
+          revamp the faculty&apos;s internal system. We improved its performance
+          and added crucial features to make it more reliable and user-friendly.
         </p>
         <p>
           This experience, along with my background, has shaped me into a

@@ -143,7 +143,7 @@ export const mobileDevelopment: ServiceType = {
     {
       title: "In-Depth Research",
       description:
-        "With whatever you'd like—custom backend, third-party APIs, Firebase, etc.",
+        "With whatever you&apos;d like—custom backend, third-party APIs, Firebase, etc.",
     },
     {
       title: "UI/UX Design",
@@ -157,28 +157,29 @@ export const mobileDevelopment: ServiceType = {
     {
       title: "Backend Integration",
       description:
-        "With whatever you'd like—custom backend, third-party APIs, Firebase, etc.",
+        "With whatever you&apos;d like—custom backend, third-party APIs, Firebase, etc.",
     },
     {
       title: "Publishing to App Stores",
       description:
-        "Handling the submission process to Google Play Store and Apple's App Store.",
+        "Handling the submission process to Google Play Store and Apple&apos;s App Store.",
     },
   ],
   howItWorks: [
     {
       title: "Discovery & Requirements",
-      description: "We'll discuss your needs and goals to outline the project.",
+      description:
+        "We&apos;ll discuss your needs and goals to outline the project.",
     },
     {
       title: "Design",
       description:
-        "I'll create wireframes and design prototypes for your review.",
+        "I&apos;ll create wireframes and design prototypes for your review.",
     },
     {
       title: "Development",
       description:
-        "I'll build your app using Flutter, ensuring high performance and functionality.",
+        "I&apos;ll build your app using Flutter, ensuring high performance and functionality.",
     },
     {
       title: "Testing & Feedback",
@@ -187,7 +188,7 @@ export const mobileDevelopment: ServiceType = {
     {
       title: "Launch & Support",
       description:
-        "I'll publish the app and provide ongoing support as needed.",
+        "I&apos;ll publish the app and provide ongoing support as needed.",
     },
   ],
   whyChooseMe,
@@ -273,17 +274,18 @@ export const fullStackDevelopment: ServiceType = {
   howItWorks: [
     {
       title: "Discovery & Requirements",
-      description: "We'll discuss your needs and goals to outline the project.",
+      description:
+        "We&apos;ll discuss your needs and goals to outline the project.",
     },
     {
       title: "Design & Planning",
       description:
-        "I'll create wireframes and architecture, including tech stack and project roadmap.",
+        "I&apos;ll create wireframes and architecture, including tech stack and project roadmap.",
     },
     {
       title: "Development",
       description:
-        "I'll build the frontend and backend, integrate APIs, and ensure everything works seamlessly.",
+        "I&apos;ll build the frontend and backend, integrate APIs, and ensure everything works seamlessly.",
     },
     {
       title: "Testing & Feedback",
@@ -291,7 +293,8 @@ export const fullStackDevelopment: ServiceType = {
     },
     {
       title: "Deployment & Support",
-      description: "I'll deploy the app and provide ongoing support as needed.",
+      description:
+        "I&apos;ll deploy the app and provide ongoing support as needed.",
     },
   ],
   whyChooseMe,
