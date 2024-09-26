@@ -24,9 +24,9 @@ function Service({
 
   return (
     <>
-      <div className="flex flex-col gap-6 border-r-2 border-gray-200 pr-12">
+      <div className="flex flex-col gap-6 md:border-r-2 md:border-gray-200 md:pr-12">
         <h2 className="text-4xl font-bold">{serviceDetails.title}</h2>
-        <ul className="flex flex-col gap-6">
+        <ul className="flex flex-col gap-4 md:gap-6">
           <li>
             <NavLink
               href={`/services/${service}/overview`}
@@ -63,7 +63,7 @@ function Service({
       </div>
 
       <div
-        className="col-span-2 page flex flex-col gap-6 px-12"
+        className="col-span-2 page flex flex-col gap-6 md:px-12"
         id="serviceInnerDetails"
       >
         {children}

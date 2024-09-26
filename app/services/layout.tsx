@@ -34,7 +34,7 @@ function Services({
         </nav>
 
         <div
-          className="px-12 page grid grid-cols-3 w-full max-w-screen-lg"
+          className="px-12 page flex flex-col gap-12 md:gap-0 md:grid md:grid-cols-3 w-full max-w-screen-lg"
           id="serviceDetails"
         >
           {children}

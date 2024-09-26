@@ -11,6 +11,7 @@ import { NavLink } from "@/components/NavLink";
 export default function Home() {
   return (
     <>
+      <Loader scrollToTop />
       <main className="flex flex-col justify-center items-center gap-12 py-12">
         <Logo />
         <Bio />
@@ -37,7 +38,6 @@ export default function Home() {
           </SocialMediaLink>
         </div>
       </main>
-      <Loader scrollToTop />
     </>
   );
 }
