@@ -9,7 +9,7 @@
 .page {
   transition-property: opacity, transform, filter, background;
   transition-timing-function: ease-in-out;
-  transition-duration: 500ms;
+  transition-duration: 250ms;
 }
 
 .blur-transition {
@@ -18,5 +18,5 @@
 }
 
 .page-transition {
-  transform: translateY(40px);
+  transform: translateY(24px);
 }
