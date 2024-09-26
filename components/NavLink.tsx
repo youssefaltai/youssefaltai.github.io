@@ -29,8 +29,6 @@ export function NavLink({
 
     await sleep(500);
     router.push(href);
-
-    body?.classList.remove("page-transition");
   };
 
   return (

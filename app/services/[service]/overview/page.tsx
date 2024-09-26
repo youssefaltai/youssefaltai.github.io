@@ -1,5 +1,6 @@
 import React from "react";
 import { getService } from "../layout";
+import Loader from "@/app/Loader";
 
 function Overview({ params: { service } }: { params: { service: string } }) {
   const serviceDetails = getService(service);
@@ -13,6 +14,7 @@ function Overview({ params: { service } }: { params: { service: string } }) {
           </p>
         ))}
       </div>
+      <Loader bodySelector="#serviceInnerDetails" />
     </>
   );
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import { getService } from "../layout";
 import CallToAction from "@/components/CallToAction";
+import Loader from "@/app/Loader";
 
 function Pricing({ params: { service } }: { params: { service: string } }) {
   const serviceDetails = getService(service);
@@ -31,6 +32,8 @@ function Pricing({ params: { service } }: { params: { service: string } }) {
           </div>
         ))}
       </div>
+
+      <Loader bodySelector="#serviceInnerDetails" />
     </>
   );
 }

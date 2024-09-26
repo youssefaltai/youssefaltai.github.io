@@ -1,6 +1,7 @@
 import React from "react";
 import { getService } from "../layout";
 import FancyBullet from "@/components/icons/FancyBullet";
+import Loader from "@/app/Loader";
 
 function WhyMe({ params: { service } }: { params: { service: string } }) {
   // return <>why me</>;
@@ -17,6 +18,7 @@ function WhyMe({ params: { service } }: { params: { service: string } }) {
           <p className="text-lg">{point.description}</p>
         </div>
       ))}
+      <Loader bodySelector="#serviceInnerDetails" />
     </>
   );
 }

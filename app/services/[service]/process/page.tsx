@@ -1,5 +1,6 @@
 import React from "react";
 import { getService } from "../layout";
+import Loader from "@/app/Loader";
 
 function Process({ params: { service } }: { params: { service: string } }) {
   //   return <>process</>;
@@ -20,6 +21,7 @@ function Process({ params: { service } }: { params: { service: string } }) {
           </div>
         ))}
       </div>
+      <Loader bodySelector="#serviceInnerDetails" />
     </>
   );
 }

@@ -2,6 +2,7 @@ import React from "react";
 import { services } from "../services";
 import { redirect } from "next/navigation";
 import { NavLink } from "@/components/NavLink";
+import Loader from "@/app/Loader";
 
 export function getService(service: string) {
   const serviceKey = service as keyof typeof services;
@@ -67,6 +68,8 @@ function Service({
       >
         {children}
       </div>
+
+      <Loader bodySelector="#serviceDetails" />
     </>
   );
 }
