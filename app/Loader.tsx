@@ -15,7 +15,7 @@ function Loader({
   useEffect(() => {
     const body = document.querySelector(bodySelector || "body");
     sleep(delay || 0).then(() => {
-      body?.classList.remove("page-transition");
+      body?.classList.remove("page-transition", "blur-transition");
       if (scrollToTop) window.scrollTo({ top: 0, behavior: "smooth" });
     });
   }, []);

@@ -29,7 +29,7 @@ export function NavLink({
     e.preventDefault();
     const body = document.querySelector(bodyClass || "body");
 
-    body?.classList.add("page-transition");
+    body?.classList.add("page-transition", "blur-transition");
 
     await sleep(500);
     router.push(href);

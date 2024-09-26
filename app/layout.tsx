@@ -23,7 +23,7 @@ export default function RootLayout({
       className="scroll-smooth min-w-full min-h-full flex flex-col justify-center items-center"
     >
       <body
-        className={`page page-transition ${font.className} flex flex-col justify-center items-center min-w-full min-h-full bg-gradient-to-b from-white to-[#EFEFEF]`}
+        className={`page blur-transition page-transition ${font.className} flex flex-col justify-center items-center min-w-full min-h-full bg-gradient-to-b from-white to-[#EFEFEF]`}
       >
         {children}
         <footer className="my-12">

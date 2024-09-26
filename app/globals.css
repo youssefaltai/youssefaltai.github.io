@@ -12,8 +12,11 @@
   transition-duration: 500ms;
 }
 
-.page-transition {
+.blur-transition {
   opacity: 0;
-  transform: translateY(40px);
   filter: blur(12px);
+}
+
+.page-transition {
+  transform: translateY(40px);
 }
