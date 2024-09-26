@@ -2,11 +2,11 @@ import GitHubIcon from "@/components/icons/GitHubIcon";
 import LinkedInIcon from "@/components/icons/LinkedInIcon";
 import Logo from "@/components/Logo";
 import SocialMediaLink from "@/components/SocialMediaLink";
-import { TransitionLink } from "@/components/TransitionLink";
 import { github, linkedin } from "@/contact";
 import Bio from "./Bio";
 import CallToAction from "@/components/CallToAction";
 import Loader from "./Loader";
+import { NavLink } from "@/components/NavLink";
 
 export default function Home() {
   return (
@@ -18,13 +18,13 @@ export default function Home() {
         <nav>
           <ul className="flex flex-col md:flex-row gap-6 md:gap-12 items-center">
             <li>
-              <TransitionLink href="/services">Services</TransitionLink>
+              <NavLink href="/services">Services</NavLink>
             </li>
             <li>
-              <TransitionLink href="/work">My Work</TransitionLink>
+              <NavLink href="/work">My Work</NavLink>
             </li>
             <li>
-              <TransitionLink href="/about">About Me</TransitionLink>
+              <NavLink href="/about">About Me</NavLink>
             </li>
           </ul>
         </nav>

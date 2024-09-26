@@ -5,7 +5,7 @@ import { HTMLProps } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { cn, sleep } from "@/lib";
 
-type TransitionLinkProps = HTMLProps<HTMLAnchorElement> & {
+type NaVLinkProps = HTMLProps<HTMLAnchorElement> & {
   href: string;
   bodySelector?: string;
 };
@@ -15,9 +15,13 @@ export function NavLink({
   href,
   bodySelector: bodyClass,
   ...props
-}: TransitionLinkProps) {
+}: NaVLinkProps) {
   const router = useRouter();
-  const isActive = usePathname().startsWith(href);
+  const pathname = usePathname();
+
+  const cleanHref = href.slice(1);
+  const cleanPathname = pathname.slice(1);
+  const isActive = cleanPathname.startsWith(cleanHref) && cleanHref !== "";
 
   const handleTransition = async (
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
@@ -35,7 +39,7 @@ export function NavLink({
     <Link
       {...props}
       href={href}
-      onClick={handleTransition}
+      onClick={isActive ? (e) => e.preventDefault() : handleTransition}
       className={cn(
         "text-xl md:text-2xl font-normal opacity-50 transition-all duration-500 ease-out hover:opacity-100",
         { "text-blue-600": isActive },

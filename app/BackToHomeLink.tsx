@@ -1,8 +1,7 @@
-import { TransitionLink } from "@/components/TransitionLink";
-import React from "react";
+import { NavLink } from "@/components/NavLink";
 
 function BackToHomeLink() {
-  return <TransitionLink href="/">Back to Home</TransitionLink>;
+  return <NavLink href="/">Back to Home</NavLink>;
 }
 
 export default BackToHomeLink;
