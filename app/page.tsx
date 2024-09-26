@@ -14,10 +14,18 @@ export default function Home() {
       <button className="px-8 py-4 md:px-12 md:py-6 rounded-full bg-blue-600 text-white text-xl md:text-2xl font-semibold transition-all duration-500 ease-out hover:bg-white hover:text-blue-600 hover:shadow-lg">
         Contact Me
       </button>
-      <nav className="flex flex-col md:flex-row gap-6 md:gap-12 items-center">
-        <TransitionLink href="/services">Services</TransitionLink>
-        <TransitionLink href="/work">My Work</TransitionLink>
-        <TransitionLink href="/about">About Me</TransitionLink>
+      <nav>
+        <ul className="flex flex-col md:flex-row gap-6 md:gap-12 items-center">
+          <li>
+            <TransitionLink href="/services">Services</TransitionLink>
+          </li>
+          <li>
+            <TransitionLink href="/work">My Work</TransitionLink>
+          </li>
+          <li>
+            <TransitionLink href="/about">About Me</TransitionLink>
+          </li>
+        </ul>
       </nav>
       <div className="flex gap-6">
         <SocialMediaLink href={github.url}>
