@@ -24,12 +24,12 @@ function Pricing({ params: { service } }: { params: { service: string } }) {
               <p className="text-lg font-normal">{point.description}</p>
             </div>
             <div className="flex justify-between items-center">
-              <p className="text-2xl text-blue-600 font-semibold">
+              <p className="text-xl md:text-2xl text-blue-600 font-semibold">
                 {point.price
                   ? `Starting at $${point.price}`
                   : "Contact for pricing"}
               </p>
-              <CallToAction className="text-lg px-6 py-4">
+              <CallToAction className="text-base px-4 py-2 md:text-lg md:px-6 md:py-4">
                 Get a Quote
               </CallToAction>
             </div>

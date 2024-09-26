@@ -10,7 +10,7 @@ function Services({
 }>) {
   return (
     <>
-      <main className="flex flex-col justify-center items-center gap-12 py-12 w-full">
+      <main className="flex flex-col justify-center items-center gap-16 py-16 w-full">
         <Logo />
 
         <nav>

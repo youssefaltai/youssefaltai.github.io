@@ -9,7 +9,7 @@ function About() {
   return (
     <>
       <Loader scrollToTop />
-      <main className="flex flex-col justify-center items-center gap-12 py-12">
+      <main className="flex flex-col justify-center items-center gap-16 py-16">
         <Image
           priority
           src="/Youssef al-Tai.png"
