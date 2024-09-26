@@ -18,6 +18,12 @@ export async function generateMetadata({
   };
 }
 
+export async function generateStaticParams() {
+  return Object.keys(services).map((service) => ({
+    service,
+  }));
+}
+
 export function getService(service: string) {
   const serviceKey = service as keyof typeof services;
 
