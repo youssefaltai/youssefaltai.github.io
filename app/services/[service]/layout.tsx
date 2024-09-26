@@ -3,6 +3,20 @@ import { services } from "../services";
 import { redirect } from "next/navigation";
 import { NavLink } from "@/components/NavLink";
 import Loader from "@/app/Loader";
+import { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { service: string };
+}): Promise<Metadata> {
+  const serviceDetails = getService(params.service);
+
+  return {
+    title: `${serviceDetails.title} - My Services`,
+    description: serviceDetails.overview.join(" "),
+  };
+}
 
 export function getService(service: string) {
   const serviceKey = service as keyof typeof services;

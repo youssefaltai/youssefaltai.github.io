@@ -1,10 +1,15 @@
-import Image from "next/image";
 import React from "react";
 import BackToHomeLink from "../BackToHomeLink";
 import Bio from "../Bio";
 import CallToAction from "@/components/CallToAction";
 import Loader from "../Loader";
 import ProfilePicture from "@/components/ProfilePicture";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Me",
+  description: "Get to know me better.",
+};
 
 function About() {
   return (

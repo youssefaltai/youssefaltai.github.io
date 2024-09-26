@@ -2,6 +2,12 @@ import Logo from "@/components/Logo";
 import { NavLink } from "@/components/NavLink";
 import BackToHomeLink from "../BackToHomeLink";
 import Loader from "../Loader";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "My Services",
+  description: "What I can do for you.",
+};
 
 function Services({
   children,

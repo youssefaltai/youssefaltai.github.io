@@ -1,6 +1,12 @@
 import React from "react";
 import Loader from "../Loader";
 import BackToHomeLink from "../BackToHomeLink";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "My Work",
+  description: "My portfolio.",
+};
 
 function Work() {
   return (
