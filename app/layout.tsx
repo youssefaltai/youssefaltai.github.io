@@ -19,7 +19,7 @@ export default function RootLayout({
       lang="en"
       className="scroll-smooth min-w-full min-h-full flex flex-col justify-center items-center"
     >
-      <link rel="icon" type="image/png" href="/favicon-16x16.png" />
+      <link rel="icon" type="image/png" href="/favicon.png" />
       <body
         className={`${font.className} flex flex-col justify-center items-center min-w-full min-h-full bg-gradient-to-b from-white to-[#EFEFEF]`}
       >
