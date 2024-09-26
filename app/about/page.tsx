@@ -1,14 +1,12 @@
-import { TransitionLink } from "@/components/TransitionLink";
 import Image from "next/image";
 import React from "react";
 import BackToHomeLink from "../BackToHomeLink";
 import Bio from "../Bio";
+import CallToAction from "@/components/CallToAction";
 
 function About() {
   return (
     <main className="flex flex-col justify-center items-center gap-12 py-12">
-      <BackToHomeLink />
-
       <Image
         priority
         src="/Youssef al-Tai.png"
@@ -34,9 +32,7 @@ function About() {
         </p>
       </div>
 
-      <button className="px-8 py-4 md:px-12 md:py-6 rounded-full bg-blue-600 text-white text-xl md:text-2xl font-semibold transition-all duration-500 ease-out hover:bg-white hover:text-blue-600 hover:shadow-lg">
-        Contact Me
-      </button>
+      <CallToAction>Contact Me</CallToAction>
 
       <BackToHomeLink />
     </main>

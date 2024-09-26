@@ -1,0 +1,74 @@
+import React from "react";
+import { services } from "../services";
+import { redirect } from "next/navigation";
+import { NavLink } from "@/components/NavLink";
+
+export function getService(service: string) {
+  const serviceKey = service as keyof typeof services;
+
+  if (!services[serviceKey])
+    return redirect(`/services/${Object.keys(services)[0]}`);
+
+  return services[serviceKey];
+}
+
+function Service({
+  params: { service },
+  children,
+}: {
+  params: { service: string };
+  children: React.ReactNode;
+}) {
+  const serviceDetails = getService(service);
+
+  return (
+    <>
+      <div className="flex flex-col gap-6 border-r-2 border-gray-200 pr-12">
+        <h2 className="text-4xl font-bold">{serviceDetails.title}</h2>
+        <ul className="flex flex-col gap-6">
+          <li>
+            <NavLink
+              href={`/services/${service}/overview`}
+              bodySelector="#serviceInnerDetails"
+            >
+              Overview
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              href={`/services/${service}/why-me`}
+              bodySelector="#serviceInnerDetails"
+            >
+              Why Choose Me
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              href={`/services/${service}/process`}
+              bodySelector="#serviceInnerDetails"
+            >
+              Process
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              href={`/services/${service}/pricing`}
+              bodySelector="#serviceInnerDetails"
+            >
+              Pricing
+            </NavLink>
+          </li>
+        </ul>
+      </div>
+
+      <div
+        className="col-span-2 page flex flex-col gap-6 px-12"
+        id="serviceInnerDetails"
+      >
+        {children}
+      </div>
+    </>
+  );
+}
+
+export default Service;

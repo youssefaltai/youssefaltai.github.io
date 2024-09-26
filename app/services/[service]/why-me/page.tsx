@@ -1,0 +1,24 @@
+import React from "react";
+import { getService } from "../layout";
+import FancyBullet from "@/components/icons/FancyBullet";
+
+function WhyMe({ params: { service } }: { params: { service: string } }) {
+  // return <>why me</>;
+  const serviceDetails = getService(service);
+  return (
+    <>
+      <h3 className="text-3xl font-bold">Why Choose Me</h3>
+      {serviceDetails.whyMe.map((point, index) => (
+        <div key={index} className="flex flex-col">
+          <h4 className="text-2xl font-bold flex items-center gap-2">
+            <FancyBullet />
+            {point.title}
+          </h4>
+          <p className="text-lg">{point.description}</p>
+        </div>
+      ))}
+    </>
+  );
+}
+
+export default WhyMe;

@@ -5,15 +5,14 @@ import SocialMediaLink from "@/components/SocialMediaLink";
 import { TransitionLink } from "@/components/TransitionLink";
 import { github, linkedin } from "@/contact";
 import Bio from "./Bio";
+import CallToAction from "@/components/CallToAction";
 
 export default function Home() {
   return (
     <main className="flex flex-col justify-center items-center gap-12 py-12">
       <Logo />
       <Bio />
-      <button className="px-8 py-4 md:px-12 md:py-6 rounded-full bg-blue-600 text-white text-xl md:text-2xl font-semibold transition-all duration-500 ease-out hover:bg-white hover:text-blue-600 hover:shadow-lg">
-        Contact Me
-      </button>
+      <CallToAction>Contact Me</CallToAction>
       <nav>
         <ul className="flex flex-col md:flex-row gap-6 md:gap-12 items-center">
           <li>
