@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 import { font } from "@/lib";
 
 export const metadata: Metadata = {
-  title: "Youssef al-Tai",
+  title: "Youssef al-Tai | Full-Stack & Mobile Engineer",
   description: "Full-Stack & Mobile Engineer",
 };
 
