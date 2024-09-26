@@ -25,7 +25,7 @@ function Service({
   return (
     <>
       <div className="flex flex-col gap-6 md:border-r-2 md:border-gray-200 md:pr-12">
-        <h2 className="text-4xl font-bold">{serviceDetails.title}</h2>
+        <h2 className="text-3xl font-bold">{serviceDetails.title}</h2>
         <ul className="flex flex-col gap-4 md:gap-6">
           <li>
             <NavLink
