@@ -3,11 +3,11 @@
 import Link from "next/link";
 import { HTMLProps } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { cn, sleep } from "@/lib";
+import { cn, handleTransition } from "@/lib";
 
 export const linkStyle = (isActive: boolean) =>
   cn(
-    "text-xl md:text-2xl font-normal opacity-50 transition-all duration-500 ease-out hover:opacity-100 disabled:opacity-50 disabled:cursor-not-allowed",
+    "text-xl md:text-2xl font-normal opacity-60 transition-all duration-500 ease-out hover:opacity-100 disabled:opacity-20 disabled:cursor-not-allowed",
     { "text-blue-600": isActive },
     { "opacity-100": isActive },
     { "font-semibold": isActive }
@@ -21,7 +21,7 @@ type NavLinkProps = HTMLProps<HTMLAnchorElement> & {
 export function NavLink({
   children,
   href,
-  bodySelector: bodyClass,
+  bodySelector,
   ...props
 }: NavLinkProps) {
   const router = useRouter();
@@ -31,23 +31,21 @@ export function NavLink({
   const cleanPathname = pathname.slice(1);
   const isActive = cleanPathname.startsWith(cleanHref) && cleanHref !== "";
 
-  const handleTransition = async (
-    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
-  ) => {
-    e.preventDefault();
-    const body = document.querySelector(bodyClass || "body");
-
-    body?.classList.add("page-transition", "blur-transition");
-
-    await sleep(300);
-    router.push(href);
-  };
+  const handleOnClick = isActive
+    ? (e: any) => e.preventDefault()
+    : (e: any) => {
+        e.preventDefault();
+        handleTransition({
+          bodySelector,
+          onComplete: () => router.push(href),
+        });
+      };
 
   return (
     <Link
       {...props}
       href={href}
-      onClick={isActive ? (e) => e.preventDefault() : handleTransition}
+      onClick={handleOnClick}
       className={linkStyle(isActive)}
     >
       {children}

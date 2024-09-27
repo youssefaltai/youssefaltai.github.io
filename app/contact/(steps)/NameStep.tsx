@@ -3,6 +3,9 @@
 import { linkStyle } from "@/components/NavLink";
 import { useContactForm } from "../FormContext";
 import CallToAction from "@/components/CallToAction";
+import { handleStepChange } from "../Step";
+import { handleTransition, sleep } from "@/lib";
+import { useRouter } from "next/navigation";
 
 export default function NameStep() {
   const {
@@ -11,21 +14,33 @@ export default function NameStep() {
     prevStep,
     setName,
   } = useContactForm();
+  const router = useRouter();
 
-  const handleSubmitClicked = () => {
-    nextStep();
-  };
+  const handleSubmitClicked = () =>
+    handleStepChange({
+      onTransitionComplete: nextStep,
+      onTransitionReverseComplete: () =>
+        sleep(2000).then(() =>
+          handleTransition({
+            onComplete: () => router.push("/"),
+          })
+        ),
+    });
 
   const handleBackClicked = () => {
-    prevStep();
+    handleStepChange({
+      onTransitionComplete: prevStep,
+      onTransitionReverseComplete: () => {},
+    });
   };
 
   return (
-    <div className="flex flex-col items-center gap-8 w-full px-16">
+    <>
       <h2 className="text-xl md:text-2xl font-bold text-center">
         May I know your name?
       </h2>
       <input
+        name="name"
         className="w-full p-4 border border-gray-200 rounded-2xl focus:border-blue-600 transition duration-300"
         type="text"
         placeholder="Type your name here..."
@@ -40,6 +55,6 @@ export default function NameStep() {
           Submit
         </CallToAction>
       </div>
-    </div>
+    </>
   );
 }

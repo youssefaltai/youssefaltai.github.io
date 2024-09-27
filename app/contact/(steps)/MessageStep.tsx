@@ -2,6 +2,9 @@
 
 import { linkStyle } from "@/components/NavLink";
 import { useContactForm } from "../FormContext";
+import { handleReverseTransition, handleTransition } from "@/lib";
+import { contactStepDivSelector } from "../ContactForm";
+import { handleStepChange } from "../Step";
 
 export default function MessageStep() {
   const {
@@ -10,16 +13,19 @@ export default function MessageStep() {
     setMessage,
   } = useContactForm();
 
-  const handleNextClicked = () => {
-    nextStep();
-  };
+  const handleNextClicked = () =>
+    handleStepChange({
+      onTransitionComplete: nextStep,
+      onTransitionReverseComplete: () => {},
+    });
 
   return (
-    <div className="flex flex-col items-center gap-8 w-full px-16">
+    <>
       <h2 className="text-xl md:text-2xl font-bold text-center">
         Briefly explain what you need.
       </h2>
       <textarea
+        name="message"
         className="w-full p-4 border border-gray-200 rounded-2xl focus:border-blue-600 transition duration-300"
         rows={5}
         placeholder="Type your message here..."
@@ -33,6 +39,6 @@ export default function MessageStep() {
       >
         Next
       </button>
-    </div>
+    </>
   );
 }

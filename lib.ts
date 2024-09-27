@@ -14,3 +14,35 @@ export function cn(...inputs: ClassValue[]): string {
 
 export const baseUrl = "https://youssefaltai.com";
 export const serviceSections = ["overview", "why-me", "process", "pricing"];
+
+export const handleTransition = async ({
+  delay = 300,
+  bodySelector,
+  onComplete,
+}: {
+  delay?: number;
+  bodySelector?: string;
+  onComplete: () => void;
+}) => {
+  const body = document.querySelector(bodySelector || "body");
+
+  body?.classList.add("page-transition", "blur-transition");
+
+  await sleep(delay);
+  onComplete();
+};
+
+export const handleReverseTransition = async ({
+  delay = 0,
+  bodySelector,
+  onComplete,
+}: {
+  delay?: number;
+  bodySelector?: string;
+  onComplete: () => void;
+}) => {
+  const body = document.querySelector(bodySelector || "body");
+  await sleep(delay);
+  body?.classList.remove("page-transition", "blur-transition");
+  onComplete();
+};

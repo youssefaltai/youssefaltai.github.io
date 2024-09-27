@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@/lib";
+import { cn, handleTransition } from "@/lib";
 import { useRouter } from "next/navigation";
 import { ButtonHTMLAttributes } from "react";
 
@@ -22,7 +22,9 @@ function CallToAction({
         !!href
           ? (e) => {
               e.preventDefault();
-              router.push(href);
+              handleTransition({
+                onComplete: () => router.push(href),
+              });
             }
           : props.onClick
       }

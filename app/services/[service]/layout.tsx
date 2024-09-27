@@ -84,7 +84,7 @@ function Service({
       </div>
 
       <div
-        className="col-span-2 page flex flex-col gap-6 md:px-12"
+        className="trans col-span-2 flex flex-col gap-6 md:px-12"
         id="serviceInnerDetails"
       >
         {children}

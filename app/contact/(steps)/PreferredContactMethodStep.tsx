@@ -1,12 +1,13 @@
 "use client";
 
+import { handleStepChange } from "../Step";
 import { linkStyle } from "@/components/NavLink";
 import { PreferredContactMethodType, useContactForm } from "../FormContext";
-import { cn } from "@/lib";
+import { cn, handleReverseTransition, handleTransition } from "@/lib";
 
 type OptionProps = {
-  onClick: () => void;
   label: string;
+  onClick: () => void;
   selected?: boolean;
 };
 
@@ -41,18 +42,45 @@ function PreferredContactMethodOption({
     setPreferredContactMethod,
   } = useContactForm();
 
+  const handleOptionOnClick = () => {
+    if (preferredContactMethod === option) return;
+
+    const preferredContactMethodUsesPhone =
+      preferredContactMethod === "phone" ||
+      preferredContactMethod === "whatsapp";
+
+    const optionUsesPhone = option === "phone" || option === "whatsapp";
+
+    if (preferredContactMethodUsesPhone && optionUsesPhone) {
+      if (preferredContactMethod !== option) setPreferredContactMethod(option);
+      return;
+    }
+
+    handleTransition({
+      bodySelector: preferredContactMethodInputFieldSelector,
+      onComplete: () => {
+        if (preferredContactMethod !== option)
+          setPreferredContactMethod(option);
+
+        handleReverseTransition({
+          bodySelector: preferredContactMethodInputFieldSelector,
+          onComplete: () => {},
+        });
+      },
+    });
+  };
+
   return (
     <Option
       label={label}
       selected={preferredContactMethod === option}
-      onClick={() => {
-        if (preferredContactMethod !== option) {
-          setPreferredContactMethod(option);
-        }
-      }}
+      onClick={handleOptionOnClick}
     />
   );
 }
+
+const preferredContactMethodInputFieldId = "preferredContactMethodInputField";
+const preferredContactMethodInputFieldSelector = `#${preferredContactMethodInputFieldId}`;
 
 function PreferredContactMethodInputField() {
   const {
@@ -70,6 +98,7 @@ function PreferredContactMethodInputField() {
           What is your email address?
         </h2>
         <input
+          name="phone"
           className="w-full p-4 border border-gray-200 rounded-2xl focus:border-blue-600 transition duration-300"
           placeholder="Type your email here..."
           value={email || ""}
@@ -86,8 +115,8 @@ function PreferredContactMethodInputField() {
         <h2 className="text-xl md:text-2xl font-bold text-center">
           What is your phone number?
         </h2>
-
         <input
+          name="phone"
           className="w-full p-4 border border-gray-200 rounded-2xl focus:border-blue-600 transition duration-300"
           placeholder="Type your phone number here..."
           value={phone || ""}
@@ -97,7 +126,14 @@ function PreferredContactMethodInputField() {
     );
   }
 
-  return inputField;
+  return (
+    <div
+      className="trans flex flex-col items-center gap-8 w-full"
+      id={preferredContactMethodInputFieldId}
+    >
+      {inputField}
+    </div>
+  );
 }
 
 export default function PreferredContactMethodStep() {
@@ -107,18 +143,23 @@ export default function PreferredContactMethodStep() {
     prevStep,
   } = useContactForm();
 
-  const handleNextClicked = () => {
-    nextStep();
-  };
+  const handleNextClicked = () =>
+    handleStepChange({
+      onTransitionComplete: nextStep,
+      onTransitionReverseComplete: () => {},
+    });
 
   const handleBackClicked = () => {
-    prevStep();
+    handleStepChange({
+      onTransitionComplete: prevStep,
+      onTransitionReverseComplete: () => {},
+    });
   };
 
   const canProceed = preferredContactMethod === "email" ? !!email : !!phone;
 
   return (
-    <div className="flex flex-col items-center gap-8 w-full px-16">
+    <>
       <h2 className="text-xl md:text-2xl font-bold text-center">
         What is your preferred method of contact?
       </h2>
@@ -140,6 +181,6 @@ export default function PreferredContactMethodStep() {
           Next
         </button>
       </div>
-    </div>
+    </>
   );
 }

@@ -19,7 +19,7 @@ function About() {
         <ProfilePicture />
         <Bio />
 
-        <div className="flex flex-col items-center gap-4 px-6  max-w-lg">
+        <div className="flex flex-col justify-center gap-4 px-6  max-w-lg">
           <p className="text-lg md:text-xl">
             Full-stack engineer with nearly 2 years of experience in designing
             and developing scalable web apps using the MERN stack and Next.js,
@@ -33,7 +33,7 @@ function About() {
           </p>
         </div>
 
-        <CallToAction>Contact Me</CallToAction>
+        <CallToAction href="/contact">Contact Me</CallToAction>
 
         <BackToHomeLink />
       </main>
