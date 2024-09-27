@@ -3,7 +3,12 @@
 import { handleStepChange } from "../Step";
 import { linkStyle } from "@/components/NavLink";
 import { PreferredContactMethodType, useContactForm } from "../FormContext";
-import { cn, handleReverseTransition, handleTransition } from "@/lib";
+import {
+  cn,
+  handleReverseTransition,
+  handleTransition,
+  inputStyle,
+} from "@/lib";
 
 type OptionProps = {
   label: string;
@@ -99,7 +104,7 @@ function PreferredContactMethodInputField() {
         </h2>
         <input
           name="phone"
-          className="w-full p-4 border border-gray-200 rounded-2xl focus:border-blue-600 transition duration-300"
+          className={inputStyle}
           placeholder="Type your email here..."
           value={email || ""}
           onChange={(e) => setEmail(e.target.value)}
@@ -117,7 +122,7 @@ function PreferredContactMethodInputField() {
         </h2>
         <input
           name="phone"
-          className="w-full p-4 border border-gray-200 rounded-2xl focus:border-blue-600 transition duration-300"
+          className={inputStyle}
           placeholder="Type your phone number here..."
           value={phone || ""}
           onChange={(e) => setPhone(e.target.value)}

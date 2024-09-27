@@ -3,6 +3,7 @@
 import { linkStyle } from "@/components/NavLink";
 import { useContactForm } from "../FormContext";
 import { handleStepChange } from "../Step";
+import { inputStyle } from "@/lib";
 
 export default function MessageStep() {
   const {
@@ -24,7 +25,7 @@ export default function MessageStep() {
       </h2>
       <textarea
         name="message"
-        className="w-full p-4 border border-gray-200 rounded-2xl focus:border-blue-600 transition duration-300"
+        className={inputStyle}
         rows={5}
         placeholder="Type your message here..."
         value={message}

@@ -41,7 +41,7 @@ export default function NameStep() {
       </h2>
       <input
         name="name"
-        className="w-full p-4 border border-gray-200 rounded-2xl focus:border-blue-600 transition duration-300"
+        className="w-full p-4 border border-gray-200 rounded-2xl transition duration-300"
         type="text"
         placeholder="Type your name here..."
         value={name}

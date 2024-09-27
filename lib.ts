@@ -46,3 +46,6 @@ export const handleReverseTransition = async ({
   body?.classList.remove("page-transition", "blur-transition");
   onComplete();
 };
+
+export const inputStyle =
+  "w-full rounded-2xl p-4 border border-gray-600 transition duration-300";

@@ -48,7 +48,7 @@ export default function ContactForm() {
 
   return (
     <div
-      className="trans flex flex-col items-center gap-8 w-full px-16"
+      className="trans flex flex-col items-center gap-8 w-full px-8"
       id={contactStepId}
     >
       {steps.find((step) => step.id === currentStep)?.component}

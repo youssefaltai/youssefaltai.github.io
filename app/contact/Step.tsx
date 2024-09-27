@@ -5,9 +5,7 @@ import { contactStepDivSelector } from "./ContactForm";
 export default function Step({ children }: PropsWithChildren) {
   return (
     <>
-      <div className="flex flex-col items-center gap-8 w-full px-16">
-        {children}
-      </div>
+      <div className="flex flex-col items-center gap-8 w-full">{children}</div>
     </>
   );
 }
