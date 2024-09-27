@@ -37,7 +37,7 @@ const steps = [
     component: (
       <Step>
         <h2 className="text-3xl font-bold">Thank you for reaching out!</h2>
-        <p className="text-xl"> I'll contact you within 24 hours.</p>
+        <p className="text-xl"> I&apos;ll contact you within 24 hours.</p>
       </Step>
     ),
   },
