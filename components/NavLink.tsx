@@ -31,7 +31,7 @@ export function NavLink({
 
     body?.classList.add("page-transition", "blur-transition");
 
-    await sleep(200);
+    await sleep(300);
     router.push(href);
   };
 
