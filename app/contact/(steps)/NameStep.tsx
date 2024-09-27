@@ -6,26 +6,29 @@ import CallToAction from "@/components/CallToAction";
 import { handleStepChange, StepNavigation } from "../Step";
 import { handleTransition, inputStyle, sleep } from "@/lib";
 import { useRouter } from "next/navigation";
+import { sendMessageAction } from "../actions";
+import { useState } from "react";
 
 export default function NameStep() {
-  const {
-    values: { name },
-    nextStep,
-    prevStep,
-    setName,
-  } = useContactForm();
+  const { values, nextStep, prevStep, setName } = useContactForm();
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  const handleSubmitClicked = () =>
-    handleStepChange({
-      onTransitionComplete: nextStep,
-      onTransitionReverseComplete: () =>
-        sleep(2000).then(() =>
-          handleTransition({
-            onComplete: () => router.push("/"),
-          })
-        ),
+  const handleSubmitClicked = () => {
+    setLoading(true);
+    sendMessageAction(values).then(() => {
+      setLoading(false);
+      handleStepChange({
+        onTransitionComplete: nextStep,
+        onTransitionReverseComplete: () =>
+          sleep(2000).then(() =>
+            handleTransition({
+              onComplete: () => router.push("/"),
+            })
+          ),
+      });
     });
+  };
 
   const handleBackClicked = () => {
     handleStepChange({
@@ -33,6 +36,8 @@ export default function NameStep() {
       onTransitionReverseComplete: () => {},
     });
   };
+
+  const canSubmit = !!values.name && !loading;
 
   return (
     <>
@@ -44,15 +49,18 @@ export default function NameStep() {
         className={inputStyle()}
         type="text"
         placeholder="Type your name here..."
-        value={name}
+        value={values.name}
         onChange={(e) => setName(e.target.value)}
       />
       <StepNavigation>
         <button className={linkStyle(false)} onClick={handleBackClicked}>
           Go Back
         </button>
-        <CallToAction disabled={!name} onClick={handleSubmitClicked}>
-          Submit
+        <CallToAction
+          disabled={!canSubmit}
+          onClick={canSubmit ? handleSubmitClicked : undefined}
+        >
+          {loading ? "Sending..." : "Submit"}
         </CallToAction>
       </StepNavigation>
     </>
