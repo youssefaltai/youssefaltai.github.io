@@ -3,6 +3,7 @@ import MessageStep from "./(steps)/MessageStep";
 import NameStep from "./(steps)/NameStep";
 import PreferredContactMethodStep from "./(steps)/PreferredContactMethodStep";
 import { useContactForm } from "./FormContext";
+import ThankYouStep from "./(steps)/ThankYouStep";
 
 const contactStepId = "contactStep";
 export const contactStepDivSelector = `#${contactStepId}`;
@@ -36,8 +37,7 @@ const steps = [
     id: 4,
     component: (
       <Step>
-        <h2 className="text-3xl font-bold">Thank you for reaching out!</h2>
-        <p className="text-xl"> I&apos;ll contact you within 24 hours.</p>
+        <ThankYouStep />
       </Step>
     ),
   },

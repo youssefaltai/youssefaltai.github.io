@@ -2,7 +2,7 @@
 
 import { linkStyle } from "@/components/NavLink";
 import { useContactForm } from "../FormContext";
-import { handleStepChange } from "../Step";
+import { handleStepChange, StepNavigation } from "../Step";
 import { inputStyle } from "@/lib";
 
 export default function MessageStep() {
@@ -25,19 +25,21 @@ export default function MessageStep() {
       </h2>
       <textarea
         name="message"
-        className={inputStyle}
+        className={inputStyle("max-w-lg")}
         rows={5}
         placeholder="Type your message here..."
         value={message}
         onChange={(e) => setMessage(e.target.value)}
       />
-      <button
-        className={linkStyle(false)}
-        disabled={!message}
-        onClick={!!message ? handleNextClicked : undefined}
-      >
-        Next
-      </button>
+      <StepNavigation>
+        <button
+          className={linkStyle(false)}
+          disabled={!message}
+          onClick={!!message ? handleNextClicked : undefined}
+        >
+          Next
+        </button>
+      </StepNavigation>
     </>
   );
 }

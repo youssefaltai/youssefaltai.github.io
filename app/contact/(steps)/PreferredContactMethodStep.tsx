@@ -1,6 +1,6 @@
 "use client";
 
-import { handleStepChange } from "../Step";
+import { handleStepChange, StepNavigation } from "../Step";
 import { linkStyle } from "@/components/NavLink";
 import { PreferredContactMethodType, useContactForm } from "../FormContext";
 import {
@@ -20,7 +20,7 @@ function Option({ onClick, label, selected = false }: OptionProps) {
   return (
     <button
       className={cn(
-        "rounded-2xl p-8 font-semibold text-xl border border-gray-800 opacity-50 transition-all duration-300 ease-in-out hover:opacity-100",
+        "rounded-2xl p-8 w-36 h-16 flex justify-center items-center font-semibold text-xl border border-gray-800 opacity-50 transition-all duration-300 ease-in-out hover:opacity-100",
         {
           "border-blue-600 text-blue-600": selected,
         },
@@ -104,7 +104,7 @@ function PreferredContactMethodInputField() {
         </h2>
         <input
           name="phone"
-          className={inputStyle}
+          className={inputStyle()}
           placeholder="Type your email here..."
           value={email || ""}
           onChange={(e) => setEmail(e.target.value)}
@@ -122,7 +122,7 @@ function PreferredContactMethodInputField() {
         </h2>
         <input
           name="phone"
-          className={inputStyle}
+          className={inputStyle()}
           placeholder="Type your phone number here..."
           value={phone || ""}
           onChange={(e) => setPhone(e.target.value)}
@@ -168,13 +168,13 @@ export default function PreferredContactMethodStep() {
       <h2 className="text-xl md:text-2xl font-bold text-center">
         What is your preferred method of contact?
       </h2>
-      <div className="flex gap-4">
+      <div className="flex flex-wrap md:flex-row justify-center items-center gap-4 w-full">
         <PreferredContactMethodOption label="Email" option="email" />
         <PreferredContactMethodOption label="Phone" option="phone" />
         <PreferredContactMethodOption label="WhatsApp" option="whatsapp" />
       </div>
       <PreferredContactMethodInputField />
-      <div className="flex items-center justify-center gap-16">
+      <StepNavigation>
         <button className={linkStyle(false)} onClick={handleBackClicked}>
           Go Back
         </button>
@@ -185,7 +185,7 @@ export default function PreferredContactMethodStep() {
         >
           Next
         </button>
-      </div>
+      </StepNavigation>
     </>
   );
 }

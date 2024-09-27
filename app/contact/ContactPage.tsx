@@ -8,7 +8,7 @@ export default function ContactPage() {
   return (
     <>
       <ContactFormProvider>
-        <main className="flex flex-col justify-center items-center gap-16 py-16 w-full max-w-screen-sm">
+        <main className="flex flex-col justify-center items-center gap-16 py-16 w-full max-w-sm md:max-w-screen-sm">
           <Logo />
           <ContactForm />
         </main>

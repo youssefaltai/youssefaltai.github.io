@@ -3,8 +3,8 @@
 import { linkStyle } from "@/components/NavLink";
 import { useContactForm } from "../FormContext";
 import CallToAction from "@/components/CallToAction";
-import { handleStepChange } from "../Step";
-import { handleTransition, sleep } from "@/lib";
+import { handleStepChange, StepNavigation } from "../Step";
+import { handleTransition, inputStyle, sleep } from "@/lib";
 import { useRouter } from "next/navigation";
 
 export default function NameStep() {
@@ -41,20 +41,20 @@ export default function NameStep() {
       </h2>
       <input
         name="name"
-        className="w-full p-4 border border-gray-200 rounded-2xl transition duration-300"
+        className={inputStyle()}
         type="text"
         placeholder="Type your name here..."
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
-      <div className="flex items-center justify-center gap-16">
+      <StepNavigation>
         <button className={linkStyle(false)} onClick={handleBackClicked}>
           Go Back
         </button>
         <CallToAction disabled={!name} onClick={handleSubmitClicked}>
           Submit
         </CallToAction>
-      </div>
+      </StepNavigation>
     </>
   );
 }

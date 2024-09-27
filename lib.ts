@@ -47,5 +47,8 @@ export const handleReverseTransition = async ({
   onComplete();
 };
 
-export const inputStyle =
-  "w-full rounded-2xl p-4 border border-gray-600 transition duration-300";
+export const inputStyle = (className: string = "") =>
+  cn(
+    "w-full max-w-sm rounded-2xl p-4 border border-gray-600 transition duration-300",
+    className
+  );
