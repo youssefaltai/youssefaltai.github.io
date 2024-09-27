@@ -6,6 +6,7 @@ function Overview({ params: { service } }: { params: { service: string } }) {
   const serviceDetails = getService(service);
   return (
     <>
+      <Loader bodySelector="#serviceInnerDetails" />
       <h3 className="text-3xl font-semibold">Overview</h3>
       <div className="flex flex-col gap-4">
         {serviceDetails.overview.map((text, index) => (
@@ -14,7 +15,6 @@ function Overview({ params: { service } }: { params: { service: string } }) {
           </p>
         ))}
       </div>
-      <Loader bodySelector="#serviceInnerDetails" />
     </>
   );
 }

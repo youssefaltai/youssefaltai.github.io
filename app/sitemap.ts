@@ -12,6 +12,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     {
       url: `${baseUrl}/work`,
     },
+    {
+      url: `${baseUrl}/contact`,
+    },
 
     // Services
 

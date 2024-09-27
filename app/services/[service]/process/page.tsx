@@ -7,6 +7,7 @@ function Process({ params: { service } }: { params: { service: string } }) {
   const serviceDetails = getService(service);
   return (
     <>
+      <Loader bodySelector="#serviceInnerDetails" />
       <h3 className="text-3xl font-semibold">Process</h3>
       <div className="flex flex-col gap-4">
         {serviceDetails.process.map((point, index) => (
@@ -21,7 +22,6 @@ function Process({ params: { service } }: { params: { service: string } }) {
           </div>
         ))}
       </div>
-      <Loader bodySelector="#serviceInnerDetails" />
     </>
   );
 }

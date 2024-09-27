@@ -20,3 +20,7 @@
 .page-transition {
   transform: translateY(24px);
 }
+
+textarea {
+  resize: none;
+}

@@ -9,6 +9,7 @@ function Pricing({ params: { service } }: { params: { service: string } }) {
 
   return (
     <>
+      <Loader bodySelector="#serviceInnerDetails" />
       <h3 className="text-3xl font-semibold">Pricing</h3>
       <div className="flex flex-col gap-4">
         {serviceDetails.pricing.map((point, index) => (
@@ -29,15 +30,18 @@ function Pricing({ params: { service } }: { params: { service: string } }) {
                   ? `Starting at $${point.price}`
                   : "Contact for pricing"}
               </p>
-              <CallToAction className="text-base px-4 py-2 md:text-lg md:px-6 md:py-4">
-                Get a Quote
-              </CallToAction>
+              {!point.price && (
+                <CallToAction
+                  href="/contact"
+                  className="text-base px-4 py-2 md:text-lg md:px-6 md:py-4"
+                >
+                  Get a Quote
+                </CallToAction>
+              )}
             </div>
           </div>
         ))}
       </div>
-
-      <Loader bodySelector="#serviceInnerDetails" />
     </>
   );
 }

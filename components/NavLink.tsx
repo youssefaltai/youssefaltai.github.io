@@ -5,7 +5,15 @@ import { HTMLProps } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { cn, sleep } from "@/lib";
 
-type NaVLinkProps = HTMLProps<HTMLAnchorElement> & {
+export const linkStyle = (isActive: boolean) =>
+  cn(
+    "text-xl md:text-2xl font-normal opacity-50 transition-all duration-500 ease-out hover:opacity-100 disabled:opacity-50 disabled:cursor-not-allowed",
+    { "text-blue-600": isActive },
+    { "opacity-100": isActive },
+    { "font-semibold": isActive }
+  );
+
+type NavLinkProps = HTMLProps<HTMLAnchorElement> & {
   href: string;
   bodySelector?: string;
 };
@@ -15,7 +23,7 @@ export function NavLink({
   href,
   bodySelector: bodyClass,
   ...props
-}: NaVLinkProps) {
+}: NavLinkProps) {
   const router = useRouter();
   const pathname = usePathname();
 
@@ -40,12 +48,7 @@ export function NavLink({
       {...props}
       href={href}
       onClick={isActive ? (e) => e.preventDefault() : handleTransition}
-      className={cn(
-        "text-xl md:text-2xl font-normal opacity-50 transition-all duration-500 ease-out hover:opacity-100",
-        { "text-blue-600": isActive },
-        { "opacity-100": isActive },
-        { "font-semibold": isActive }
-      )}
+      className={linkStyle(isActive)}
     >
       {children}
     </Link>

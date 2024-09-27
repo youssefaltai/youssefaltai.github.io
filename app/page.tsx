@@ -15,7 +15,7 @@ export default function Home() {
       <main className="flex flex-col justify-center items-center gap-16 py-16">
         <Logo />
         <Bio />
-        <CallToAction>Contact Me</CallToAction>
+        <CallToAction href="/contact">Contact Me</CallToAction>
         <nav>
           <ul className="flex flex-col md:flex-row gap-6 md:gap-12 items-center">
             <li>

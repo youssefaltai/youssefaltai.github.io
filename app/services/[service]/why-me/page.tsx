@@ -8,6 +8,7 @@ function WhyMe({ params: { service } }: { params: { service: string } }) {
   const serviceDetails = getService(service);
   return (
     <>
+      <Loader bodySelector="#serviceInnerDetails" />
       <h3 className="text-3xl font-semibold">Why Choose Me</h3>
       {serviceDetails.whyMe.map((point, index) => (
         <div key={index} className="flex flex-col">
@@ -18,7 +19,6 @@ function WhyMe({ params: { service } }: { params: { service: string } }) {
           <p className="text-lg">{point.description}</p>
         </div>
       ))}
-      <Loader bodySelector="#serviceInnerDetails" />
     </>
   );
 }

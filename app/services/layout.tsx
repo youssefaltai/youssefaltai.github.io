@@ -16,6 +16,7 @@ function Services({
 }>) {
   return (
     <>
+      <Loader />
       <main className="flex flex-col justify-center items-center gap-16 py-16 w-full">
         <Logo />
 
@@ -48,7 +49,6 @@ function Services({
 
         <BackToHomeLink />
       </main>
-      <Loader bodySelector="body" />
     </>
   );
 }
