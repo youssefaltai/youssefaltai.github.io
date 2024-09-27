@@ -49,6 +49,6 @@ export const handleReverseTransition = async ({
 
 export const inputStyle = (className: string = "") =>
   cn(
-    "w-full max-w-sm rounded-2xl p-4 border border-gray-600 transition duration-300",
+    "input w-full max-w-sm rounded-2xl border border-gray-600 transition duration-300",
     className
   );

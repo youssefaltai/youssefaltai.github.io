@@ -11,7 +11,7 @@ export default function Contact() {
   return (
     <>
       <Loader scrollToTop />
-      <ContactPage />;
+      <ContactPage />
     </>
   );
 }
