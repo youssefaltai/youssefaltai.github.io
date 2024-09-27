@@ -85,14 +85,6 @@ export const ContactFormProvider = ({ children }: { children: ReactNode }) => {
   const setEmail = (email: string) => updateFormValues({ email });
   const setPhone = (phone: string) => updateFormValues({ phone });
 
-  useEffect(() => {
-    console.log(`Step ${formState.currentStep}`);
-  }, [formState.currentStep]);
-
-  useEffect(() => {
-    console.log(formState.values);
-  }, [formState.values]);
-
   return (
     <ContactFormContext.Provider
       value={{

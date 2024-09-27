@@ -16,18 +16,23 @@ export default function NameStep() {
 
   const handleSubmitClicked = () => {
     setLoading(true);
-    sendMessageAction(values).then(() => {
-      setLoading(false);
-      handleStepChange({
-        onTransitionComplete: nextStep,
-        onTransitionReverseComplete: () =>
-          sleep(2000).then(() =>
-            handleTransition({
-              onComplete: () => router.push("/"),
-            })
-          ),
+    sendMessageAction(values)
+      .then(() => {
+        setLoading(false);
+        handleStepChange({
+          onTransitionComplete: nextStep,
+          onTransitionReverseComplete: () =>
+            sleep(2000).then(() =>
+              handleTransition({
+                onComplete: () => router.push("/"),
+              })
+            ),
+        });
+      })
+      .catch((error) => {
+        alert(JSON.stringify(error));
+        setLoading(false);
       });
-    });
   };
 
   const handleBackClicked = () => {
