@@ -2,8 +2,6 @@ import "./globals.css";
 
 import type { Metadata } from "next";
 
-import { SpeedInsights } from "@vercel/speed-insights/next";
-
 import { font } from "@/lib";
 
 const title = "Youssef al-Tai | Full-Stack & Mobile Engineer";
@@ -43,7 +41,6 @@ export default function RootLayout({
             </span>
           </p>
         </footer>
-        <SpeedInsights />
       </body>
     </html>
   );
