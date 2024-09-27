@@ -91,18 +91,18 @@ export const services: {
     ],
     pricing: [
       {
-        title: "Basic Package",
+        title: "Basic",
         description: "For small, static websites.",
         price: 1500,
       },
       {
-        title: "Standard Package",
+        title: "Standard",
         description:
           "For dynamic websites with multiple pages and integrations.",
         price: 3000,
       },
       {
-        title: "Custom Package",
+        title: "Custom",
         description: "Tailored for large-scale, feature-rich websites.",
         price: 0, // Contact for pricing
       },
@@ -263,7 +263,7 @@ export const services: {
         price: 3000,
       },
       {
-        title: "Custom Design Package",
+        title: "Custom Design",
         description: "Tailored to complex, multi-platform projects.",
         price: 0, // Contact for pricing
       },

@@ -30,10 +30,10 @@ export default function Home() {
           </ul>
         </nav>
         <div className="flex gap-6">
-          <SocialMediaLink href={github.url}>
+          <SocialMediaLink href={github.url} aria-label="GitHub">
             <GitHubIcon className="fill-blue-600" />
           </SocialMediaLink>
-          <SocialMediaLink href={linkedin.url}>
+          <SocialMediaLink href={linkedin.url} aria-label="LinkedIn">
             <LinkedInIcon className="fill-blue-600" />
           </SocialMediaLink>
         </div>
