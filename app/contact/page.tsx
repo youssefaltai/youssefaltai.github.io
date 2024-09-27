@@ -7,9 +7,11 @@ export const metadata: Metadata = {
   description: "Get in touch with me. Let's work together!",
 };
 
-export default () => (
-  <>
-    <Loader scrollToTop />
-    <ContactPage />;
-  </>
-);
+export default function Contact() {
+  return (
+    <>
+      <Loader scrollToTop />
+      <ContactPage />;
+    </>
+  );
+}

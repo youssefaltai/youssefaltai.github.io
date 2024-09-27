@@ -2,8 +2,6 @@
 
 import { linkStyle } from "@/components/NavLink";
 import { useContactForm } from "../FormContext";
-import { handleReverseTransition, handleTransition } from "@/lib";
-import { contactStepDivSelector } from "../ContactForm";
 import { handleStepChange } from "../Step";
 
 export default function MessageStep() {
