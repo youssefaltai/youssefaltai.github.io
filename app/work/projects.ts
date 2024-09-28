@@ -1,16 +1,17 @@
 import { AwsS3Bucket } from "@/lib";
 
+export type ProjectLink = {
+  title: string;
+  url: string;
+  image: string;
+};
 export type Project = {
   slug: string;
   title: string;
   role: string;
   description: string;
   image: string;
-  links: {
-    title: string;
-    url: string;
-    image: string;
-  }[];
+  links: ProjectLink[];
   responsibilities: string[];
   gallery: string[];
 };

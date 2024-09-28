@@ -8,6 +8,8 @@ import { NavLink } from "@/components/NavLink";
 import ProjectCard from "../ProjectCard";
 import { getProject } from "../projects";
 import { redirect } from "next/navigation";
+import ProjectLinkImage from "../ProjectLinkImage";
+import ProjectGalleryImage from "../ProjectGalleryImage";
 
 export default function Project({
   params: { project },
@@ -33,16 +35,7 @@ export default function Project({
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Image
-                  src={link.image}
-                  alt={link.title}
-                  width={180}
-                  height={53.33}
-                  className="trans blur-transition"
-                  onLoad={(image) =>
-                    image.currentTarget.classList.remove("blur-transition")
-                  }
-                />
+                <ProjectLinkImage link={link} />
               </Link>
             ))}
           </div>
@@ -65,17 +58,10 @@ export default function Project({
           <h4 className="text-2xl font-bold">Gallery</h4>
           <div className="flex gap-4 overflow-x-scroll">
             {projectDetails.gallery.map((image, index) => (
-              <Image
-                priority
+              <ProjectGalleryImage
                 key={index}
-                src={image}
+                image={image}
                 alt={projectDetails.title}
-                width={600}
-                height={600}
-                className="rounded-2xl object-cover object-center trans blur-transition"
-                onLoad={(image) =>
-                  image.currentTarget.classList.remove("blur-transition")
-                }
               />
             ))}
           </div>
