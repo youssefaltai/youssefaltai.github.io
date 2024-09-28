@@ -38,6 +38,10 @@ export default function Project({
                   alt={link.title}
                   width={180}
                   height={53.33}
+                  className="trans blur-transition"
+                  onLoad={(image) =>
+                    image.currentTarget.classList.remove("blur-transition")
+                  }
                 />
               </Link>
             ))}
@@ -68,7 +72,10 @@ export default function Project({
                 alt={projectDetails.title}
                 width={600}
                 height={600}
-                className="rounded-2xl object-cover object-center"
+                className="rounded-2xl object-cover object-center trans blur-transition"
+                onLoad={(image) =>
+                  image.currentTarget.classList.remove("blur-transition")
+                }
               />
             ))}
           </div>

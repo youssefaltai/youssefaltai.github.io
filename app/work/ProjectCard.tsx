@@ -10,7 +10,10 @@ export default function ProjectCard({ project }: { project: Project }) {
         alt={project.title}
         width={200}
         height={200}
-        className="rounded-2xl shadow-md object-cover object-center w-40 h-40 md:w-60 md:h-60"
+        className="rounded-2xl shadow-md object-cover object-center w-40 h-40 md:w-60 md:h-60 trans blur-transition"
+        onLoad={(image) =>
+          image.currentTarget.classList.remove("blur-transition")
+        }
       />
       <div className="flex flex-col justify-center gap-6">
         <div className="flex flex-col gap-2">

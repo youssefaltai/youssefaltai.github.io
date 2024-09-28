@@ -10,7 +10,7 @@ function ProfilePicture() {
       alt="Youssef al-Tai"
       width={1024}
       height={1024}
-      className="rounded-full trans blur-transition w-48 h-48"
+      className="rounded-full w-48 h-48 trans blur-transition"
       onLoad={(image) =>
         image.currentTarget.classList.remove("blur-transition")
       }

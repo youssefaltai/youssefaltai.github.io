@@ -3,7 +3,6 @@ import Loader from "../Loader";
 import { Metadata } from "next";
 import Page from "@/components/Page";
 import { projects } from "./projects";
-import Image from "next/image";
 import { NavLink } from "@/components/NavLink";
 import ProjectCard from "./ProjectCard";
 
