@@ -1,17 +1,16 @@
 "use client";
 
 import { ContactFormProvider } from "./FormContext";
-import Logo from "@/components/Logo";
 import ContactForm from "./ContactForm";
+import Page from "@/components/Page";
 
 export default function ContactPage() {
   return (
     <>
       <ContactFormProvider>
-        <main className="flex flex-col justify-center items-center gap-16 py-16 w-full max-w-sm md:max-w-screen-sm">
-          <Logo />
+        <Page showBack={false}>
           <ContactForm />
-        </main>
+        </Page>
       </ContactFormProvider>
     </>
   );

@@ -10,7 +10,7 @@ function Process({ params: { service } }: { params: { service: string } }) {
       <Loader bodySelector="#serviceInnerDetails" />
       <h3 className="text-3xl font-semibold">Process</h3>
       <div className="flex flex-col gap-4">
-        {serviceDetails.process.map((point, index) => (
+        {serviceDetails.sections.process.map((point, index) => (
           <div key={index} className="flex flex-col">
             <h4 className="text-2xl font-semibold">
               <span className="text-3xl font-semibold text-blue-600 mr-2">

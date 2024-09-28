@@ -14,6 +14,14 @@ const nextConfig = {
       },
     ];
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "youssefaltai-first-bucket.s3.eu-north-1.amazonaws.com",
+      },
+    ],
+  },
 };
 
 export default nextConfig;

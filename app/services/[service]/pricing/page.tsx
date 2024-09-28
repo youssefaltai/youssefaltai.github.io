@@ -12,12 +12,12 @@ function Pricing({ params: { service } }: { params: { service: string } }) {
       <Loader bodySelector="#serviceInnerDetails" />
       <h3 className="text-3xl font-semibold">Pricing</h3>
       <div className="flex flex-col gap-4">
-        {serviceDetails.pricing.map((point, index) => (
+        {serviceDetails.sections.pricing.map((point, index) => (
           <div
             key={index}
             className={cn("flex flex-col gap-4 pb-6", {
               "border-b-2 border-gray-200":
-                index !== serviceDetails.pricing.length - 1,
+                index !== serviceDetails.sections.pricing.length - 1,
             })}
           >
             <div className="flex flex-col gap-2">

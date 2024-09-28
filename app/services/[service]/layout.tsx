@@ -14,7 +14,7 @@ export async function generateMetadata({
 
   return {
     title: `${serviceDetails.title} - My Services`,
-    description: serviceDetails.overview.join(" "),
+    description: serviceDetails.sections.overview.join(" "),
   };
 }
 

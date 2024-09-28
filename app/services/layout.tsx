@@ -1,8 +1,7 @@
-import Logo from "@/components/Logo";
 import { NavLink } from "@/components/NavLink";
-import BackToHomeLink from "../BackToHomeLink";
 import Loader from "../Loader";
 import { Metadata } from "next";
+import Page from "@/components/Page";
 
 export const metadata: Metadata = {
   title: "My Services",
@@ -17,9 +16,7 @@ function Services({
   return (
     <>
       <Loader />
-      <main className="flex flex-col justify-center items-center gap-16 py-16 w-full">
-        <Logo />
-
+      <Page>
         <nav>
           <ul className="flex flex-col md:flex-row gap-6 md:gap-12 items-center">
             <li>
@@ -46,9 +43,7 @@ function Services({
         >
           {children}
         </div>
-
-        <BackToHomeLink />
-      </main>
+      </Page>
     </>
   );
 }

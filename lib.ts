@@ -52,3 +52,12 @@ export const inputStyle = (className: string = "") =>
     "input w-full max-w-sm rounded-2xl border border-gray-600 transition duration-300",
     className
   );
+
+const awsS3BucketBaseUrl =
+  "https://youssefaltai-first-bucket.s3.eu-north-1.amazonaws.com";
+
+export const AwsS3Bucket = {
+  gallery: (image: string) => `${awsS3BucketBaseUrl}/galleries/${image}`,
+  logo: (image: string) => `${awsS3BucketBaseUrl}/logos/${image}`,
+  other: (image: string) => `${awsS3BucketBaseUrl}/${image}`,
+};

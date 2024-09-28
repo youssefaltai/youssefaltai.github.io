@@ -5,6 +5,7 @@ import CallToAction from "@/components/CallToAction";
 import Loader from "../Loader";
 import ProfilePicture from "@/components/ProfilePicture";
 import { Metadata } from "next";
+import Page from "@/components/Page";
 
 export const metadata: Metadata = {
   title: "About Me",
@@ -15,7 +16,7 @@ function About() {
   return (
     <>
       <Loader scrollToTop />
-      <main className="flex flex-col justify-center items-center gap-16 py-16">
+      <Page showLogo={false}>
         <ProfilePicture />
         <Bio />
 
@@ -34,9 +35,7 @@ function About() {
         </div>
 
         <CallToAction href="/contact">Contact Me</CallToAction>
-
-        <BackToHomeLink />
-      </main>
+      </Page>
     </>
   );
 }
