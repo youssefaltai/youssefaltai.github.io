@@ -240,3 +240,8 @@ export const services: {
     },
   },
 };
+
+export function getService(service: string): Service | undefined {
+  const serviceKey = service as keyof typeof services;
+  return services[serviceKey];
+}

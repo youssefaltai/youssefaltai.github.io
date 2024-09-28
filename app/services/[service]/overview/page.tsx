@@ -1,9 +1,11 @@
 import React from "react";
-import { getService } from "../layout";
 import Loader from "@/app/Loader";
+import { getService } from "../../services";
+import { redirect } from "next/navigation";
 
 function Overview({ params: { service } }: { params: { service: string } }) {
   const serviceDetails = getService(service);
+  if (!serviceDetails) redirect("/services");
   return (
     <>
       <Loader bodySelector="#serviceInnerDetails" />

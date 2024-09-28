@@ -1,21 +1,13 @@
 import React from "react";
 import Loader from "@/app/Loader";
-import { projects } from "../projects";
-import { redirect } from "next/navigation";
 import Page from "@/components/Page";
 import Image from "next/image";
 import FancyBullet from "@/components/icons/FancyBullet";
 import Link from "next/link";
 import { NavLink } from "@/components/NavLink";
 import ProjectCard from "../ProjectCard";
-
-export function getProject(project: string) {
-  const projectDetails = projects.find((p) => p.slug === project);
-  if (!projectDetails) {
-    redirect("/work");
-  }
-  return projectDetails;
-}
+import { getProject } from "../projects";
+import { redirect } from "next/navigation";
 
 export default function Project({
   params: { project },
@@ -23,6 +15,7 @@ export default function Project({
   params: { project: string };
 }) {
   const projectDetails = getProject(project);
+  if (!projectDetails) return redirect("/work");
 
   return (
     <>

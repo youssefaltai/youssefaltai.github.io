@@ -1,5 +1,5 @@
 import React from "react";
-import { services } from "../services";
+import { getService, services } from "../services";
 import { redirect } from "next/navigation";
 import { NavLink } from "@/components/NavLink";
 import Loader from "@/app/Loader";
@@ -11,6 +11,7 @@ export async function generateMetadata({
   params: { service: string };
 }): Promise<Metadata> {
   const serviceDetails = getService(params.service);
+  if (!serviceDetails) return { title: "Service Not Found" };
 
   return {
     title: `${serviceDetails.title} - My Services`,
@@ -24,15 +25,6 @@ export async function generateStaticParams() {
   }));
 }
 
-export function getService(service: string) {
-  const serviceKey = service as keyof typeof services;
-
-  if (!services[serviceKey])
-    return redirect(`/services/${Object.keys(services)[0]}`);
-
-  return services[serviceKey];
-}
-
 function Service({
   params: { service },
   children,
@@ -41,6 +33,7 @@ function Service({
   children: React.ReactNode;
 }) {
   const serviceDetails = getService(service);
+  if (!serviceDetails) redirect("/services");
 
   return (
     <>

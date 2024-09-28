@@ -1,11 +1,13 @@
 import React from "react";
-import { getService } from "../layout";
 import CallToAction from "@/components/CallToAction";
 import Loader from "@/app/Loader";
 import { cn } from "@/lib";
+import { getService } from "../../services";
+import { redirect } from "next/navigation";
 
 function Pricing({ params: { service } }: { params: { service: string } }) {
   const serviceDetails = getService(service);
+  if (!serviceDetails) redirect("/services");
 
   return (
     <>

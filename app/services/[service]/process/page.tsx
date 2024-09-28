@@ -1,10 +1,11 @@
 import React from "react";
-import { getService } from "../layout";
 import Loader from "@/app/Loader";
+import { redirect } from "next/navigation";
+import { getService } from "../../services";
 
 function Process({ params: { service } }: { params: { service: string } }) {
-  //   return <>process</>;
   const serviceDetails = getService(service);
+  if (!serviceDetails) redirect("/services");
   return (
     <>
       <Loader bodySelector="#serviceInnerDetails" />

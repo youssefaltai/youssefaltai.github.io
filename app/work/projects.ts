@@ -15,6 +15,11 @@ export type Project = {
   gallery: string[];
 };
 
+export function getProject(project: string): Project | undefined {
+  const projectDetails = projects.find((p) => p.slug === project);
+  return projectDetails;
+}
+
 export const projects: Project[] = [
   {
     slug: "home-service",

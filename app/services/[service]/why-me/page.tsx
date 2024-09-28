@@ -1,11 +1,13 @@
 import React from "react";
-import { getService } from "../layout";
 import FancyBullet from "@/components/icons/FancyBullet";
 import Loader from "@/app/Loader";
+import { getService } from "../../services";
+import { redirect } from "next/navigation";
 
 function WhyMe({ params: { service } }: { params: { service: string } }) {
   // return <>why me</>;
   const serviceDetails = getService(service);
+  if (!serviceDetails) redirect("/services");
   return (
     <>
       <Loader bodySelector="#serviceInnerDetails" />
