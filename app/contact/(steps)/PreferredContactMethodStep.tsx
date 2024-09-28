@@ -133,7 +133,7 @@ function PreferredContactMethodInputField() {
 
   return (
     <div
-      className="trans flex flex-col items-center gap-8 w-full"
+      className="trans flex flex-col items-center gap-8 w-full max-w-lg"
       id={preferredContactMethodInputFieldId}
     >
       {inputField}

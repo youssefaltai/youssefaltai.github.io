@@ -51,7 +51,7 @@ export default function NameStep() {
       </h2>
       <input
         name="name"
-        className={inputStyle()}
+        className={inputStyle("w-full max-w-lg")}
         type="text"
         placeholder="Type your name here..."
         value={values.name}
