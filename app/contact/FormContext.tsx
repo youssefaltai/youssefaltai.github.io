@@ -1,10 +1,4 @@
-import React, {
-  createContext,
-  useContext,
-  useState,
-  ReactNode,
-  useEffect,
-} from "react";
+import React, { createContext, useContext, useState, ReactNode } from "react";
 
 const preferredContactMethods = ["email", "phone", "whatsapp"] as const;
 export type PreferredContactMethodType =

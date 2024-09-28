@@ -6,7 +6,7 @@ import { ContactFormValuesType } from "./FormContext";
 export async function sendMessageAction(values: ContactFormValuesType) {
   const mongoClient = await client.connect();
 
-  const database = mongoClient.db("messages");
+  const database = mongoClient.db("mywebsite");
   const messages = database.collection("messages");
 
   await messages.insertOne({
