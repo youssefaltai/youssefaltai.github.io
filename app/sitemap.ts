@@ -32,5 +32,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...serviceSections.map((section) => ({
       url: `${baseUrl}/services/design/${section}`,
     })),
+
+    // Work
+
+    /// Home Service
+    {
+      url: `${baseUrl}/work/home-service`,
+    },
+
+    /// SIS
+    {
+      url: `${baseUrl}/work/sis`,
+    },
   ];
 }
