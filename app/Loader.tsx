@@ -1,6 +1,6 @@
 "use client";
 
-import { handleReverseTransition, sleep } from "@/lib";
+import { handleReverseTransition } from "@/lib";
 import React, { useEffect } from "react";
 
 function Loader({
