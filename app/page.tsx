@@ -1,43 +1,31 @@
-import GitHubIcon from "@/components/icons/GitHubIcon";
-import LinkedInIcon from "@/components/icons/LinkedInIcon";
-import Logo from "@/components/Logo";
-import SocialMediaLink from "@/components/SocialMediaLink";
-import { github, linkedin } from "@/contact";
-import Bio from "./Bio";
-import CallToAction from "@/components/CallToAction";
-import Loader from "./Loader";
-import { NavLink } from "@/components/NavLink";
+import Link from "next/link";
+import { type SanityDocument } from "next-sanity";
 
-export default function Home() {
+import { client } from "@/sanity/client";
+
+const POSTS_QUERY = `*[
+  _type == "post"
+  && defined(slug.current)
+]|order(publishedAt desc)[0...12]{_id, title, slug, publishedAt}`;
+
+const options = { next: { revalidate: 30 } };
+
+export default async function IndexPage() {
+  const posts = await client.fetch<SanityDocument[]>(POSTS_QUERY, {}, options);
+
   return (
-    <>
-      <Loader scrollToTop />
-      <main className="flex flex-col justify-center items-center gap-16 py-16">
-        <Logo />
-        <Bio />
-        <CallToAction href="/contact">Contact Me</CallToAction>
-        <nav>
-          <ul className="flex flex-col md:flex-row gap-6 md:gap-12 items-center">
-            <li>
-              <NavLink href="/services">Services</NavLink>
-            </li>
-            <li>
-              <NavLink href="/work">My Work</NavLink>
-            </li>
-            <li>
-              <NavLink href="/about">About Me</NavLink>
-            </li>
-          </ul>
-        </nav>
-        <div className="flex gap-6">
-          <SocialMediaLink href={github.url} aria-label="GitHub">
-            <GitHubIcon className="fill-blue-600" />
-          </SocialMediaLink>
-          <SocialMediaLink href={linkedin.url} aria-label="LinkedIn">
-            <LinkedInIcon className="fill-blue-600" />
-          </SocialMediaLink>
-        </div>
-      </main>
-    </>
+    <main className="container mx-auto min-h-screen max-w-3xl p-8">
+      <h1 className="text-4xl font-bold mb-8">Posts</h1>
+      <ul className="flex flex-col gap-y-4">
+        {posts.map((post) => (
+          <li className="hover:underline" key={post._id}>
+            <Link href={`/${post.slug.current}`}>
+              <h2 className="text-xl font-semibold">{post.title}</h2>
+              <p>{new Date(post.publishedAt).toLocaleDateString()}</p>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </main>
   );
 }
