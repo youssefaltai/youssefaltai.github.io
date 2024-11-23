@@ -22,18 +22,15 @@ function About() {
 
         <div className="flex flex-col justify-center gap-4 px-6  max-w-lg">
           <p className="text-lg md:text-xl">
-            Full-stack engineer with nearly 2 years of experience in designing
-            and developing scalable web apps using the MERN stack and Next.js,
-            and cross-platform mobile apps using Flutter.
+            Frontend engineer with 2+ years of experience in designing and
+            developing scalable, user-centric frontends for the web using
+            Next.js, and for cross-platform mobile apps using Flutter.
           </p>
           <p className="text-lg md:text-xl">
-            Recognized for writing clean and maintainable code.
-          </p>
-          <p className="text-lg md:text-xl">
-            Problem-solver at heart, with a knack for thorough research.
+            Recognized for my knack for thorough research, tend to mentor fellow
+            colleagues, and writing clean, maintainable code.
           </p>
         </div>
-
         <CallToAction href="/contact">Contact Me</CallToAction>
       </Page>
     </>

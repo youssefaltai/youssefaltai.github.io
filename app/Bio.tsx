@@ -6,7 +6,7 @@ function Bio() {
       </h1>
 
       <p className="text-xl md:text-2xl font-bold">
-        Full-Stack & Mobile Engineer
+        Frontend Architect & Designer
       </p>
     </div>
   );
