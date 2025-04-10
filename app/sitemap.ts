@@ -35,6 +35,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     // Work
 
+    /// Meridian
+    {
+      url: `${baseUrl}/work/meridian`,
+    },
+
     /// Home Service
     {
       url: `${baseUrl}/work/home-service`,
