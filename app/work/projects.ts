@@ -23,6 +23,34 @@ export function getProject(project: string): Project | undefined {
 
 export const projects: Project[] = [
   {
+    slug: "meridian",
+    title: "Meridian",
+    description: "Built and maintained core UI components for Meridian, a B2B whitelabel platform for luxury travel professionals. Delivered pixel-perfect UIs, contributed to performance optimizations, and collaborated across teams in a complex multi-app monorepo using Bitbucket and Gitflow.",
+    role: "Frontend Engineer",
+    image: AwsS3Bucket.logo("Meridian+-+Logo.jpg"),
+    links: [
+      {
+        title: "Official Website",
+        url: "https://www.meridianverified.com/",
+        image: AwsS3Bucket.other("Visit+Meridian.png"),
+      },
+    ],
+    responsibilities: [
+      "Building core components for an enterprise-level platform serving active customers in the US.",
+      "Following version control and collaborative development best practices, using the Gitflow model and P2P code reviews, ensuring adherence to project standards.",
+      "Designing technical diagrams, including UML class diagrams and sequence diagrams, to document and plan features and components.",
+      "Participating in daily standup and sprint kickoff meetings, consistently meeting tight deadlines while delivering high-quality work.",
+      "Contributing to UI enhancements, performance optimizations, and DX-focused architecture decisions.ocesses.",
+    ],
+    gallery: [
+      AwsS3Bucket.gallery("meridian/Meridian+SS1.png"),
+      AwsS3Bucket.gallery("meridian/Meridian+SS2.png"),
+      AwsS3Bucket.gallery("meridian/Meridian+SS3.png"),
+      AwsS3Bucket.gallery("meridian/Meridian+SS4.png"),
+      AwsS3Bucket.gallery("meridian/Meridian+SS5.png"),
+    ]
+  },
+  {
     slug: "home-service",
     title: "Home Service",
     role: "Mobile Engineer",
