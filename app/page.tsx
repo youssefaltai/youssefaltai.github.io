@@ -1,43 +1,32 @@
-import GitHubIcon from "@/components/icons/GitHubIcon";
-import LinkedInIcon from "@/components/icons/LinkedInIcon";
-import Logo from "@/components/Logo";
-import SocialMediaLink from "@/components/SocialMediaLink";
-import { github, linkedin } from "@/contact";
-import Bio from "./Bio";
-import CallToAction from "@/components/CallToAction";
-import Loader from "./Loader";
-import { NavLink } from "@/components/NavLink";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <>
-      <Loader scrollToTop />
-      <main className="flex flex-col justify-center items-center gap-16 py-16">
-        <Logo />
-        <Bio />
-        <CallToAction href="/contact">Contact Me</CallToAction>
-        <nav>
-          <ul className="flex flex-col md:flex-row gap-6 md:gap-12 items-center">
-            <li>
-              <NavLink href="/services">Services</NavLink>
-            </li>
-            <li>
-              <NavLink href="/work">My Work</NavLink>
-            </li>
-            <li>
-              <NavLink href="/about">About Me</NavLink>
-            </li>
-          </ul>
-        </nav>
-        <div className="flex gap-6">
-          <SocialMediaLink href={github.url} aria-label="GitHub">
-            <GitHubIcon className="fill-blue-600" />
-          </SocialMediaLink>
-          <SocialMediaLink href={linkedin.url} aria-label="LinkedIn">
-            <LinkedInIcon className="fill-blue-600" />
-          </SocialMediaLink>
+    <div className="flex justify-center items-center gap-12">
+      <Image
+        alt="Picture of Youssef al-Tai"
+        src={'/me.jpeg'}
+        width={200}
+        height={200}
+        className="rounded-full"
+      />
+      <div className="flex flex-col gap-6">
+        <h1 className="text-5xl">
+          I design & build frontends
+          <br />
+          that <strong className="text-primary font-bold">work.</strong>
+        </h1>
+        <div className="flex gap-4">
+          <Link href={'/request'} className="bg-primary text-background font-light py-3 px-4 rounded-sm">
+            Work with me
+          </Link>
+          <Link href={'/work'} className="bg-background text-primary border-[0.5px] border-primary font-light py-3 px-4 rounded-sm">
+            View my work
+          </Link>
         </div>
-      </main>
-    </>
+      </div>
+
+    </div>
   );
 }

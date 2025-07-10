@@ -1,30 +1,119 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-* {
-  @apply text-gray-800;
+@theme {
+  --color-background: #ffffff;
+  --color-foreground: #2e2e1f;
+  --color-primary: #c2c270;
+  --color-secondary: #ede1d4;
+  --color-muted: #c2c2a3;
+  --color-border: #d9d9d9;
+  --color-alert-danger: #ff0000;
+  --color-alert-warning: #ffd400;
+  --color-alert-success: #14b866;
+  --color-alert-info: #47b4eb;
+
+  --spacing-page-padding: 200px;
+  --spacing-page-width: 733px;
 }
 
-.trans {
-  transition-property: opacity, transform, filter, background;
-  transition-timing-function: ease-in-out;
-  transition-duration: 300ms;
+body {
+  font-family: Helvetica, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
 }
 
-.blur-transition {
-  opacity: 0;
-  filter: blur(12px);
+/* [ {
+  "Variable collection": {
+    "modes": {
+      "Mode 1": {
+        "Brand": {
+          "Action": {
+            "Primary": {
+              "$scopes": ["ALL_SCOPES"], "$type":"color", "$value":"#c2c270"
+            }
+
+            ,
+            "Secondary": {
+              "$scopes": ["ALL_SCOPES"], "$type":"color", "$value":"#ede1d4"
+            }
+          }
+
+          ,
+          "Background": {
+            "Dark": {
+              "$scopes": ["ALL_SCOPES"], "$type":"color", "$value":"#e4e4e4"
+            }
+
+            ,
+            "Normal": {
+              "$scopes": ["ALL_SCOPES"], "$type":"color", "$value":"#f2f2f2"
+            }
+
+            ,
+            "Light": {
+              "$scopes": ["ALL_SCOPES"], "$type":"color", "$value":"#ffffff"
+            }
+          }
+
+          ,
+          "Text": {
+            "Normal": {
+              "$scopes": ["ALL_SCOPES"], "$type":"color", "$value":"#2e2e1f"
+            }
+
+            ,
+            "Light": {
+              "$scopes": ["ALL_SCOPES"], "$type":"color", "$value":"#ffffff"
+            }
+
+            ,
+            "Muted": {
+              "$scopes": ["ALL_SCOPES"], "$type":"color", "$value":"#c2c2a3"
+            }
+          }
+
+          ,
+          "Border": {
+            "Highlight": {
+              "$scopes": ["ALL_SCOPES"], "$type":"color", "$value":"#ffffff"
+            }
+
+            ,
+            "Normal": {
+              "$scopes": ["ALL_SCOPES"], "$type":"color", "$value":"#d9d9d9"
+            }
+
+            ,
+            "Muted": {
+              "$scopes": ["ALL_SCOPES"], "$type":"color", "$value":"#e5e5e5"
+            }
+          }
+
+          ,
+          "Alert": {
+            "Danger": {
+              "$scopes": ["ALL_SCOPES"], "$type":"color", "$value":"#ff0000"
+            }
+
+            ,
+            "Warning": {
+              "$scopes": ["ALL_SCOPES"], "$type":"color", "$value":"#ffd400"
+            }
+
+            ,
+            "Success": {
+              "$scopes": ["ALL_SCOPES"], "$type":"color", "$value":"#14b866"
+            }
+
+            ,
+            "Info": {
+              "$scopes": ["ALL_SCOPES"], "$type":"color", "$value":"#47b4eb"
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
-.page-transition {
-  transform: translateY(24px);
-}
-
-textarea {
-  resize: none;
-}
-
-.input {
-  padding: 16px;
-}
+] */
