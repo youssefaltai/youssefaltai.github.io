@@ -1,14 +1,11 @@
 import PrimaryButtonLink from "@/components/Button/ButtonLink/PrimaryButtonLink";
 import ContactSection from "@/components/ContactSection";
 import PageTemplate from "@/components/PageTemplate";
-import Subtitle, { Emphasis } from "@/components/Slogan";
 import { Service, services } from "@/lib/services";
 
 export default function Services() {
     return (
         <PageTemplate title="How I can help you">
-            <Subtitle>I design & build frontends that <Emphasis>work.</Emphasis></Subtitle>
-
             <p>
                 Whether you’re rescuing a project that needs fixing or starting fresh and want to do it right, I’ll make sure your product feels fast, clear, and genuinely easy to use.
             </p>

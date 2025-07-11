@@ -41,7 +41,7 @@ function Header() {
 function Footer() {
   return (
     <footer className="border-t border-gray-200">
-      <div className="flex justify-center items-center container mx-auto p-4 md:p-8 text-center text-sm text-gray-400">
+      <div className="flex justify-center items-center container mx-auto p-4 md:p-8 text-center text-xs md:text-sm text-gray-400">
         © {new Date().getFullYear()} Youssef al-Tai. All rights reserved.
       </div>
     </footer>
@@ -50,7 +50,7 @@ function Footer() {
 
 function Brand() {
   return (
-    <h1 className="font-bold text-lg hover:text-shadow">
+    <h1 className="font-bold md:text-lg hover:text-shadow">
       <Link href={'/'} >
         Youssef al-Tai
       </Link>

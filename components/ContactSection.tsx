@@ -12,10 +12,10 @@ export default function ContactSection() {
 
             <div className="flex flex-col gap-2">
                 <p>
-                    If you&apos;ve got a clear scope, that&apos;s great. But even if you have just a fuzzy idea, I&apos;m happy to chat.
+                    If you&apos;ve got a clear scope, that&apos;s great. But even if you have just a fuzzy idea, I&apos;m always happy to chat.
                 </p>
                 <p>
-                    You can also reach me through any of these:
+                    You can reach me through any of these:
                 </p>
             </div>
 
@@ -25,7 +25,7 @@ export default function ContactSection() {
 
             <div className="flex flex-col gap-4 py-6">
                 <p>
-                    Or, if you&apos;d prefer, you can book a call with me:
+                    You can also book a call with me:
                 </p>
 
                 <PrimaryButtonLink external className={'w-full sm:w-fit'} href={'/call'}>
