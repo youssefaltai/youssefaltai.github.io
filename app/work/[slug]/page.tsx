@@ -3,12 +3,13 @@ import PageTemplate from "@/components/PageTemplate";
 import { projectsBuiltFromScratch, projectsBuiltWithTeams, type Project } from "@/lib/work";
 
 type Props = {
-    params: { slug: string };
+    params: Promise<{ slug: string }>;
 };
 
-export default function ProjectDetails({ params }: Props) {
+export default async function ProjectDetails({ params }: Props) {
+    const { slug } = await params;
     const allProjects = [...projectsBuiltFromScratch, ...projectsBuiltWithTeams];
-    const project = allProjects.find((project: Project) => project.slug === params.slug);
+    const project = allProjects.find((project: Project) => project.slug === slug);
 
     if (!project) {
         notFound();
@@ -28,10 +29,10 @@ export default function ProjectDetails({ params }: Props) {
                             <div className="flex-1">
                                 <h2 className="text-2xl font-bold text-spring-800 mb-2">Work in Progress</h2>
                                 <p className="text-spring-700 mb-4">
-                                    I'm currently working on presenting this project in detail. The case study and project details are being prepared.
+                                    I&apos;m currently working on presenting this project in detail. The case study and project details are being prepared.
                                 </p>
                                 <div className="bg-white border border-spring-200 rounded-sm p-4">
-                                    <h3 className="font-medium text-spring-800 mb-2">What's coming:</h3>
+                                    <h3 className="font-medium text-spring-800 mb-2">What&apos;s coming:</h3>
                                     <ul className="text-sm text-spring-700 space-y-1">
                                         <li className="flex items-center gap-2">
                                             <span className="text-spring-400">•</span>
@@ -60,7 +61,7 @@ export default function ProjectDetails({ params }: Props) {
                         <p className="text-gray-600 leading-relaxed">
                             {project.description}
                         </p>
-                        
+
                         <div>
                             <h4 className="font-medium text-gray-800 mb-2">Role</h4>
                             <span className="bg-spring-100 text-spring-700 px-3 py-1 rounded-sm text-sm border border-spring-200">

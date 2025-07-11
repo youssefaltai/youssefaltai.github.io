@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { Suspense, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import PageTemplate from "@/components/PageTemplate";
 import ContactSection from "@/components/ContactSection";
@@ -9,7 +9,14 @@ import ServiceDropdown from "@/components/ServiceDropdown";
 import PrimaryButton from "@/components/Button/ButtonLink/PrimaryButton";
 import { submitRequest, type RequestFormData } from "./actions";
 
-export default function Request() {
+export default function Page() {
+    return (
+        <Suspense>
+            <Request />
+        </Suspense>
+    )
+}
+function Request() {
     const searchParams = useSearchParams();
     const router = useRouter();
     const [formData, setFormData] = useState({
@@ -24,7 +31,7 @@ export default function Request() {
     // Update URL when service changes
     const updateService = (service: string) => {
         setFormData(prev => ({ ...prev, service }));
-        
+
         const params = new URLSearchParams(searchParams.toString());
         if (service) {
             params.set("service", service);
@@ -36,13 +43,13 @@ export default function Request() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        
+
         setIsSubmitting(true);
         setSubmitMessage(null);
 
         try {
             const result = await submitRequest(formData as RequestFormData);
-            
+
             if (result.success) {
                 setSubmitMessage({ type: 'success', message: result.message });
                 // Clear form on success
@@ -55,10 +62,10 @@ export default function Request() {
             } else {
                 setSubmitMessage({ type: 'error', message: result.message });
             }
-        } catch (error) {
-            setSubmitMessage({ 
-                type: 'error', 
-                message: "An unexpected error occurred. Please try again." 
+        } catch {
+            setSubmitMessage({
+                type: 'error',
+                message: "An unexpected error occurred. Please try again."
             });
         } finally {
             setIsSubmitting(false);
@@ -73,7 +80,7 @@ export default function Request() {
         <PageTemplate title="Talk to me">
             <div className="flex flex-col gap-8 max-w-2xl">
                 <p className="text-lg text-gray-600">
-                    Tell me about your project or what you want me to help you with, and I'll get back to you quickly.
+                    Tell me about your project or what you want me to help you with, and I&apos;ll get back to you quickly.
                 </p>
 
                 <form onSubmit={handleSubmit} className={`flex flex-col gap-6 ${isSubmitting ? 'pointer-events-none opacity-60' : ''}`}>
@@ -127,7 +134,7 @@ export default function Request() {
                                     <div className="font-medium text-spring-800 text-lg mb-1">Request sent successfully!</div>
                                     <div className="text-spring-700">{submitMessage.message}</div>
                                     <div className="mt-3 text-sm text-spring-600">
-                                        I'll review your request and get back to you within 24 hours.
+                                        I&apos;ll review your request and get back to you within 24 hours.
                                     </div>
                                 </div>
                             </div>
@@ -155,8 +162,8 @@ export default function Request() {
                     )}
 
                     <div className="flex justify-start">
-                        <PrimaryButton 
-                            type="submit" 
+                        <PrimaryButton
+                            type="submit"
                             disabled={isSubmitting}
                             className="transition-all duration-300 hover:scale-101 active:scale-95"
                         >
