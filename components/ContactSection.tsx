@@ -6,7 +6,7 @@ import PrimaryButtonLink from './Button/ButtonLink/PrimaryButtonLink'
 export default function ContactSection() {
     return (
         <div className="flex flex-col gap-3">
-            <h2 className="text-3xl">
+            <h2 className="text-2xl md:text-3xl">
                 I&apos;m easy to talk to
             </h2>
 
@@ -28,7 +28,7 @@ export default function ContactSection() {
                     Or, if you&apos;d prefer, you can book a call with me:
                 </p>
 
-                <PrimaryButtonLink external className={'w-fit'} href={'/call'}>
+                <PrimaryButtonLink external className={'w-full sm:w-fit'} href={'/call'}>
                     Let&apos;s have a call
                 </PrimaryButtonLink>
             </div>

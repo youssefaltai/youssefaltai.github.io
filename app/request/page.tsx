@@ -78,12 +78,12 @@ function Request() {
 
     return (
         <PageTemplate title="Talk to me">
-            <div className="flex flex-col gap-8 max-w-2xl">
-                <p className="text-lg text-gray-600">
+            <div className="flex flex-col gap-6 md:gap-8 w-full max-w-2xl">
+                <p className="text-base md:text-lg text-gray-600">
                     Tell me about your project or what you want me to help you with, and I&apos;ll get back to you quickly.
                 </p>
 
-                <form onSubmit={handleSubmit} className={`flex flex-col gap-6 ${isSubmitting ? 'pointer-events-none opacity-60' : ''}`}>
+                <form onSubmit={handleSubmit} className={`flex flex-col gap-4 md:gap-6 ${isSubmitting ? 'pointer-events-none opacity-60' : ''}`}>
                     <InputField
                         label="May I ask your name?"
                         labelNote="you don't have to"
@@ -165,7 +165,7 @@ function Request() {
                         <PrimaryButton
                             type="submit"
                             disabled={isSubmitting}
-                            className="transition-all duration-300 hover:scale-101 active:scale-95"
+                            className="transition-all duration-300 hover:scale-101 active:scale-95 w-full sm:w-auto"
                         >
                             <div className="flex items-center gap-2">
                                 {isSubmitting && (

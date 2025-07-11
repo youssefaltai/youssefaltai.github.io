@@ -7,7 +7,7 @@ export default function SecondaryButtonLink({ children, href, className }: Butto
     <Link href={href}
       className={
         clsx(
-          "bg-gray-50 hover:bg-white active:bg-gray-100 text-spring-400 border border-spring-400 hover:shadow rounded-sm px-4 py-3 transition-all duration-300",
+          "bg-gray-50 hover:bg-white active:bg-gray-100 text-spring-400 border border-spring-400 hover:shadow rounded-sm px-4 py-3 transition-all duration-300 flex justify-center items-center text-center",
           className
         )
       }
