@@ -1,32 +1,29 @@
 {
-  "name": "nextjs",
+  "name": "youssefaltai.github.io",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "animejs": "^3.2.2",
     "clsx": "^2.1.1",
-    "mongodb": "^6.9.0",
-    "next": "^14.2.13",
-    "react": "^18",
-    "react-dom": "^18",
-    "tailwind-merge": "^2.5.2",
-    "zod-validation-error": "^3.3.1"
+    "next": "15.3.5",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "resend": "^4.6.0"
   },
   "devDependencies": {
-    "@types/animejs": "^3.1.12",
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.5",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.3.5",
+    "tailwindcss": "^4",
     "typescript": "^5"
   }
 }

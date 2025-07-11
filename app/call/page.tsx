@@ -1,6 +1,7 @@
-import { redirect } from 'next/navigation';
+import { env } from "@/lib/env";
+import { notFound, redirect } from "next/navigation";
 
-export default function CallPage() {
-  const calendarUrl = process.env.CALENDAR_URL || 'https://calendar.app.google/uHgBMjJY5JyELETd9';
-  redirect(calendarUrl);
-} 
+export default function Call() {
+    if (env.appointmentBookingLink) return redirect(env.appointmentBookingLink);
+    return notFound();
+}

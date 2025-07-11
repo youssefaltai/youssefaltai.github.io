@@ -1,43 +1,53 @@
-import GitHubIcon from "@/components/icons/GitHubIcon";
-import LinkedInIcon from "@/components/icons/LinkedInIcon";
-import Logo from "@/components/Logo";
-import SocialMediaLink from "@/components/SocialMediaLink";
-import { github, linkedin } from "@/contact";
-import Bio from "./Bio";
-import CallToAction from "@/components/CallToAction";
-import Loader from "./Loader";
-import { NavLink } from "@/components/NavLink";
+import PrimaryButtonLink from "@/components/Button/ButtonLink/PrimaryButtonLink";
+import SecondaryButtonLink from "@/components/Button/ButtonLink/SecondaryButtonLink";
+import ContactLink from "@/components/ContactLink";
+import ProfilePicture from "@/components/ProfilePicture";
+import Subtitle, { Emphasis } from "@/components/Slogan";
+import { contactLinks } from "@/lib/contact";
 
 export default function Home() {
   return (
-    <>
-      <Loader scrollToTop />
-      <main className="flex flex-col justify-center items-center gap-16 py-16">
-        <Logo />
-        <Bio />
-        <CallToAction href="/contact">Contact Me</CallToAction>
-        <nav>
-          <ul className="flex flex-col md:flex-row gap-6 md:gap-12 items-center">
-            <li>
-              <NavLink href="/services">Services</NavLink>
-            </li>
-            <li>
-              <NavLink href="/work">My Work</NavLink>
-            </li>
-            <li>
-              <NavLink href="/about">About Me</NavLink>
-            </li>
-          </ul>
-        </nav>
-        <div className="flex gap-6">
-          <SocialMediaLink href={github.url} aria-label="GitHub">
-            <GitHubIcon className="fill-blue-600" />
-          </SocialMediaLink>
-          <SocialMediaLink href={linkedin.url} aria-label="LinkedIn">
-            <LinkedInIcon className="fill-blue-600" />
-          </SocialMediaLink>
-        </div>
-      </main>
-    </>
+    <div className="flex flex-grow flex-col justify-center items-center py-8 gap-16">
+      <Hero />
+      <ContactLinks />
+    </div>
   );
 }
+
+function Hero() {
+  return (
+    <div className="flex items-center gap-12">
+      <ProfilePicture />
+
+      <div className="flex flex-col items-start gap-6">
+        <Subtitle>I design & build frontends that <Emphasis>work.</Emphasis></Subtitle>
+        <Actions />
+      </div>
+    </div>
+  );
+}
+
+
+function Actions() {
+  return (
+    <div className="flex justify-center items-center gap-4">
+      <PrimaryButtonLink href={'/request'}>
+        Work with me
+      </PrimaryButtonLink>
+      <SecondaryButtonLink href={'/work'}>
+        View my work
+      </SecondaryButtonLink>
+    </div>
+  );
+}
+
+function ContactLinks() {
+  return (
+    <div className="flex justify-center items-center gap-12">
+      {contactLinks.map((link, i) => (<ContactLink key={i} link={link} />))}
+    </div>
+  );
+}
+
+
+

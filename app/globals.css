@@ -1,30 +1,15 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-* {
-  @apply text-gray-800;
-}
-
-.trans {
-  transition-property: opacity, transform, filter, background;
-  transition-timing-function: ease-in-out;
-  transition-duration: 300ms;
-}
-
-.blur-transition {
-  opacity: 0;
-  filter: blur(12px);
-}
-
-.page-transition {
-  transform: translateY(24px);
-}
-
-textarea {
-  resize: none;
-}
-
-.input {
-  padding: 16px;
-}
+@theme {
+    --color-spring-950: #111108;
+    --color-spring-900: #222211;
+    --color-spring-800: #444422;
+    --color-spring-700: #666633;
+    --color-spring-600: #888844;
+    --color-spring-500: #AAAA55;
+    --color-spring-400: #BBBB77;
+    --color-spring-300: #CCCC99;
+    --color-spring-200: #DDDDBB;
+    --color-spring-100: #EEEEDD;
+    --color-spring-50: #F6F6EE;
+  }

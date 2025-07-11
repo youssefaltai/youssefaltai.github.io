@@ -1,47 +1,80 @@
-import "./globals.css";
+import Link from "next/link";
 
 import type { Metadata } from "next";
+import { navLinks, NavLinkType } from "@/lib/navigation";
 
-import { font } from "@/lib";
-
-const title = "Youssef al-Tai | Full-Stack & Mobile Engineer";
-const description =
-  "I am Youssef al-Tai, a full-stack and mobile engineer with a focus on building high-performance websites and applications. I specialize in the MERN stack, Next.js, and Flutter.";
+import "./globals.css";
 
 export const metadata: Metadata = {
-  title: {
-    default: title,
-    template: `%s - ${title}`,
-  },
-  description,
-  twitter: {
-    card: "summary_large_image",
-  },
+  title: "Youssef al-Tai",
+  description: "I design & build frontends that work.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+type RootLayoutProps = Readonly<{ children: React.ReactNode; }>;
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html
-      lang="en"
-      className="scroll-smooth min-w-full min-h-full flex flex-col justify-center items-center"
-    >
-      <body
-        className={`trans blur-transition page-transition ${font.className} flex flex-col justify-center items-center min-w-full min-h-full bg-gradient-to-b from-white to-[#EFEFEF]`}
-      >
-        {children}
-        <footer className="my-16">
-          <p className="text-sm text-gray-500 px-6 text-center">
-            &copy; {new Date().getFullYear()} Youssef al-Tai.{" "}
-            <span className="whitespace-nowrap text-inherit">
-              All rights reserved.
-            </span>
-          </p>
-        </footer>
+    <html lang="en">
+      <body className="min-h-screen flex flex-col bg-gray-50 text-gray-800 antialiased">
+        <Header />
+
+        <main className="flex flex-col flex-grow container mx-auto">
+          {children}
+        </main>
+
+        <Footer />
       </body>
     </html>
+  );
+}
+
+function Header() {
+  return (
+    <header className="border-b border-gray-200">
+      <div className="flex justify-between items-center container mx-auto p-8 ">
+        <Brand />
+        <NavLinks />
+      </div>
+    </header>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="border-t border-gray-200">
+      <div className="flex justify-center items-center container mx-auto p-8 text-center text-sm text-gray-400">
+        © {new Date().getFullYear()} Youssef al-Tai. All rights reserved.
+      </div>
+    </footer>
+  );
+}
+
+function Brand() {
+  return (
+    <h1 className="font-bold text-lg hover:text-shadow">
+      <Link href={'/'} >
+        Youssef al-Tai
+      </Link>
+    </h1>
+  );
+}
+
+function NavLinks() {
+  return (
+    <ul className="flex items-center gap-12">
+      {navLinks.map((navLink, i) => (
+        <li key={i} >
+          <NavLink navLink={navLink} />
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+type NavLinkProps = { navLink: NavLinkType; }
+function NavLink({ navLink: { label, href } }: NavLinkProps) {
+  return (
+    <Link href={href} className='transition-all duration-300 p-2 hover:text-spring-400'>
+      {label}
+    </Link>
   );
 }

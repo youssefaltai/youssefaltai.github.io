@@ -1,21 +1,20 @@
-"use client";
-
 import Image from "next/image";
 
-function ProfilePicture() {
-  return (
-    <Image
-      priority
-      src="/Youssef al-Tai.png"
-      alt="Youssef al-Tai"
-      width={1024}
-      height={1024}
-      className="rounded-full w-48 h-48 trans blur-transition"
-      onLoad={(image) =>
-        image.currentTarget.classList.remove("blur-transition")
-      }
-    />
-  );
+type ProfilePictureProps = {
+    alt?: string;
+    src?: string;
+    size?: number;
 }
 
-export default ProfilePicture;
+export default function ProfilePicture({ alt = 'Picture of Youssef al-Tai', src = '/me.jpeg', size = 200 }: ProfilePictureProps) {
+    return (
+        <Image
+            alt={alt}
+            src={src}
+            width={size}
+            height={size}
+            priority
+            className="min-w-max min-h-max rounded-full hover:shadow transition-shadow duration-300"
+        />
+    );
+}
