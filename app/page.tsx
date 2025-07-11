@@ -7,7 +7,7 @@ import { contactLinks } from "@/lib/contact";
 
 export default function Home() {
   return (
-    <div className="flex flex-grow flex-col justify-center items-center py-8 gap-16">
+    <div className="w-full flex flex-grow flex-col justify-center items-center gap-16 p-4">
       <Hero />
       <ContactLinks />
     </div>
@@ -16,10 +16,10 @@ export default function Home() {
 
 function Hero() {
   return (
-    <div className="flex items-center gap-12">
+    <div className="flex flex-col md:flex-row gap-8 items-center">
       <ProfilePicture />
 
-      <div className="flex flex-col items-start gap-6">
+      <div className="flex flex-col items-start gap-8 md:gap-4 lg:max-w-[517px]">
         <Subtitle>I design & build frontends that <Emphasis>work.</Emphasis></Subtitle>
         <Actions />
       </div>
@@ -30,11 +30,11 @@ function Hero() {
 
 function Actions() {
   return (
-    <div className="flex justify-center items-center gap-4">
-      <PrimaryButtonLink href={'/request'}>
+    <div className="flex flex-col md:flex-row justify-start items-center w-full md:w-fit gap-4">
+      <PrimaryButtonLink href={'/request'} className="w-full md:w-fit">
         Work with me
       </PrimaryButtonLink>
-      <SecondaryButtonLink href={'/work'}>
+      <SecondaryButtonLink href={'/work'} className="w-full md:w-fit">
         View my work
       </SecondaryButtonLink>
     </div>
@@ -43,7 +43,7 @@ function Actions() {
 
 function ContactLinks() {
   return (
-    <div className="flex justify-center items-center gap-12">
+    <div className="flex flex-col md:flex-row justify-center items-center gap-8">
       {contactLinks.map((link, i) => (<ContactLink key={i} link={link} />))}
     </div>
   );

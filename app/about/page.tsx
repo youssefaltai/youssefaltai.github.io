@@ -2,15 +2,10 @@ import Image from "next/image";
 import { textSections, type TextSectionType } from "@/lib/about";
 import PageTemplate from "@/components/PageTemplate";
 import ContactSection from "@/components/ContactSection";
-import { Emphasis } from "@/components/Slogan";
 
 export default function About() {
     return (
         <PageTemplate title="Who I am">
-            <h1 className="text-5xl max-w-xl">
-                I’m a software engineer who cares <Emphasis>how things feel</Emphasis>, not just how they function.
-            </h1>
-
             {textSections.map((textSection, i) => (<TextSection key={i} textSection={textSection} />))}
             <ContactSection />
         </PageTemplate>
