@@ -26,7 +26,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
 
 function Header() {
   return (
-    <header className="border-b border-gray-200 relative z-20">
+    <header className="border-b border-gray-200">
       <div className="flex justify-between items-center container mx-auto p-4 md:p-8">
         <Brand />
         <MobileNavMenu />
@@ -50,11 +50,11 @@ function Footer() {
 
 function Brand() {
   return (
-    <h1 className="font-bold md:text-lg hover:text-shadow">
+    <div className="font-bold md:text-lg hover:text-shadow">
       <Link href={'/'} >
         Youssef al-Tai
       </Link>
-    </h1>
+    </div>
   );
 }
 

@@ -6,7 +6,7 @@ import PrimaryButtonLink from './Button/ButtonLink/PrimaryButtonLink'
 export default function ContactSection() {
     return (
         <div className="flex flex-col gap-3">
-            <h2 className="text-2xl md:text-3xl">
+            <h2 className="text-2xl font-bold">
                 I&apos;m easy to talk to
             </h2>
 

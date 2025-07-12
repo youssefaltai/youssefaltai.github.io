@@ -14,7 +14,7 @@ export default function Testimonials() {
 type TestimonialCardProps = { testimonial: Testimonial };
 function TestimonialCard({ testimonial: { client, title, feedback, profilePicture } }: TestimonialCardProps) {
     return (
-        <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 w-full">
+        <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8 w-full">
             <ProfilePicture src={profilePicture} />
             <div className="flex flex-col gap-4 md:gap-8 w-full">
                 <Quote />

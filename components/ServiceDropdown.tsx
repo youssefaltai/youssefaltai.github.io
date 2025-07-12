@@ -10,9 +10,10 @@ type ServiceDropdownProps = {
     value?: string;
     onChange?: (value: string) => void;
     disabled?: boolean;
+    error?: string;
 };
 
-export default function ServiceDropdown({ label, labelNote, required = false, className, value, onChange, disabled = false }: ServiceDropdownProps) {
+export default function ServiceDropdown({ label, labelNote, required = false, className, value, onChange, disabled = false, error }: ServiceDropdownProps) {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedService, setSelectedService] = useState<Service | null>(
         value ? services.find(service => service.slug === value) || null : null
@@ -67,7 +68,12 @@ export default function ServiceDropdown({ label, labelNote, required = false, cl
         setIsOpen(false);
     };
 
-    const baseClasses = "bg-gray-50 hover:bg-white active:bg-gray-100 text-gray-800 border border-spring-400 hover:shadow rounded-sm px-4 py-3 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-spring-400 focus:border-transparent";
+    const baseClasses = clsx(
+        "bg-gray-50 hover:bg-white active:bg-gray-100 text-gray-800 border rounded-sm px-4 py-3 transition-all duration-300 focus:outline-none focus:ring-2 focus:border-transparent",
+        error 
+            ? "border-red-400 focus:ring-red-400" 
+            : "border-spring-400 hover:shadow focus:ring-spring-400"
+    );
 
     return (
         <div className="flex flex-col gap-2">
@@ -133,6 +139,11 @@ export default function ServiceDropdown({ label, labelNote, required = false, cl
                     ))}
                 </div>
             </div>
+            {error && (
+                <div className="text-red-600 text-sm animate-in slide-in-from-top-2 duration-200">
+                    {error}
+                </div>
+            )}
         </div>
     );
 } 
