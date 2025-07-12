@@ -16,7 +16,7 @@ export default function PrimaryButton({ children, className, type = "button", on
             disabled={disabled}
             className={
                 clsx(
-                    "bg-spring-500 hover:bg-spring-400 active:bg-spring-600 text-white hover:shadow rounded-sm px-4 py-3 transition-all duration-300 flex justify-center items-center text-center disabled:opacity-50 disabled:cursor-not-allowed",
+                    "bg-spring-500 not-disabled:hover:bg-spring-400 not-disabled:active:bg-spring-600 text-white not-disabled:hover:shadow rounded-sm px-4 py-3 transition-all duration-300 flex justify-center items-center text-center disabled:bg-spring-200 disabled:cursor-not-allowed",
                     className
                 )
             }

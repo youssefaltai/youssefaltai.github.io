@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useState } from "react";
+import { Suspense, useState, useMemo } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import PageTemplate from "@/components/PageTemplate";
 import ContactSection from "@/components/ContactSection";
@@ -8,6 +8,7 @@ import InputField from "@/components/InputField";
 import ServiceDropdown from "@/components/ServiceDropdown";
 import PrimaryButton from "@/components/Button/ButtonLink/PrimaryButton";
 import { submitRequest, type RequestFormData } from "./actions";
+import { services } from "@/lib/services";
 
 export default function Page() {
     return (
@@ -16,17 +17,79 @@ export default function Page() {
         </Suspense>
     )
 }
+
+// Email validation function
+const isValidEmail = (email: string): boolean => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+};
+
+// Phone validation function (basic)
+const isValidPhone = (phone: string): boolean => {
+    const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+    return phoneRegex.test(phone.replace(/[\s\-\(\)]/g, ''));
+};
+
+// Validation function
+const validateForm = (formData: typeof initialFormData) => {
+    const errors: Record<string, string> = {};
+
+    // Contact validation - only show error if field has content but is invalid
+    if (formData.contact.trim()) {
+        // Check if it's an email or phone
+        const isEmail = formData.contact.includes('@');
+        if (isEmail) {
+            if (!isValidEmail(formData.contact)) {
+                errors.contact = "Please enter a valid email address";
+            }
+        } else {
+            if (!isValidPhone(formData.contact)) {
+                errors.contact = "Please enter a valid phone number";
+            }
+        }
+    }
+
+    // Service validation - only show error if field has content but is invalid
+    if (formData.service.trim() && !services.find(service => service.slug === formData.service)) {
+        errors.service = "Please select a valid service";
+    }
+
+    // Project description validation - only show error if field has content but is too short
+    if (formData.projectDescription.trim() && formData.projectDescription.trim().length < 10) {
+        errors.projectDescription = "Project description must be at least 10 characters long";
+    }
+
+    return errors;
+};
+
+const initialFormData = {
+    fullName: "",
+    contact: "",
+    service: "",
+    projectDescription: ""
+};
+
 function Request() {
     const searchParams = useSearchParams();
     const router = useRouter();
     const [formData, setFormData] = useState({
-        fullName: "",
-        contact: "",
-        service: searchParams.get("service") || "",
-        projectDescription: ""
+        ...initialFormData,
+        service: searchParams.get("service") || ""
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitMessage, setSubmitMessage] = useState<{ type: 'success' | 'error', message: string } | null>(null);
+
+    // Validate form on every change
+    const formErrors = useMemo(() => validateForm(formData), [formData]);
+
+    // Check if form is valid for submission (all required fields filled + no validation errors)
+    const isFormValid = useMemo(() => {
+        const hasRequiredFields = formData.contact.trim() && 
+                                 formData.service.trim() && 
+                                 formData.projectDescription.trim();
+        const hasNoErrors = Object.keys(formErrors).length === 0;
+        return hasRequiredFields && hasNoErrors;
+    }, [formData, formErrors]);
 
     // Update URL when service changes
     const updateService = (service: string) => {
@@ -44,6 +107,11 @@ function Request() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
+        // Double-check validation before submitting
+        if (!isFormValid) {
+            return;
+        }
+
         setIsSubmitting(true);
         setSubmitMessage(null);
 
@@ -53,12 +121,7 @@ function Request() {
             if (result.success) {
                 setSubmitMessage({ type: 'success', message: result.message });
                 // Clear form on success
-                setFormData({
-                    fullName: "",
-                    contact: "",
-                    service: "",
-                    projectDescription: ""
-                });
+                setFormData(initialFormData);
             } else {
                 setSubmitMessage({ type: 'error', message: result.message });
             }
@@ -100,6 +163,7 @@ function Request() {
                         value={formData.contact}
                         onChange={(value) => updateFormData("contact", value)}
                         disabled={isSubmitting}
+                        error={formErrors.contact}
                     />
 
                     <ServiceDropdown
@@ -108,6 +172,7 @@ function Request() {
                         value={formData.service}
                         onChange={updateService}
                         disabled={isSubmitting}
+                        error={formErrors.service}
                     />
 
                     <InputField
@@ -119,6 +184,7 @@ function Request() {
                         value={formData.projectDescription}
                         onChange={(value) => updateFormData("projectDescription", value)}
                         disabled={isSubmitting}
+                        error={formErrors.projectDescription}
                     />
 
                     {/* Success State */}
@@ -164,8 +230,8 @@ function Request() {
                     <div className="flex justify-start">
                         <PrimaryButton
                             type="submit"
-                            disabled={isSubmitting}
-                            className="transition-all duration-300 hover:scale-101 active:scale-95 w-full sm:w-auto"
+                            disabled={isSubmitting || !isFormValid}
+                            className="transition-all duration-300 hover:scale-101 active:scale-95 w-full sm:w-auto disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                         >
                             <div className="flex items-center gap-2">
                                 {isSubmitting && (

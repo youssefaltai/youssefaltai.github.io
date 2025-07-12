@@ -12,11 +12,17 @@ type InputFieldProps = {
     value?: string;
     onChange?: (value: string) => void;
     disabled?: boolean;
+    error?: string;
 };
 
 const InputField = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputFieldProps>(
-    ({ label, labelNote, placeholder, required = false, multiline = false, rows = 4, className, value, onChange, disabled = false }, ref) => {
-        const baseClasses = "bg-gray-50 hover:bg-white text-gray-800 border border-spring-400 hover:shadow rounded-sm px-4 py-3 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-spring-400 focus:border-transparent";
+    ({ label, labelNote, placeholder, required = false, multiline = false, rows = 4, className, value, onChange, disabled = false, error }, ref) => {
+        const baseClasses = clsx(
+            "bg-gray-50 hover:bg-white text-gray-800 border rounded-sm px-4 py-3 transition-all duration-300 focus:outline-none focus:ring-2 focus:border-transparent",
+            error 
+                ? "border-red-400 focus:ring-red-400" 
+                : "border-spring-400 hover:shadow focus:ring-spring-400"
+        );
 
         const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
             onChange?.(e.target.value);
@@ -62,6 +68,11 @@ const InputField = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputField
                             className
                         )}
                     />
+                )}
+                {error && (
+                    <div className="text-red-600 text-sm animate-in slide-in-from-top-2 duration-200">
+                        {error}
+                    </div>
                 )}
             </div>
         );

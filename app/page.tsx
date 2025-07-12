@@ -7,7 +7,7 @@ import { contactLinks } from "@/lib/contact";
 
 export default function Home() {
   return (
-    <div className="w-full flex flex-grow flex-col justify-center items-center gap-16 p-4">
+    <div className="w-full flex flex-grow flex-col justify-center items-center gap-16 px-4 py-16 md:py-0">
       <Hero />
       <ContactLinks />
     </div>

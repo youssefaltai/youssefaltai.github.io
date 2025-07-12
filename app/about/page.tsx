@@ -16,7 +16,7 @@ type TextSectionProps = { textSection: TextSectionType }
 function TextSection({ textSection: { heading, body } }: TextSectionProps) {
     return (
         <div className="flex flex-col gap-3">
-            {heading && <h2 className="text-3xl">{heading}</h2>}
+            {heading && <h2 className="text-2xl font-bold">{heading}</h2>}
             {body.map((paragraph, i) => (
                 typeof paragraph === "string" ?
                     <p key={i}>{paragraph}</p> :

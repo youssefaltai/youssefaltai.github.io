@@ -22,7 +22,7 @@ type ProjectSectionProps = { title: string; projects: Project[]; };
 function ProjectSection({ title, projects }: ProjectSectionProps) {
     return (
         <div className="w-full flex flex-col gap-3">
-            <h2 className="text-2xl md:text-3xl">{title}</h2>
+            <h2 className="text-2xl font-bold">{title}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {projects.map((project, i) => (<ProjectCard key={i} project={project} />))}
             </div>
