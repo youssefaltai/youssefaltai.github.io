@@ -4,18 +4,10 @@ import ContactLink from "@/components/ContactLink";
 import ProfilePicture from "@/components/ProfilePicture";
 import Subtitle, { Emphasis } from "@/components/Slogan";
 import { contactLinks } from "@/lib/contact";
+import { env, pageUrl } from "@/lib/env";
 import Head from "next/head";
 
 export default function Home() {
-  return (
-    <div className="w-full flex flex-grow flex-col justify-center items-center gap-16 px-4 py-16 md:py-0">
-      <Hero />
-      <ContactLinks />
-    </div>
-  );
-}
-
-function Hero() {
   return (
     <>
       <Head>
@@ -24,7 +16,26 @@ function Hero() {
           name="description"
           content={"Hire Youssef al-Tai to build clear, usable frontends that convert and delight. Clean code, thoughtful design, and results that keep users engaged."}
         />
+        <meta property="og:title" content="Youssef al-Tai | I design & build frontends that work." />
+        <meta property="og:description" content={"Hire Youssef al-Tai to build clear, usable frontends that convert and delight. Clean code, thoughtful design, and results that keep users engaged."} />
+        <meta property="og:url" content={pageUrl('/')} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={pageUrl('/images/og/og-image.jpg')} />
+        <meta property="og:site_name" content={env.name} />
+        <meta name="twitter:card" content="summary_large_image" />
+
       </Head>
+      <div className="w-full flex flex-grow flex-col justify-center items-center gap-16 px-4 py-16 md:py-0">
+        <Hero />
+        <ContactLinks />
+      </div>
+    </>
+  );
+}
+
+function Hero() {
+  return (
+    <>
       <div className="flex flex-col md:flex-row gap-8 items-center">
         <ProfilePicture />
 

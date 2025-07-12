@@ -18,9 +18,9 @@ export default function PageTemplate({ title, headTitle, headDescriptionContent,
                 <meta name="description" content={headDescriptionContent} />
                 <meta property="og:title" content={_title} />
                 <meta property="og:description" content={headDescriptionContent} />
-                <meta property="og:image" content={pageUrl(headOgImage ?? '/images/og/og-image.jpg')} />
                 <meta property="og:url" content={pageUrl(headOgUrl)} />
                 <meta property="og:type" content="website" />
+                <meta property="og:image" content={pageUrl(headOgImage ?? '/images/og/og-image.jpg')} />
                 <meta property="og:site_name" content={env.name} />
                 <meta name="twitter:card" content="summary_large_image" />
             </Head>
