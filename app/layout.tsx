@@ -1,13 +1,7 @@
 import Link from "next/link";
-import type { Metadata } from "next";
 import { navLinks, NavLinkType } from "@/lib/navigation";
 import MobileNavMenu from "@/components/MobileNavMenu";
 import "./globals.css";
-
-export const metadata: Metadata = {
-  title: "Youssef al-Tai",
-  description: "I design & build frontends that work.",
-};
 
 type RootLayoutProps = Readonly<{ children: React.ReactNode; }>;
 export default function RootLayout({ children }: RootLayoutProps) {
