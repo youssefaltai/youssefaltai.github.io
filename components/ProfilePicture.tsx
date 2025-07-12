@@ -14,6 +14,7 @@ export default function ProfilePicture({ alt = 'Picture of Youssef al-Tai', src 
             width={size}
             height={size}
             priority
+            fetchPriority="high"
             className="md:min-w-max md:min-h-max aspect-square rounded-full hover:shadow transition-shadow duration-300"
         />
     );
