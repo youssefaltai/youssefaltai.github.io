@@ -2,6 +2,7 @@
 
 import { Suspense, useState, useMemo } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
+import Image from "next/image";
 import PageTemplate from "@/components/PageTemplate";
 import ContactSection from "@/components/ContactSection";
 import InputField from "@/components/InputField";
@@ -30,22 +31,31 @@ const isValidPhone = (phone: string): boolean => {
     return phoneRegex.test(phone.replace(/[\s\-\(\)]/g, ''));
 };
 
+// Get contact field prefix icon
+const getContactPrefixIcon = (contact: string) => {
+    if (!contact.trim()) return null;
+    
+    const isEmail = contact.includes('@');
+    if (isEmail && isValidEmail(contact)) {
+        return <Image src="/email.svg" width={20} height={20} alt="Email" />;
+    } else if (!isEmail && isValidPhone(contact)) {
+        return <Image src="/phone.svg" width={20} height={20} alt="Phone" />;
+    }
+    
+    return null;
+};
+
 // Validation function
 const validateForm = (formData: typeof initialFormData) => {
     const errors: Record<string, string> = {};
 
     // Contact validation - only show error if field has content but is invalid
     if (formData.contact.trim()) {
-        // Check if it's an email or phone
-        const isEmail = formData.contact.includes('@');
-        if (isEmail) {
-            if (!isValidEmail(formData.contact)) {
-                errors.contact = "Please enter a valid email address";
-            }
-        } else {
-            if (!isValidPhone(formData.contact)) {
-                errors.contact = "Please enter a valid phone number";
-            }
+        const isEmailValid = isValidEmail(formData.contact);
+        const isPhoneValid = isValidPhone(formData.contact);
+
+        if (!isEmailValid && !isPhoneValid) {
+            errors.contact = "Please enter a valid email address or phone number";
         }
     }
 
@@ -90,6 +100,9 @@ function Request() {
         const hasNoErrors = Object.keys(formErrors).length === 0;
         return hasRequiredFields && hasNoErrors;
     }, [formData, formErrors]);
+
+    // Get prefix icon for contact field
+    const contactPrefixIcon = useMemo(() => getContactPrefixIcon(formData.contact), [formData.contact]);
 
     // Update URL when service changes
     const updateService = (service: string) => {
@@ -164,6 +177,7 @@ function Request() {
                         onChange={(value) => updateFormData("contact", value)}
                         disabled={isSubmitting}
                         error={formErrors.contact}
+                        prefixIcon={contactPrefixIcon}
                     />
 
                     <ServiceDropdown
