@@ -50,11 +50,11 @@ function Footer() {
 
 function Brand() {
   return (
-    <h1 className="font-bold md:text-lg hover:text-shadow">
+    <div className="font-bold md:text-lg hover:text-shadow">
       <Link href={'/'} >
         Youssef al-Tai
       </Link>
-    </h1>
+    </div>
   );
 }
 

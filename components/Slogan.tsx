@@ -5,7 +5,9 @@ export function Emphasis({ children }: PropsWithChildren) {
 }
 
 export default function Subtitle({ children }: PropsWithChildren) {
-    return <h1 className="text-4xl lg:text-5xl">
-        {children}
-    </h1>;
+    return (
+        <h2 className="text-4xl lg:text-5xl">
+            {children}
+        </h2>
+    );
 }
