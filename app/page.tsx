@@ -12,18 +12,21 @@ export default function Home() {
     <>
       <Head>
         <title>Youssef al-Tai | I design & build frontends that work.</title>
-        <meta
-          name="description"
-          content={"Hire Youssef al-Tai to build clear, usable frontends that convert and delight. Clean code, thoughtful design, and results that keep users engaged."}
-        />
-        <meta property="og:title" content="Youssef al-Tai | I design & build frontends that work." />
-        <meta property="og:description" content={"Hire Youssef al-Tai to build clear, usable frontends that convert and delight. Clean code, thoughtful design, and results that keep users engaged."} />
+        <meta name="description" content="I design & build frontends that work." />
+        {/* OpenGraph / Facebook Meta Tags */}
         <meta property="og:url" content={pageUrl('/')} />
         <meta property="og:type" content="website" />
+        <meta property="og:title" content="Youssef al-Tai | I design & build frontends that work." />
+        <meta property="og:description" content="Hire Youssef al-Tai to build clear, usable frontends that convert and delight. Clean code, thoughtful design, and results that keep users engaged." />
         <meta property="og:image" content={pageUrl('/images/og/og-image.jpg')} />
         <meta property="og:site_name" content={env.name} />
+        {/* Twitter Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-
+        <meta property="twitter:domain" content={env.siteUrl.replace(/^https?:\/\//, '')} />
+        <meta property="twitter:url" content={pageUrl('/')} />
+        <meta name="twitter:title" content="Youssef al-Tai | I design & build frontends that work." />
+        <meta name="twitter:description" content="Hire Youssef al-Tai to build clear, usable frontends that convert and delight. Clean code, thoughtful design, and results that keep users engaged." />
+        <meta name="twitter:image" content={pageUrl('/images/og/og-image.jpg')} />
       </Head>
       <div className="w-full flex flex-grow flex-col justify-center items-center gap-16 px-4 py-16 md:py-0">
         <Hero />
