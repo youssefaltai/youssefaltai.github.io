@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://youssefaltai.com
+
+# Sitemaps
+Sitemap: https://youssefaltai.com/sitemap.xml

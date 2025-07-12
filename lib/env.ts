@@ -7,5 +7,10 @@ export const env = {
     socialLinks: {
         linkedin: process.env.LINKEDIN_USERNAME || 'youssefaltai',
         github: process.env.GITHUB_USERNAME || 'youssefaltai',
-    }
+    },
+    siteUrl: process.env.SITE_URL || 'https://youssefaltai.com'
+}
+
+export function pageUrl(pagePath: string) {
+    return `${env.siteUrl}${pagePath}`;
 }

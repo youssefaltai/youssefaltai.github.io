@@ -16,7 +16,13 @@ export default async function ProjectDetails({ params }: Props) {
     }
 
     return (
-                <PageTemplate title={project.name}>
+        <PageTemplate
+            title={project.name}
+            headTitle={project.name}
+            headDescriptionContent={project.description}
+            headOgImage={`/images/og/${project.slug}.jpg`}
+            headOgUrl={`/work/${project.slug}`}
+        >
             <div className="flex flex-col gap-6 md:gap-8 w-full max-w-2xl">
                 <div className="flex flex-col gap-4 md:gap-6">
                     <div className="bg-spring-50 border border-spring-200 rounded-sm p-4 md:p-6">
@@ -61,7 +67,7 @@ export default async function ProjectDetails({ params }: Props) {
                         <p className="text-gray-600 leading-relaxed text-sm md:text-base">
                             {project.description}
                         </p>
-                        
+
                         <div>
                             <h4 className="font-medium text-gray-800 mb-2">Role</h4>
                             <span className="bg-spring-100 text-spring-700 px-3 py-1 rounded-sm text-sm border border-spring-200">

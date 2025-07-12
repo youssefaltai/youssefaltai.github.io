@@ -34,14 +34,14 @@ const isValidPhone = (phone: string): boolean => {
 // Get contact field prefix icon
 const getContactPrefixIcon = (contact: string) => {
     if (!contact.trim()) return null;
-    
+
     const isEmail = contact.includes('@');
     if (isEmail && isValidEmail(contact)) {
         return <Image src="/email.svg" width={20} height={20} alt="Email" />;
     } else if (!isEmail && isValidPhone(contact)) {
         return <Image src="/phone.svg" width={20} height={20} alt="Phone" />;
     }
-    
+
     return null;
 };
 
@@ -94,9 +94,9 @@ function Request() {
 
     // Check if form is valid for submission (all required fields filled + no validation errors)
     const isFormValid = useMemo(() => {
-        const hasRequiredFields = formData.contact.trim() && 
-                                 formData.service.trim() && 
-                                 formData.projectDescription.trim();
+        const hasRequiredFields = formData.contact.trim() &&
+            formData.service.trim() &&
+            formData.projectDescription.trim();
         const hasNoErrors = Object.keys(formErrors).length === 0;
         return hasRequiredFields && hasNoErrors;
     }, [formData, formErrors]);
@@ -153,7 +153,12 @@ function Request() {
     };
 
     return (
-        <PageTemplate title="Talk to me">
+        <PageTemplate
+            title="Talk to me"
+            headTitle="Get in touch"
+            headDescriptionContent="Ready to start? Request Youssef al-Tai's services for your next frontend or UX project and set it up for success from day one."
+            headOgUrl="/request"
+        >
             <div className="flex flex-col gap-6 md:gap-8 w-full max-w-2xl">
                 <p className="text-base md:text-lg text-gray-600">
                     Tell me about your project or what you want me to help you with, and I&apos;ll get back to you quickly.

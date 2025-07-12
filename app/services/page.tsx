@@ -5,9 +5,14 @@ import { Service, services } from "@/lib/services";
 
 export default function Services() {
     return (
-        <PageTemplate title="How I can help you">
+        <PageTemplate
+            title="How I can help you"
+            headTitle="Services"
+            headDescriptionContent="Need a frontend done right? Youssef offers frontend development, UI design, UX research, and technical consulting to make your product shine."
+            headOgUrl="/services"
+        >
             <p>
-                Whether you’re rescuing a project that needs fixing or starting fresh and want to do it right, I’ll make sure your product feels fast, clear, and genuinely easy to use.
+                Whether you&apos;re rescuing a project that needs fixing or starting fresh and want to do it right, I’ll make sure your product feels fast, clear, and genuinely easy to use.
             </p>
 
             <ServicesSection

@@ -5,7 +5,12 @@ import ContactSection from "@/components/ContactSection";
 
 export default function About() {
     return (
-        <PageTemplate title="Who I am">
+        <PageTemplate
+            title="Who I am"
+            headTitle="About"
+            headDescriptionContent="Get to know Youssef al-Tai — a software engineer who cares about usability, clear communication, and delivering frontends that just work."
+            headOgUrl="/about"
+        >
             {textSections.map((textSection, i) => (<TextSection key={i} textSection={textSection} />))}
             <ContactSection />
         </PageTemplate>

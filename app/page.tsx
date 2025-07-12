@@ -4,6 +4,7 @@ import ContactLink from "@/components/ContactLink";
 import ProfilePicture from "@/components/ProfilePicture";
 import Subtitle, { Emphasis } from "@/components/Slogan";
 import { contactLinks } from "@/lib/contact";
+import Head from "next/head";
 
 export default function Home() {
   return (
@@ -16,14 +17,23 @@ export default function Home() {
 
 function Hero() {
   return (
-    <div className="flex flex-col md:flex-row gap-8 items-center">
-      <ProfilePicture />
+    <>
+      <Head>
+        <title>Youssef al-Tai | I design & build frontends that work.</title>
+        <meta
+          name="description"
+          content={"Hire Youssef al-Tai to build clear, usable frontends that convert and delight. Clean code, thoughtful design, and results that keep users engaged."}
+        />
+      </Head>
+      <div className="flex flex-col md:flex-row gap-8 items-center">
+        <ProfilePicture />
 
-      <div className="flex flex-col items-start gap-8 md:gap-4 lg:max-w-[517px]">
-        <Subtitle>I design & build frontends that <Emphasis>work.</Emphasis></Subtitle>
-        <Actions />
+        <div className="flex flex-col items-start gap-8 md:gap-4 lg:max-w-[517px]">
+          <Subtitle>I design & build frontends that <Emphasis>work.</Emphasis></Subtitle>
+          <Actions />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

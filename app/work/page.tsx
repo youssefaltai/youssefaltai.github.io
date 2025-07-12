@@ -5,7 +5,12 @@ import Link from "next/link";
 
 export default function Work() {
     return (
-        <PageTemplate title="What I've built">
+        <PageTemplate
+            title="What I've built"
+            headTitle="Work"
+            headDescriptionContent="See what Youssef al-Tai can do for you — real projects, real results. Frontends built to be clean, fast, and loved by users."
+            headOgUrl='/work'
+        >
             <ProjectSection
                 title={"Built from scratch"}
                 projects={projectsBuiltFromScratch}
@@ -31,7 +36,8 @@ function ProjectSection({ title, projects }: ProjectSectionProps) {
 }
 
 type ProjectCardProps = { project: Project };
-function ProjectCard({ project: { name, role, logo, slug } }: ProjectCardProps) {
+function ProjectCard({ project: { name, role, slug } }: ProjectCardProps) {
+    const logo = `/images/projects/${slug}.png`
     return (
         <Link href={`work/${slug}`}>
             <div className="w-full flex flex-col bg-white border border-gray-200 hover:bg-white hover:shadow rounded-sm transition-all duration-300">

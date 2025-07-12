@@ -5,7 +5,12 @@ import React from 'react'
 
 export default function Testimonials() {
     return (
-        <PageTemplate title='What my clients are saying'>
+        <PageTemplate
+            title='What my clients are saying'
+            headTitle='Testimonials'
+            headDescriptionContent='Clients trust Youssef al-Tai for clear communication, fast delivery, and frontends that work. Hear what they say before you hire him.'
+            headOgUrl='/testimonials'
+        >
             {testimonials.map((testimonial, i) => (<TestimonialCard key={i} testimonial={testimonial} />))}
         </PageTemplate>
     )
