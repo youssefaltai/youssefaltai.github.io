@@ -3,9 +3,10 @@ import PageTemplate from "@/components/PageTemplate";
 import { projectsBuiltFromScratch, projectsBuiltWithTeams, type Project } from "@/lib/work";
 import { env, pageUrl } from "@/lib/env";
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+    const { slug } = await params;
     const allProjects = [...projectsBuiltFromScratch, ...projectsBuiltWithTeams];
-    const project = allProjects.find((project: Project) => project.slug === params.slug);
+    const project = allProjects.find((project: Project) => project.slug === slug);
     if (!project) return {};
     return {
         title: `${project.name} | Youssef al-Tai`,
