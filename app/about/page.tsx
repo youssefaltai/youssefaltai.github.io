@@ -2,14 +2,33 @@ import Image from "next/image";
 import { textSections, type TextSectionType } from "@/lib/about";
 import PageTemplate from "@/components/PageTemplate";
 import ContactSection from "@/components/ContactSection";
+import { env, pageUrl } from "@/lib/env";
+
+export const metadata = {
+  title: "About | Youssef al-Tai",
+  description: "Get to know Youssef al-Tai — a software engineer who cares about usability, clear communication, and delivering frontends that just work.",
+  openGraph: {
+    url: pageUrl('/about'),
+    type: "website",
+    title: "About | Youssef al-Tai",
+    description: "Get to know Youssef al-Tai — a software engineer who cares about usability, clear communication, and delivering frontends that just work.",
+    images: [pageUrl('/images/og/og-image.jpg')],
+    siteName: env.name,
+  },
+  twitter: {
+    card: "summary_large_image",
+    domain: env.siteUrl.replace(/^https?:\/\//, ''),
+    url: pageUrl('/about'),
+    title: "About | Youssef al-Tai",
+    description: "Get to know Youssef al-Tai — a software engineer who cares about usability, clear communication, and delivering frontends that just work.",
+    images: [pageUrl('/images/og/og-image.jpg')],
+  },
+};
 
 export default function About() {
     return (
         <PageTemplate
             title="Who I am"
-            headTitle="About"
-            headDescriptionContent="Get to know Youssef al-Tai — a software engineer who cares about usability, clear communication, and delivering frontends that just work."
-            headOgUrl="/about"
         >
             {textSections.map((textSection, i) => (<TextSection key={i} textSection={textSection} />))}
             <ContactSection />

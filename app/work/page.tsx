@@ -2,14 +2,33 @@ import PageTemplate from "@/components/PageTemplate";
 import { Project, projectsBuiltFromScratch, projectsBuiltWithTeams } from "@/lib/work";
 import Image from "next/image";
 import Link from "next/link";
+import { env, pageUrl } from "@/lib/env";
+
+export const metadata = {
+  title: "Work | Youssef al-Tai",
+  description: "See what Youssef al-Tai can do for you — real projects, real results. Frontends built to be clean, fast, and loved by users.",
+  openGraph: {
+    url: pageUrl('/work'),
+    type: "website",
+    title: "Work | Youssef al-Tai",
+    description: "See what Youssef al-Tai can do for you — real projects, real results. Frontends built to be clean, fast, and loved by users.",
+    images: [pageUrl('/images/og/og-image.jpg')],
+    siteName: env.name,
+  },
+  twitter: {
+    card: "summary_large_image",
+    domain: env.siteUrl.replace(/^https?:\/\//, ''),
+    url: pageUrl('/work'),
+    title: "Work | Youssef al-Tai",
+    description: "See what Youssef al-Tai can do for you — real projects, real results. Frontends built to be clean, fast, and loved by users.",
+    images: [pageUrl('/images/og/og-image.jpg')],
+  },
+};
 
 export default function Work() {
     return (
         <PageTemplate
             title="What I've built"
-            headTitle="Work"
-            headDescriptionContent="See what Youssef al-Tai can do for you — real projects, real results. Frontends built to be clean, fast, and loved by users."
-            headOgUrl='/work'
         >
             <ProjectSection
                 title={"Built from scratch"}

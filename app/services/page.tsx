@@ -2,14 +2,33 @@ import PrimaryButtonLink from "@/components/Button/ButtonLink/PrimaryButtonLink"
 import ContactSection from "@/components/ContactSection";
 import PageTemplate from "@/components/PageTemplate";
 import { Service, services } from "@/lib/services";
+import { env, pageUrl } from "@/lib/env";
+
+export const metadata = {
+  title: "Services | Youssef al-Tai",
+  description: "Need a frontend done right? Youssef offers frontend development, UI design, UX research, and technical consulting to make your product shine.",
+  openGraph: {
+    url: pageUrl('/services'),
+    type: "website",
+    title: "Services | Youssef al-Tai",
+    description: "Need a frontend done right? Youssef offers frontend development, UI design, UX research, and technical consulting to make your product shine.",
+    images: [pageUrl('/images/og/og-image.jpg')],
+    siteName: env.name,
+  },
+  twitter: {
+    card: "summary_large_image",
+    domain: env.siteUrl.replace(/^https?:\/\//, ''),
+    url: pageUrl('/services'),
+    title: "Services | Youssef al-Tai",
+    description: "Need a frontend done right? Youssef offers frontend development, UI design, UX research, and technical consulting to make your product shine.",
+    images: [pageUrl('/images/og/og-image.jpg')],
+  },
+};
 
 export default function Services() {
     return (
         <PageTemplate
             title="How I can help you"
-            headTitle="Services"
-            headDescriptionContent="Need a frontend done right? Youssef offers frontend development, UI design, UX research, and technical consulting to make your product shine."
-            headOgUrl="/services"
         >
             <p>
                 Whether you&apos;re rescuing a project that needs fixing or starting fresh and want to do it right, I’ll make sure your product feels fast, clear, and genuinely easy to use.

@@ -1,6 +1,33 @@
 import { notFound } from "next/navigation";
 import PageTemplate from "@/components/PageTemplate";
 import { projectsBuiltFromScratch, projectsBuiltWithTeams, type Project } from "@/lib/work";
+import { env, pageUrl } from "@/lib/env";
+
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+    const allProjects = [...projectsBuiltFromScratch, ...projectsBuiltWithTeams];
+    const project = allProjects.find((project: Project) => project.slug === params.slug);
+    if (!project) return {};
+    return {
+        title: `${project.name} | Youssef al-Tai`,
+        description: project.description,
+        openGraph: {
+            url: pageUrl(`/work/${project.slug}`),
+            type: "website",
+            title: `${project.name} | Youssef al-Tai`,
+            description: project.description,
+            images: [pageUrl(`/images/og/${project.slug}.jpg`)],
+            siteName: env.name,
+        },
+        twitter: {
+            card: "summary_large_image",
+            domain: env.siteUrl.replace(/^https?:\/\//, ''),
+            url: pageUrl(`/work/${project.slug}`),
+            title: `${project.name} | Youssef al-Tai`,
+            description: project.description,
+            images: [pageUrl(`/images/og/${project.slug}.jpg`)],
+        },
+    };
+}
 
 type Props = {
     params: Promise<{ slug: string }>;
@@ -18,10 +45,6 @@ export default async function ProjectDetails({ params }: Props) {
     return (
         <PageTemplate
             title={project.name}
-            headTitle={project.name}
-            headDescriptionContent={project.description}
-            headOgImage={`/images/og/${project.slug}.jpg`}
-            headOgUrl={`/work/${project.slug}`}
         >
             <div className="flex flex-col gap-6 md:gap-8 w-full max-w-2xl">
                 <div className="flex flex-col gap-4 md:gap-6">

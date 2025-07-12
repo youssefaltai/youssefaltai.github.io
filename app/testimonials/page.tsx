@@ -2,14 +2,33 @@ import PageTemplate from '@/components/PageTemplate'
 import ProfilePicture from '@/components/ProfilePicture';
 import { Testimonial, testimonials } from '@/lib/testimonials'
 import React from 'react'
+import { env, pageUrl } from "@/lib/env";
+
+export const metadata = {
+  title: "Testimonials | Youssef al-Tai",
+  description: "Clients trust Youssef al-Tai for clear communication, fast delivery, and frontends that work. Hear what they say before you hire him.",
+  openGraph: {
+    url: pageUrl('/testimonials'),
+    type: "website",
+    title: "Testimonials | Youssef al-Tai",
+    description: "Clients trust Youssef al-Tai for clear communication, fast delivery, and frontends that work. Hear what they say before you hire him.",
+    images: [pageUrl('/images/og/og-image.jpg')],
+    siteName: env.name,
+  },
+  twitter: {
+    card: "summary_large_image",
+    domain: env.siteUrl.replace(/^https?:\/\//, ''),
+    url: pageUrl('/testimonials'),
+    title: "Testimonials | Youssef al-Tai",
+    description: "Clients trust Youssef al-Tai for clear communication, fast delivery, and frontends that work. Hear what they say before you hire him.",
+    images: [pageUrl('/images/og/og-image.jpg')],
+  },
+};
 
 export default function Testimonials() {
     return (
         <PageTemplate
             title='What my clients are saying'
-            headTitle='Testimonials'
-            headDescriptionContent='Clients trust Youssef al-Tai for clear communication, fast delivery, and frontends that work. Hear what they say before you hire him.'
-            headOgUrl='/testimonials'
         >
             {testimonials.map((testimonial, i) => (<TestimonialCard key={i} testimonial={testimonial} />))}
         </PageTemplate>

@@ -10,14 +10,28 @@ import ServiceDropdown from "@/components/ServiceDropdown";
 import PrimaryButton from "@/components/Button/ButtonLink/PrimaryButton";
 import { submitRequest, type RequestFormData } from "./actions";
 import { services } from "@/lib/services";
+import { env, pageUrl } from "@/lib/env";
 
-export default function Page() {
-    return (
-        <Suspense>
-            <Request />
-        </Suspense>
-    )
-}
+export const metadata = {
+  title: "Get in touch | Youssef al-Tai",
+  description: "Ready to start? Request Youssef al-Tai's services for your next frontend or UX project and set it up for success from day one.",
+  openGraph: {
+    url: pageUrl('/request'),
+    type: "website",
+    title: "Get in touch | Youssef al-Tai",
+    description: "Ready to start? Request Youssef al-Tai's services for your next frontend or UX project and set it up for success from day one.",
+    images: [pageUrl('/images/og/og-image.jpg')],
+    siteName: env.name,
+  },
+  twitter: {
+    card: "summary_large_image",
+    domain: env.siteUrl.replace(/^https?:\/\//, ''),
+    url: pageUrl('/request'),
+    title: "Get in touch | Youssef al-Tai",
+    description: "Ready to start? Request Youssef al-Tai's services for your next frontend or UX project and set it up for success from day one.",
+    images: [pageUrl('/images/og/og-image.jpg')],
+  },
+};
 
 // Email validation function
 const isValidEmail = (email: string): boolean => {
@@ -155,9 +169,6 @@ function Request() {
     return (
         <PageTemplate
             title="Talk to me"
-            headTitle="Get in touch"
-            headDescriptionContent="Ready to start? Request Youssef al-Tai's services for your next frontend or UX project and set it up for success from day one."
-            headOgUrl="/request"
         >
             <div className="flex flex-col gap-6 md:gap-8 w-full max-w-2xl">
                 <p className="text-base md:text-lg text-gray-600">
