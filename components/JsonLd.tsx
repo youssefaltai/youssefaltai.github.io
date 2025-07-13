@@ -1,5 +1,5 @@
 import { env, githubUrl, linkedInUrl, pageUrl } from '@/lib/env';
-import type { Person, WithContext, Organization, Service } from 'schema-dts';
+import type { Person, WithContext, Organization, ProfessionalService } from 'schema-dts';
 
 const personJsonLd: WithContext<Person> = {
     "@context": "https://schema.org",
@@ -104,36 +104,44 @@ const organizationJsonLd: WithContext<Organization> = {
     }
 }
 
-// Service schema for the business services (this can have reviews)
-const serviceJsonLd: WithContext<Service> = {
+// ProfessionalService schema that properly supports reviews
+const professionalServiceJsonLd: WithContext<ProfessionalService> = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Frontend Development Services",
-    "description": "Professional frontend development services including React, Next.js, UI design, and UX research",
-    "provider": {
-        "@type": "Person",
-        "name": "Youssef al-Tai"
-    },
+    "@type": "ProfessionalService",
+    "name": "Youssef al-Tai Frontend Engineering",
+    "description": "Professional frontend engineering services including React, Next.js, Flutter, UI design, UX research, and technical consultancy",
     "url": env.siteUrl,
-    "serviceType": "Frontend Development",
+    "logo": pageUrl('/images/me.jpeg'),
+    "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "EG"
+    },
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "email": env.email,
+        "telephone": env.phone
+    },
     "areaServed": {
         "@type": "Country",
         "name": "Worldwide"
     },
-    "review": {
-        "@type": "Review",
-        "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": "5",
-            "bestRating": "5"
-        },
-        "author": {
-            "@type": "Person",
-            "name": "Corae Young"
-        },
-        "reviewBody": "Thank you so much for your flexibility and suggestions to enhance my website and upcoming conference. It was great to continue working with you and I appreciate your detailed work and responsiveness to this project. It is truly appreciated, thank you!",
-        "datePublished": "2024-01-01"
-    },
+    "review": [
+        {
+            "@type": "Review",
+            "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "5",
+                "bestRating": "5"
+            },
+            "author": {
+                "@type": "Person",
+                "name": "Corae Young"
+            },
+            "reviewBody": "Thank you so much for your flexibility and suggestions to enhance my website and upcoming conference. It was great to continue working with you and I appreciate your detailed work and responsiveness to this project. It is truly appreciated, thank you!",
+            "datePublished": "2024-01-01"
+        }
+    ],
     "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "5.0",
@@ -161,7 +169,7 @@ export default function JsonLd() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify(serviceJsonLd).replace(/</g, '\\u003c'),
+                    __html: JSON.stringify(professionalServiceJsonLd).replace(/</g, '\\u003c'),
                 }}
             />
         </>
