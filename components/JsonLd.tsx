@@ -1,5 +1,5 @@
 import { env, githubUrl, linkedInUrl, pageUrl } from '@/lib/env';
-import type { Person, WithContext, Organization, Review, AggregateRating } from 'schema-dts';
+import type { Person, WithContext, Organization, Service } from 'schema-dts';
 
 const personJsonLd: WithContext<Person> = {
     "@context": "https://schema.org",
@@ -32,15 +32,6 @@ const personJsonLd: WithContext<Person> = {
         "Web Performance",
         "User Experience"
     ],
-    "hasOccupation": {
-        "@type": "Occupation",
-        "name": "Frontend Engineer",
-        "description": "Specializing in building user-friendly, performant web applications"
-    },
-    "alumniOf": {
-        "@type": "Organization",
-        "name": "Freelance"
-    },
     "knowsLanguage": "English",
     "nationality": {
         "@type": "Country",
@@ -113,37 +104,43 @@ const organizationJsonLd: WithContext<Organization> = {
     }
 }
 
-const reviewJsonLd: WithContext<Review> = {
+// Service schema for the business services (this can have reviews)
+const serviceJsonLd: WithContext<Service> = {
     "@context": "https://schema.org",
-    "@type": "Review",
-    "itemReviewed": {
+    "@type": "Service",
+    "name": "Frontend Development Services",
+    "description": "Professional frontend development services including React, Next.js, UI design, and UX research",
+    "provider": {
         "@type": "Person",
         "name": "Youssef al-Tai"
     },
-    "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5"
+    "url": env.siteUrl,
+    "serviceType": "Frontend Development",
+    "areaServed": {
+        "@type": "Country",
+        "name": "Worldwide"
     },
-    "author": {
-        "@type": "Person",
-        "name": "Corae Young"
+    "review": {
+        "@type": "Review",
+        "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+        },
+        "author": {
+            "@type": "Person",
+            "name": "Corae Young"
+        },
+        "reviewBody": "Thank you so much for your flexibility and suggestions to enhance my website and upcoming conference. It was great to continue working with you and I appreciate your detailed work and responsiveness to this project. It is truly appreciated, thank you!",
+        "datePublished": "2024-01-01"
     },
-    "reviewBody": "Thank you so much for your flexibility and suggestions to enhance my website and upcoming conference. It was great to continue working with you and I appreciate your detailed work and responsiveness to this project. It is truly appreciated, thank you!",
-    "datePublished": "2024-01-01"
-}
-
-const aggregateRatingJsonLd: WithContext<AggregateRating> = {
-    "@context": "https://schema.org",
-    "@type": "AggregateRating",
-    "itemReviewed": {
-        "@type": "Person",
-        "name": "Youssef al-Tai"
-    },
-    "ratingValue": "5.0",
-    "bestRating": "5",
-    "worstRating": "1",
-    "ratingCount": "1"
+    "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "1"
+    }
 }
 
 export default function JsonLd() {
@@ -164,13 +161,7 @@ export default function JsonLd() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify(reviewJsonLd).replace(/</g, '\\u003c'),
-                }}
-            />
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html: JSON.stringify(aggregateRatingJsonLd).replace(/</g, '\\u003c'),
+                    __html: JSON.stringify(serviceJsonLd).replace(/</g, '\\u003c'),
                 }}
             />
         </>
