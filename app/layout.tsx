@@ -1,20 +1,24 @@
 import Link from "next/link";
 import { navLinks, NavLinkType } from "@/lib/navigation";
 import MobileNavMenu from "@/components/MobileNavMenu";
+import JsonLd from "@/components/JsonLd";
 import "./globals.css";
 
 type RootLayoutProps = Readonly<{ children: React.ReactNode; }>;
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en">
-      <body className="min-h-screen flex flex-col bg-gray-50 text-gray-800 antialiased">
-        <Header />
-        <main className="flex flex-col flex-grow container mx-auto">
-          {children}
-        </main>
-        <Footer />
-      </body>
-    </html>
+    <>
+      <JsonLd />
+      <html lang="en">
+        <body className="min-h-screen flex flex-col bg-gray-50 text-gray-800 antialiased">
+          <Header />
+          <main className="flex flex-col flex-grow container mx-auto">
+            {children}
+          </main>
+          <Footer />
+        </body>
+      </html>
+    </>
   );
 }
 

@@ -14,3 +14,6 @@ export const env = {
 export function pageUrl(pagePath: string) {
     return `${env.siteUrl}${pagePath}`;
 }
+
+export const linkedInUrl = `https://linkedin.com/in/${env.socialLinks.linkedin}`;
+export const githubUrl = `https://github.com/${env.socialLinks.github}`;
