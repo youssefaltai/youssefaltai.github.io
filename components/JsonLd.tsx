@@ -56,6 +56,13 @@ const organizationJsonLd: WithContext<Organization> = {
         "email": env.email,
         "telephone": env.phone
     },
+    "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "EG",
+        "addressLocality": "Cairo",
+        "streetAddress": "Remote",
+        "postalCode": "00000"
+    },
     "sameAs": [
         linkedInUrl,
         githubUrl
@@ -112,9 +119,15 @@ const professionalServiceJsonLd: WithContext<ProfessionalService> = {
     "description": "Professional frontend engineering services including React, Next.js, Flutter, UI design, UX research, and technical consultancy",
     "url": env.siteUrl,
     "logo": pageUrl('/images/me.jpeg'),
+    "image": pageUrl('/images/me.jpeg'),
+    "telephone": env.phone,
+    "priceRange": "$$",
     "address": {
         "@type": "PostalAddress",
-        "addressCountry": "EG"
+        "addressCountry": "EG",
+        "addressLocality": "Cairo",
+        "streetAddress": "Remote",
+        "postalCode": "00000"
     },
     "contactPoint": {
         "@type": "ContactPoint",
