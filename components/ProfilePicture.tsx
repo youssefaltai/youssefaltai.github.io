@@ -6,7 +6,7 @@ type ProfilePictureProps = {
     size?: number;
 }
 
-export default function ProfilePicture({ alt = 'Picture of Youssef al-Tai', src = '/me.jpeg', size = 200 }: ProfilePictureProps) {
+export default function ProfilePicture({ alt = 'Picture of Youssef al-Tai', src = '/images/me.jpeg', size = 200 }: ProfilePictureProps) {
     return (
         <Image
             alt={alt}

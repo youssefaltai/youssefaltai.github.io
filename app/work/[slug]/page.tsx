@@ -1,21 +1,23 @@
 import { notFound } from "next/navigation";
 import PageTemplate from "@/components/PageTemplate";
-import { projectsBuiltFromScratch, projectsBuiltWithTeams, type Project } from "@/lib/work";
+import { projects, type Project } from "@/lib/work";
 import { env, pageUrl } from "@/lib/env";
+import Image from "next/image";
+import PrimaryButtonLink from "@/components/Button/ButtonLink/PrimaryButtonLink";
+import ContactSection from "@/components/ContactSection";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
-    const allProjects = [...projectsBuiltFromScratch, ...projectsBuiltWithTeams];
-    const project = allProjects.find((project: Project) => project.slug === slug);
+    const project = projects.find((project: Project) => project.slug === slug);
     if (!project) return {};
     return {
-        title: `${project.name} | Youssef al-Tai`,
-        description: project.description,
+        title: `${project.title} | Youssef al-Tai`,
+        description: project.blurb,
         openGraph: {
             url: pageUrl(`/work/${project.slug}`),
             type: "website",
-            title: `${project.name} | Youssef al-Tai`,
-            description: project.description,
+            title: `${project.title} | Youssef al-Tai`,
+            description: project.blurb,
             images: [pageUrl(`/images/og/${project.slug}.jpg`)],
             siteName: env.name,
         },
@@ -23,8 +25,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
             card: "summary_large_image",
             domain: env.siteUrl.replace(/^https?:\/\//, ''),
             url: pageUrl(`/work/${project.slug}`),
-            title: `${project.name} | Youssef al-Tai`,
-            description: project.description,
+            title: `${project.title} | Youssef al-Tai`,
+            description: project.blurb,
             images: [pageUrl(`/images/og/${project.slug}.jpg`)],
         },
     };
@@ -36,70 +38,116 @@ type Props = {
 
 export default async function ProjectDetails({ params }: Props) {
     const { slug } = await params;
-    const allProjects = [...projectsBuiltFromScratch, ...projectsBuiltWithTeams];
-    const project = allProjects.find((project: Project) => project.slug === slug);
+    const project = projects.find((project: Project) => project.slug === slug);
 
     if (!project) {
         notFound();
     }
 
     return (
-        <PageTemplate
-            title={project.name}
-        >
-            <div className="flex flex-col gap-6 md:gap-8 w-full max-w-2xl">
-                <div className="flex flex-col gap-4 md:gap-6">
-                    <div className="bg-spring-50 border border-spring-200 rounded-sm p-4 md:p-6">
-                        <div className="flex items-start gap-3 md:gap-4">
-                            <div className="w-10 h-10 md:w-12 md:h-12 bg-spring-400 rounded-full flex items-center justify-center flex-shrink-0">
-                                <svg className="w-5 h-5 md:w-6 md:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                                </svg>
-                            </div>
-                            <div className="flex-1">
-                                <h2 className="text-xl md:text-2xl font-bold text-spring-800 mb-2">Work in Progress</h2>
-                                <p className="text-spring-700 mb-4 text-sm md:text-base">
-                                    I&apos;m currently working on presenting this project in detail. The case study and project details are being prepared.
-                                </p>
-                                <div className="bg-white border border-spring-200 rounded-sm p-3 md:p-4">
-                                    <h3 className="font-medium text-spring-800 mb-2 text-sm md:text-base">What&apos;s coming:</h3>
-                                    <ul className="text-xs md:text-sm text-spring-700 space-y-1">
-                                        <li className="flex items-center gap-2">
-                                            <span className="text-spring-400">•</span>
-                                            Detailed project overview and goals
-                                        </li>
-                                        <li className="flex items-center gap-2">
-                                            <span className="text-spring-400">•</span>
-                                            Technical implementation details
-                                        </li>
-                                        <li className="flex items-center gap-2">
-                                            <span className="text-spring-400">•</span>
-                                            Design decisions and process
-                                        </li>
-                                        <li className="flex items-center gap-2">
-                                            <span className="text-spring-400">•</span>
-                                            Results and impact
-                                        </li>
-                                    </ul>
-                                </div>
+        <PageTemplate title={project.title}>
+            <div className="w-full max-w-4xl">
+                {/* Hero with immediate context */}
+                <div className="mb-12">
+                    <div className="flex items-center gap-3 text-sm text-gray-600 mb-4">
+                        <span>{project.client}</span>
+                        <span>•</span>
+                        <span>{project.date}</span>
+                    </div>
+                    <p className="text-xl text-gray-600 leading-relaxed mb-6">
+                        {project.subtitle}
+                    </p>
+                    <div className="flex flex-wrap gap-3">
+                        {project.links.map((link, index) => (
+                            <PrimaryButtonLink
+                                key={index}
+                                href={link.url}
+                                external
+                            >
+                                {link.label}
+                            </PrimaryButtonLink>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Problem only */}
+                <div className="mb-12">
+                    <h2 className="text-2xl font-bold text-gray-900 mb-4">Challenge</h2>
+                    <p className="text-gray-700 leading-relaxed">
+                        {project.challenge}
+                    </p>
+                </div>
+
+                {/* Role and Impact in a flowing layout */}
+                <div className="mb-12">
+                    <h2 className="text-2xl font-bold text-gray-900 mb-6">What I Built</h2>
+                    <div className="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 className="text-lg font-semibold text-gray-900 mb-4">My Role</h3>
+                            <div className="space-y-3">
+                                {project.role.map((role, index) => (
+                                    <div key={index} className="flex items-start gap-3">
+                                        <span className="w-2 h-2 bg-spring-400 rounded-full mt-2 flex-shrink-0"></span>
+                                        <span className="text-gray-700 leading-relaxed">{role}</span>
+                                    </div>
+                                ))}
                             </div>
                         </div>
-                    </div>
-
-                    <div className="flex flex-col gap-4">
-                        <h3 className="text-lg md:text-xl font-semibold text-gray-800">Project Overview</h3>
-                        <p className="text-gray-600 leading-relaxed text-sm md:text-base">
-                            {project.description}
-                        </p>
-
                         <div>
-                            <h4 className="font-medium text-gray-800 mb-2">Role</h4>
-                            <span className="bg-spring-100 text-spring-700 px-3 py-1 rounded-sm text-sm border border-spring-200">
-                                {project.role}
-                            </span>
+                            <h3 className="text-lg font-semibold text-gray-900 mb-4">Impact</h3>
+                            <div className="space-y-3">
+                                {project.impact.map((impact, index) => (
+                                    <div key={index} className="flex items-start gap-3">
+                                        <span className="w-2 h-2 bg-spring-400 rounded-full mt-2 flex-shrink-0"></span>
+                                        <span className="text-gray-700 leading-relaxed">{impact}</span>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                {/* Tech stack as a bridge */}
+                <div className="mb-12">
+                    <h2 className="text-2xl font-bold text-gray-900 mb-4">Tech</h2>
+                    <div className="flex flex-wrap gap-2">
+                        {project.tech.map((tech, index) => (
+                            <span key={index} className="bg-spring-100 text-spring-700 px-3 py-1 rounded-sm text-sm font-medium">
+                                {tech}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Visual payoff - the final product */}
+                {project.images && project.images > 0 && (
+                    <div className="mb-12">
+                        <h2 className="text-2xl font-bold text-gray-900 mb-6">Gallery</h2>
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {Array.from({ length: project.images }).map((_, index) => {
+                                const imagePath = `/images/projects/${project.slug}/gallery/${index + 1}.jpg`;
+                                return (
+                                    <div
+                                        key={index}
+                                        className="rounded-sm overflow-hidden flex items-center justify-center bg-gray-100"
+                                        style={{ aspectRatio: "1024/640", width: "100%" }}
+                                    >
+                                        <Image
+                                            src={imagePath}
+                                            alt={`${project.title} screenshot ${index + 1}`}
+                                            width={1024}
+                                            height={640}
+                                            className="object-cover w-full h-full"
+                                            sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                                        />
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+                )}
+
+                <ContactSection />
             </div>
         </PageTemplate>
     );

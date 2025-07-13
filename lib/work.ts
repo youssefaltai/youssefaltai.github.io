@@ -1,42 +1,53 @@
 export type Project = {
-    name: string;
-    description: string;
-    role: string;
-    slug: string;
-}
+  slug: string;
+  title: string;
+  subtitle: string;
+  date: string;
+  client: string;
+  blurb: string;
+  challenge: string;
+  role: string[];
+  tech: string[];
+  impact: string[];
+  images: number; /// The number of images under public/images/projects/[slug]/gallery
+  links: { label: string; url: string }[];
+};
 
-export const projectsBuiltFromScratch: Project[] = [
-    {
-        name: 'Home Service',
-        description: `Platform connecting luxury customers in MENA with top home service providers—technicians, plumbers, carpenters, cleaners, and at-home spa & beauty experts. I was responsible for the entire frontend, from initial concept and UX/UI design to deployment and publishing. I built two separate apps: one for customers and one for workers, each tailored to their unique workflows and needs. I also designed and implemented the design system from scratch, ensuring a consistent, high-end user experience across both apps.`,
-        role: 'Frontend Engineer',
-        slug: 'home-service',
-    },
-    {
-        name: 'Eram Express',
-        description: 'A package shipping and delivery platform designed for fast, reliable, and trackable express shipments. I laid down the project structure, set up a clean environment, and led the junior dev team to help them get started effectively. I provided ongoing support, technical advice, and code reviews to ensure high-quality development and smooth collaboration.',
-        role: 'Frontend Team Lead',
-        slug: 'eram-express',
-    },
-    {
-        name: 'Consult With Young',
-        description: `A consulting platform supporting faith-based and nonprofit organizations with training, technical assistance, grant writing, and nonprofit formation services. I completely revamped their website, migrating it from a basic Mailchimp site to a fully custom, extensible, and flexible solution with a beautiful new design and additional features tailored to their needs.`,
-        role: 'Full Stack Engineer',
-        slug: 'consult-with-young',
-    },
-];
-
-export const projectsBuiltWithTeams: Project[] = [
-    {
-        name: 'Meridian',
-        description: "All-in-one collaborative platform for travel professionals, streamlining itinerary creation, client management, and personalized proposals with AI-powered tools. As a core frontend engineer, I worked closely with product, design, and backend teams to deliver a seamless user experience. The platform features real-time collaboration, drag-and-drop itinerary building, integrated supplier management, and automated document generation. I contributed to building reusable UI components, optimizing performance for large datasets, and implementing robust state management. My work included integrating third-party APIs, ensuring accessibility, and supporting rapid iteration based on user feedback.",
-        role: 'Frontend Engineer',
-        slug: 'meridian',
-    },
-    {
-        name: "FCAI CU SIS",
-        description: "A comprehensive educational management platform built specifically for the Faculty of Computers and Artificial Intelligence, Cairo University (Student Information System). Developed as a graduation project, the system was designed in close collaboration with all stakeholders—students, staff, and administrators—through extensive research and interviews to ensure it met their unique needs. It features 20+ backend microservices and 4 frontend portals, supporting real-time chat, email notifications, and dynamic bylaw management.",
-        role: 'Full Stack Engineer & Tech Lead',
-        slug: 'students-information-system'
-    }
+export const projects: Project[] = [
+  {
+    slug: "meridian",
+    title: "Meridian",
+    subtitle: "White-label AI platform for luxury travel advisors",
+    date: "February 2025",
+    client: "Forbes Travel Guide",
+    blurb: "Built core features, reusable components, and multiple apps end-to-end under tight deadlines.",
+    challenge: "Building a complex, white-label, multi-tenant platform that luxury travel advisors and Forbes inspectors rely on.",
+    role: [
+      "Built Itinerary Builder feature end-to-end",
+      "Architected reusable media/document uploader",
+      "Built Forbes CMS and Free Trial Portal apps",
+      "Developed Traveler Invitation feature with complex edge cases",
+      "Built Analytics Dashboards",
+      "Implemented multi-tenant config at all layers",
+      "Improved dev/QA workflows with custom tooling"
+    ],
+    tech: [
+      "Monorepo",
+      "Shared design system",
+      "API mocking",
+      "Performance optimizations"
+    ],
+    impact: [
+      "Delivered massive multi-app platform in ~4 months",
+      "Enabled Forbes Travel Guide inspectors to manage verified guides",
+      "Improved dev team productivity with custom scripts & tooling"
+    ],
+    images: 5,
+    links: [
+      {
+        label: "Visit Landing Page",
+        url: "https://meridianverified.com"
+      }
+    ],
+  }
 ];

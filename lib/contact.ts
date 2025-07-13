@@ -10,16 +10,16 @@ export const contactLinks: ContactLinkType[] = [
     {
         url: `https://linkedin.com/in/${env.socialLinks.linkedin}`,
         label: env.socialLinks.linkedin,
-        icon: '/linkedin.svg'
+        icon: '/icons/linkedin.svg'
     },
     {
         url: `mailto:${env.email}`,
         label: env.email,
-        icon: '/email.svg'
+        icon: '/icons/email.svg'
     },
     {
         url: `tel:${env.phone}`,
         label: env.phone,
-        icon: '/phone.svg'
+        icon: '/icons/phone.svg'
     },
 ]

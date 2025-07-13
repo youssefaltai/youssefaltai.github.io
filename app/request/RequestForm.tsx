@@ -27,9 +27,9 @@ const getContactPrefixIcon = (contact: string) => {
 
     const isEmail = contact.includes('@');
     if (isEmail && isValidEmail(contact)) {
-        return <Image src="/email.svg" width={20} height={20} alt="Email" />;
+        return <Image src="/icons/email.svg" width={20} height={20} alt="Email" />;
     } else if (!isEmail && isValidPhone(contact)) {
-        return <Image src="/phone.svg" width={20} height={20} alt="Phone" />;
+        return <Image src="/icons/phone.svg" width={20} height={20} alt="Phone" />;
     }
 
     return null;
