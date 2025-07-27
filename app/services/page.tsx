@@ -6,12 +6,12 @@ import { env, pageUrl } from "@/lib/env";
 
 export const metadata = {
   title: "Services | Youssef al-Tai",
-  description: "Need a frontend done right? Youssef offers frontend development, UI design, UX research, and technical consulting to make your product shine.",
+  description: "Need an MVP that scales? Youssef offers full-stack development, UI design, UX research, and technical consulting to make your product shine.",
   openGraph: {
     url: pageUrl('/services'),
     type: "website",
     title: "Services | Youssef al-Tai",
-    description: "Need a frontend done right? Youssef offers frontend development, UI design, UX research, and technical consulting to make your product shine.",
+    description: "Need an MVP that scales? Youssef offers full-stack development, UI design, UX research, and technical consulting to make your product shine.",
     images: [pageUrl('/images/og/og-image.jpg')],
     siteName: env.name,
   },
@@ -20,7 +20,7 @@ export const metadata = {
     domain: env.siteUrl.replace(/^https?:\/\//, ''),
     url: pageUrl('/services'),
     title: "Services | Youssef al-Tai",
-    description: "Need a frontend done right? Youssef offers frontend development, UI design, UX research, and technical consulting to make your product shine.",
+    description: "Need an MVP that scales? Youssef offers full-stack development, UI design, UX research, and technical consulting to make your product shine.",
     images: [pageUrl('/images/og/og-image.jpg')],
   },
 };
@@ -31,7 +31,7 @@ export default function Services() {
             title="How I can help you"
         >
             <p>
-                Whether you&apos;re rescuing a project that needs fixing or starting fresh and want to do it right, I’ll make sure your product feels fast, clear, and genuinely easy to use.
+                Whether you&apos;re building an MVP that needs to scale or starting fresh and want to do it right, I'll make sure your product feels fast, clear, and genuinely easy to use while being built to grow with your business.
             </p>
 
             <ServicesSection

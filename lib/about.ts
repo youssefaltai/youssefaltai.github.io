@@ -8,7 +8,7 @@ export type TextSectionType = {
 export const textSections: TextSectionType[] = [
     {
         body: [
-            "I'm a software engineer focused on usability in frontends.",
+            "I'm a software engineer focused on building MVPs that scale.",
             "I believe good software should feel simple and work the way people expect all while still looking beautiful."
         ],
     },
@@ -16,8 +16,8 @@ export const textSections: TextSectionType[] = [
         heading: "How I work",
         body: [
             "I care about clarity. In what I build, in how I code, and in how I work with people.",
-            "I help teams fix slow, confusing, or broken UIs, and I help new projects get started with clean foundations.",
-            "That means thoughtful structure, good dev experience, and design systems that scale.",
+            "I help teams build MVPs that can grow with their business, and I help new projects get started with clean foundations.",
+            "That means thoughtful architecture, good dev experience, and systems that scale from day one.",
             "If you need me on your team as a developer, I'm using Next.js, React Native, and Flutter.",
         ]
     },

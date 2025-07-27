@@ -6,12 +6,12 @@ import { env, pageUrl } from "@/lib/env";
 
 export const metadata = {
   title: "Testimonials | Youssef al-Tai",
-  description: "Clients trust Youssef al-Tai for clear communication, fast delivery, and frontends that work. Hear what they say before you hire him.",
+  description: "Clients trust Youssef al-Tai for clear communication, fast delivery, and MVPs that scale. Hear what they say before you hire him.",
   openGraph: {
     url: pageUrl('/testimonials'),
     type: "website",
     title: "Testimonials | Youssef al-Tai",
-    description: "Clients trust Youssef al-Tai for clear communication, fast delivery, and frontends that work. Hear what they say before you hire him.",
+    description: "Clients trust Youssef al-Tai for clear communication, fast delivery, and MVPs that scale. Hear what they say before you hire him.",
     images: [pageUrl('/images/og/og-image.jpg')],
     siteName: env.name,
   },
@@ -20,7 +20,7 @@ export const metadata = {
     domain: env.siteUrl.replace(/^https?:\/\//, ''),
     url: pageUrl('/testimonials'),
     title: "Testimonials | Youssef al-Tai",
-    description: "Clients trust Youssef al-Tai for clear communication, fast delivery, and frontends that work. Hear what they say before you hire him.",
+    description: "Clients trust Youssef al-Tai for clear communication, fast delivery, and MVPs that scale. Hear what they say before you hire him.",
     images: [pageUrl('/images/og/og-image.jpg')],
   },
 };

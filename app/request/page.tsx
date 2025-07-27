@@ -6,12 +6,12 @@ import { Suspense } from "react";
 
 export const metadata = {
     title: "Get in touch | Youssef al-Tai",
-    description: "Ready to start? Request Youssef al-Tai's services for your next frontend or UX project and set it up for success from day one.",
+    description: "Ready to start? Request Youssef al-Tai's services for your next MVP project and set it up for success from day one.",
     openGraph: {
         url: pageUrl('/request'),
         type: "website",
         title: "Get in touch | Youssef al-Tai",
-        description: "Ready to start? Request Youssef al-Tai's services for your next frontend or UX project and set it up for success from day one.",
+        description: "Ready to start? Request Youssef al-Tai's services for your next MVP project and set it up for success from day one.",
         images: [pageUrl('/images/og/og-image.jpg')],
         siteName: env.name,
     },
@@ -20,7 +20,7 @@ export const metadata = {
         domain: env.siteUrl.replace(/^https?:\/\//, ''),
         url: pageUrl('/request'),
         title: "Get in touch | Youssef al-Tai",
-        description: "Ready to start? Request Youssef al-Tai's services for your next frontend or UX project and set it up for success from day one.",
+        description: "Ready to start? Request Youssef al-Tai's services for your next MVP project and set it up for success from day one.",
         images: [pageUrl('/images/og/og-image.jpg')],
     },
 };

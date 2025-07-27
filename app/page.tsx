@@ -7,13 +7,13 @@ import { contactLinks } from "@/lib/contact";
 import { env, pageUrl } from "@/lib/env";
 
 export const metadata = {
-  title: "Youssef al-Tai | I design & build frontends that work.",
-  description: "I design & build frontends that work.",
+  title: "Youssef al-Tai | I design & build MVPs that scale.",
+  description: "I design & build MVPs that scale.",
   openGraph: {
     url: pageUrl('/'),
     type: "website",
-    title: "Youssef al-Tai | I design & build frontends that work.",
-    description: "Hire Youssef al-Tai to build clear, usable frontends that convert and delight. Clean code, thoughtful design, and results that keep users engaged.",
+    title: "Youssef al-Tai | I design & build MVPs that scale.",
+    description: "Hire Youssef al-Tai to build clear, usable MVPs that convert and delight. Clean code, thoughtful design, and results that scale with your business.",
     images: [pageUrl('/images/og/og-image.jpg')],
     siteName: env.name,
   },
@@ -21,8 +21,8 @@ export const metadata = {
     card: "summary_large_image",
     domain: env.siteUrl.replace(/^https?:\/\//, ''),
     url: pageUrl('/'),
-    title: "Youssef al-Tai | I design & build frontends that work.",
-    description: "Hire Youssef al-Tai to build clear, usable frontends that convert and delight. Clean code, thoughtful design, and results that keep users engaged.",
+    title: "Youssef al-Tai | I design & build MVPs that scale.",
+    description: "Hire Youssef al-Tai to build clear, usable MVPs that convert and delight. Clean code, thoughtful design, and results that scale with your business.",
     images: [pageUrl('/images/og/og-image.jpg')],
   },
 };
@@ -43,7 +43,7 @@ function Hero() {
         <ProfilePicture />
 
         <div className="flex flex-col items-start gap-8 md:gap-4 lg:max-w-[517px]">
-          <Subtitle>I design & build frontends that <Emphasis>work.</Emphasis></Subtitle>
+          <Subtitle>I design & build MVPs that <Emphasis>scale.</Emphasis></Subtitle>
           <Actions />
         </div>
       </div>

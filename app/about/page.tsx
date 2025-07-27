@@ -6,12 +6,12 @@ import { env, pageUrl } from "@/lib/env";
 
 export const metadata = {
     title: "About | Youssef al-Tai",
-    description: "Get to know Youssef al-Tai — a software engineer who cares about usability, clear communication, and delivering frontends that just work.",
+    description: "Get to know Youssef al-Tai — a software engineer who cares about usability, clear communication, and delivering MVPs that scale.",
     openGraph: {
         url: pageUrl('/about'),
         type: "website",
         title: "About | Youssef al-Tai",
-        description: "Get to know Youssef al-Tai — a software engineer who cares about usability, clear communication, and delivering frontends that just work.",
+        description: "Get to know Youssef al-Tai — a software engineer who cares about usability, clear communication, and delivering MVPs that scale.",
         images: [pageUrl('/images/og/og-image.jpg')],
         siteName: env.name,
     },
@@ -20,7 +20,7 @@ export const metadata = {
         domain: env.siteUrl.replace(/^https?:\/\//, ''),
         url: pageUrl('/about'),
         title: "About | Youssef al-Tai",
-        description: "Get to know Youssef al-Tai — a software engineer who cares about usability, clear communication, and delivering frontends that just work.",
+        description: "Get to know Youssef al-Tai — a software engineer who cares about usability, clear communication, and delivering MVPs that scale.",
         images: [pageUrl('/images/og/og-image.jpg')],
     },
 };

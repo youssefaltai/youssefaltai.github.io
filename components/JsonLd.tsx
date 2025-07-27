@@ -11,12 +11,12 @@ const personJsonLd: WithContext<Person> = {
         linkedInUrl,
         githubUrl,
     ],
-    "jobTitle": "Frontend Engineer",
+    "jobTitle": "Software Engineer",
     "worksFor": {
         "@type": "Organization",
         "name": "Freelance"
     },
-    "description": "Youssef al-Tai is a frontend engineer specializing in building user-friendly, performant web applications. He helps teams improve UI clarity, speed, and maintainability, and sets up strong foundations for new projects.",
+    "description": "Youssef al-Tai is a software engineer specializing in building MVPs that scale. He helps teams build products that can grow with their business, and sets up strong foundations for new projects.",
     "email": env.email,
     "telephone": env.phone,
     "address": {
@@ -24,13 +24,14 @@ const personJsonLd: WithContext<Person> = {
         "addressCountry": "EG"
     },
     "knowsAbout": [
-        "Frontend Development",
+        "Full-Stack Development",
         "React",
         "Next.js",
         "TypeScript",
         "UI/UX Design",
         "Web Performance",
-        "User Experience"
+        "User Experience",
+        "MVP Development"
     ],
     "knowsLanguage": "English",
     "nationality": {
@@ -45,7 +46,7 @@ const organizationJsonLd: WithContext<Organization> = {
     "name": "Youssef al-Tai",
     "url": env.siteUrl,
     "logo": pageUrl('/images/me.jpeg'),
-    "description": "Frontend engineering services specializing in React, Next.js, and user experience design. Building performant, maintainable web applications that users love.",
+    "description": "Software engineering services specializing in React, Next.js, and user experience design. Building MVPs that scale and web applications that users love.",
     "founder": {
         "@type": "Person",
         "name": "Youssef al-Tai"
@@ -73,14 +74,14 @@ const organizationJsonLd: WithContext<Organization> = {
     },
     "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Frontend Development Services",
+        "name": "Software Development Services",
         "itemListElement": [
             {
                 "@type": "Offer",
                 "itemOffered": {
                     "@type": "Service",
-                    "name": "Frontend Development",
-                    "description": "Production-grade Next.js, React Native, or Flutter apps"
+                    "name": "Full-Stack Development",
+                    "description": "Production-grade MVPs built with Next.js, React Native, or Flutter"
                 }
             },
             {
@@ -104,7 +105,7 @@ const organizationJsonLd: WithContext<Organization> = {
                 "itemOffered": {
                     "@type": "Service",
                     "name": "Technical Consulting",
-                    "description": "Code reviews, architecture audits, and developer tools guidance"
+                    "description": "Architecture reviews, scalability audits, and developer tools guidance"
                 }
             }
         ]
@@ -115,8 +116,8 @@ const organizationJsonLd: WithContext<Organization> = {
 const professionalServiceJsonLd: WithContext<ProfessionalService> = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "name": "Youssef al-Tai Frontend Engineering",
-    "description": "Professional frontend engineering services including React, Next.js, Flutter, UI design, UX research, and technical consultancy",
+    "name": "Youssef al-Tai Software Engineering",
+    "description": "Professional software engineering services including React, Next.js, Flutter, UI design, UX research, and technical consultancy",
     "url": env.siteUrl,
     "logo": pageUrl('/images/me.jpeg'),
     "image": pageUrl('/images/me.jpeg'),

@@ -6,9 +6,9 @@ export type Service = {
 
 export const services: Service[] = [
     {
-        slug: 'frontend-development',
-        name: 'Frontend Development',
-        description: 'Production-grade Next.js, React Native, or Flutter apps. Performant, maintainable, built to scale.',
+        slug: 'full-stack-development',
+        name: 'Full-Stack Development',
+        description: 'Production-grade MVPs built with Next.js, React Native, or Flutter. Performant, maintainable, built to scale from day one.',
     },
     {
         slug: 'ui-design',
@@ -23,6 +23,6 @@ export const services: Service[] = [
     {
         slug: 'technical-consulting',
         name: 'Technical Consulting',
-        description: 'Code reviews, architecture audits, and developer tools guidance — to unblock your team and boost long-term velocity.',
+        description: 'Architecture reviews, scalability audits, and developer tools guidance — to unblock your team and boost long-term velocity.',
     },
 ];
